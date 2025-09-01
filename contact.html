@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SinoLink Consulting</title>
+    <meta name="description" content="Contact our experts for a free consultation on China market entry, WFOE formation, tax, and compliance. Reach out via email, phone, or our online form.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@600&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #0c1222; --border-color: #2a334f; --primary-accent: #818cf8; 
+            --secondary-accent: #34d399; --text-primary: #e0e7ff; --text-muted: #93a1c3;
+        }
+        body { font-family: 'DM Sans', sans-serif; background-color: var(--bg-dark); color: var(--text-muted); -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Lora', serif; color: var(--text-primary); font-weight: 600; }
+        .header { transition: all 0.3s ease-in-out; }
+        .header-scrolled { background-color: rgba(12, 18, 34, 0.8); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border-color); }
+        .page-hero { padding-top: 16rem; padding-bottom: 12rem; border-bottom: 1px solid var(--border-color); background-image: radial-gradient(circle at top, rgba(129, 140, 248, 0.1), transparent 40%); }
+        .page-hero-contact { padding-top: 12rem; padding-bottom: 8rem; }
+        .cta-button { transition: all 0.3s ease; background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent)); color: white; font-weight: 500; box-shadow: 0 4px 20px 0 rgba(129, 140, 248, 0.3); }
+        .cta-button:hover { transform: scale(1.05); box-shadow: 0 6px 25px 0 rgba(129, 140, 248, 0.4); }
+        .reveal-section { opacity: 0; transform: translateY(50px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; will-change: opacity, transform; }
+        .reveal-section.is-visible { opacity: 1; transform: translateY(0); }
+        .content-section { padding-top: 8rem; padding-bottom: 8rem; }
+        .text-gradient { background: linear-gradient(90deg, var(--primary-accent), var(--secondary-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .font-logo { font-family: 'Lora', serif; font-weight: 600; }
+        .form-input { background-color: #151c32; border: 1px solid var(--border-color); color: var(--text-primary); transition: all 0.3s ease; }
+        .form-input:focus { border-color: var(--primary-accent); outline: none; box-shadow: 0 0 0 3px rgba(129, 140, 248, 0.2); }
+    </style>
+</head>
+<body class="antialiased">
+
+    <header id="main-header" class="header fixed top-0 left-0 right-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-logo text-white">Sino<span class="text-gradient">Link</span></a>
+            <ul class="hidden md:flex items-center space-x-8 font-medium text-indigo-200">
+                <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+                <li><a href="services-v3.html" class="hover:text-white transition-colors">Services</a></li>
+                <li><a href="about-v3.html" class="hover:text-white transition-colors">About Us</a></li>
+                <li><a href="insights-v3.html" class="hover:text-white transition-colors">Insights</a></li>
+                <li><a href="contact-v3.html" class="font-semibold text-white">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 聯繫頁面專屬 Hero -->
+        <section class="page-hero-contact border-b border-indigo-900/50">
+            <div class="container mx-auto px-6">
+                <div class="reveal-section text-center">
+                    <h1 class="text-5xl md:text-6xl leading-tight">Let's Talk</h1>
+                    <p class="text-lg md:text-xl mt-4 max-w-2xl mx-auto">We're here to answer your questions and help you start your China business journey.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-section container mx-auto px-6">
+            <div class="grid md:grid-cols-2 gap-12 lg:gap-24 items-start">
+                <!-- Form Section -->
+                <div class="reveal-section">
+                    <h2 class="text-3xl lg:text-4xl mb-6 leading-tight">Send Us a Message</h2>
+                    <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <div class="space-y-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-indigo-200 mb-2">Full Name</label>
+                                <input type="text" name="name" id="name" required class="form-input w-full rounded-md py-3 px-4">
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-indigo-200 mb-2">Email Address</label>
+                                <input type="email" name="email" id="email" required class="form-input w-full rounded-md py-3 px-4">
+                            </div>
+                             <div>
+                                <label for="subject" class="block text-sm font-medium text-indigo-200 mb-2">Subject</label>
+                                <input type="text" name="subject" id="subject" required class="form-input w-full rounded-md py-3 px-4">
+                            </div>
+                            <div>
+                                <label for="message" class="block text-sm font-medium text-indigo-200 mb-2">Message</label>
+                                <textarea name="message" id="message" rows="5" required class="form-input w-full rounded-md py-3 px-4"></textarea>
+                            </div>
+                            <div>
+                                <button type="submit" class="cta-button w-full py-4 px-10 rounded-full text-lg">Send Message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- Contact Info Section -->
+                <div class="reveal-section">
+                    <h2 class="text-3xl lg:text-4xl mb-6 leading-tight">Contact Details</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-white flex items-center mb-2"><i class="fas fa-envelope mr-4 text-gradient"></i> Email Us</h3>
+                            <a href="mailto:contact@sinolink.cn" class="text-lg hover:text-white transition-colors">contact@sinolink.cn</a>
+                        </div>
+                         <div>
+                            <h3 class="text-xl font-semibold text-white flex items-center mb-2"><i class="fas fa-phone mr-4 text-gradient"></i> Call Us</h3>
+                            <a href="tel:+8612345678901" class="text-lg hover:text-white transition-colors">+86 123 4567 8901</a>
+                        </div>
+                         <div>
+                            <h3 class="text-xl font-semibold text-white flex items-center mb-2"><i class="fas fa-map-marker-alt mr-4 text-gradient"></i> Our Office</h3>
+                            <p class="text-lg">123 Lujiazui Ring Rd, Pudong,<br>Shanghai, China</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+    
+    <footer class="border-t border-indigo-900/50">
+        <div class="container mx-auto px-6 py-8">
+            <div class="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
+                <div>
+                    <a href="index.html" class="text-2xl font-logo text-white">Sino<span class="text-gradient">Link</span></a>
+                    <p class="mt-2 text-sm">Your trusted partner for business success in China.</p>
+                </div>
+                <div class="mt-6 md:mt-0 text-indigo-200">
+                    <p>&copy; 2024 SinoLink Consulting. All Rights Reserved.</p>
+                    <p class="text-sm"><a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const header = document.getElementById('main-header');
+            const sections = document.querySelectorAll('.reveal-section');
+            const handleScroll = () => { window.scrollY > 50 ? header.classList.add('header-scrolled') : header.classList.remove('header-scrolled'); };
+            window.addEventListener('scroll', handleScroll);
+            handleScroll();
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); } });
+            }, { threshold: 0.1 });
+            sections.forEach(section => { observer.observe(section); });
+        });
+    </script>
+</body>
+</html>
+
