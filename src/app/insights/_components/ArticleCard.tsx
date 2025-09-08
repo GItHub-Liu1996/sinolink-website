@@ -1,0 +1,109 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import Link from 'next/link';
+import Image from 'next/image';
+
+interface ArticleCardProps {
+  category: string;
+  title: string;
+  excerpt: string;
+  image?: string;
+  readTime?: string;
+  date: string;
+  href?: string;
+  featured?: boolean;
+}
+
+// 分类标签样式映射
+const getCategoryStyle = (category: string) => {
+  const categoryLower = category.toLowerCase();
+  
+  if (categoryLower.includes('market') || categoryLower.includes('entry')) {
+    return 'bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-blue-400 border-blue-500/30';
+  } else if (categoryLower.includes('operations') || categoryLower.includes('compliance')) {
+    return 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-400 border-green-500/30';
+  } else if (categoryLower.includes('hr') || categoryLower.includes('visa')) {
+    return 'bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-purple-400 border-purple-500/30';
+  } else if (categoryLower.includes('growth') || categoryLower.includes('protection')) {
+    return 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-orange-400 border-orange-500/30';
+  } else {
+    return 'bg-gradient-to-r from-accent-cyan/20 to-accent-magenta/20 text-accent-cyan border-accent-cyan/30';
+  }
+};
+
+const ArticleCard: React.FC<ArticleCardProps> = ({
+  category,
+  title,
+  excerpt,
+  image,
+  readTime,
+  date,
+  href = "#",
+  featured = false
+}) => {
+  return (
+    <Link href={href} className="group block">
+      <motion.article
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        whileHover={{ y: -8, scale: 1.02 }}
+        className={`bg-background-secondary rounded-xl overflow-hidden border border-gray-700 hover:border-accent-cyan transition-all duration-300 shadow-sm hover:shadow-2xl group-hover:shadow-2xl ${
+          featured ? 'shadow-lg' : ''
+        }`}
+      >
+        {/* Image */}
+        <div className={`relative ${featured ? 'h-64' : 'h-48'} overflow-hidden`}>
+          <Image
+            src={image || 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f'}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-500"
+          />
+          <div className="absolute top-4 left-4">
+            <span className={`px-3 py-1 rounded-full text-sm font-semibold border ${getCategoryStyle(category)}`}>
+              {category}
+            </span>
+          </div>
+        </div>
+        
+        {/* Content */}
+        <div className={`${featured ? 'p-8' : 'p-6'}`}>
+          <h3 className={`font-bold text-text-heading mb-3 font-sans line-clamp-2 group-hover:text-accent-cyan transition-colors duration-300 ${
+            featured ? 'text-2xl' : 'text-xl'
+          }`}>
+            {title}
+          </h3>
+          <p className={`text-text-main font-body leading-relaxed mb-4 line-clamp-3 ${
+            featured ? 'text-lg' : 'text-base'
+          }`}>
+            {excerpt}
+          </p>
+          
+          <div className="flex items-center justify-between mb-4">
+            <div className="flex items-center space-x-3 text-sm text-text-main">
+              <span>{readTime || '5 min read'}</span>
+              <span>•</span>
+              <span>{new Date(date).toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'short', 
+                day: 'numeric' 
+              })}</span>
+            </div>
+          </div>
+          
+          <div className="inline-flex items-center space-x-2 text-accent-cyan group-hover:text-accent-magenta font-semibold transition-colors duration-300">
+            <span>Read More</span>
+            <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </div>
+      </motion.article>
+    </Link>
+  );
+};
+
+export default ArticleCard;
