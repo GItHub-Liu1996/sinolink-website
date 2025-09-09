@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "@/components/Navbar";
 
 export const metadata: Metadata = {
   title: "China Business Solutions - Your Trusted Partner for Market Entry",
@@ -14,6 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased text-text-main">
+        <Navbar />
         <main className="min-h-screen">
           {children}
         </main>
