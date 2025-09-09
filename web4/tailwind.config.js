@@ -8,8 +8,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Montserrat', 'sans-serif'], // 标题字体
-        body: ['Lexend', 'sans-serif'],     // 正文字体
+        sans: ['var(--font-montserrat)', 'sans-serif'], // 标题字体
+        body: ['var(--font-lexend)', 'sans-serif'],     // 正文字体
       },
       colors: {
         background: {

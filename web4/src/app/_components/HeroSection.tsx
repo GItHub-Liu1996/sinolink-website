@@ -1,21 +1,20 @@
 'use client';
 
 import Link from "next/link";
+import Image from "next/image";
 import { motion } from "framer-motion";
-import { WavyBackground } from "@/components/ui/wavy-background";
 
 export default function HeroSection() {
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Wavy Background */}
-      <WavyBackground
-        colors={['#22d3ee', '#c026d3', '#3b82f6', '#8b5cf6', '#06b6d4']}
-        waveWidth={60}
-        backgroundFill="rgba(11, 17, 32, 0.8)"
-        blur={8}
-        speed="slow"
-        waveOpacity={0.3}
-        containerClassName="absolute inset-0"
+      {/* Optimized Background Image */}
+      <Image
+        src="/images/hero-background.webp"
+        alt="Shanghai skyline at night"
+        fill
+        priority
+        className="object-cover -z-10"
+        quality={80}
       />
       
       {/* Additional Dark Overlay for better text readability */}
@@ -71,23 +70,6 @@ export default function HeroSection() {
           </motion.div>
         </motion.div>
       </div>
-      
-      <style jsx>{`
-        @keyframes kenBurns {
-          0%, 100% {
-            transform: scale(1) translateX(0px) translateY(0px);
-          }
-          25% {
-            transform: scale(1.05) translateX(-10px) translateY(-5px);
-          }
-          50% {
-            transform: scale(1.1) translateX(5px) translateY(-10px);
-          }
-          75% {
-            transform: scale(1.05) translateX(-5px) translateY(5px);
-          }
-        }
-      `}</style>
     </section>
   );
 }

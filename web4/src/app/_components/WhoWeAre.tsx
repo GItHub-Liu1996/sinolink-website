@@ -2,6 +2,7 @@
 
 import { motion, useInView } from 'framer-motion';
 import { useRef, useEffect, useState } from 'react';
+import Image from 'next/image';
 
 export default function WhoWeAre() {
   const ref = useRef(null);
@@ -102,11 +103,14 @@ export default function WhoWeAre() {
             viewport={{ once: true }}
             className="relative"
           >
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl">
-              <img
+            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl relative">
+              <Image
                 src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
                 alt="ChinaBiz Solutions Expert Team"
-                className="h-full w-full object-cover transition-transform duration-300 hover:scale-105"
+                fill
+                className="object-cover transition-transform duration-300 hover:scale-105"
+                quality={85}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
           </motion.div>

@@ -1,6 +1,19 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar, Footer } from "@/components";
+import { Montserrat, Lexend } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  weight: '700',
+});
+
+const lexend = Lexend({
+  subsets: ['latin'],
+  variable: '--font-lexend',
+  weight: ['400', '500'],
+});
 
 export const metadata: Metadata = {
   title: "China Business Solutions - Your Trusted Partner for Market Entry",
@@ -14,10 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet" />
-      </head>
-      <body className="font-body antialiased bg-background-primary text-text-main">
+      <body className={`${montserrat.variable} ${lexend.variable} font-body antialiased bg-background-primary text-text-main`}>
         <Navbar />
         <main className="min-h-screen">
           {children}
