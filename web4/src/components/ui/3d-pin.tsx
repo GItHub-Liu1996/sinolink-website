@@ -25,13 +25,11 @@ export const PinContainer = ({
 
 export const Pin = ({
   title,
-  href,
   children,
   className,
   ...props
 }: {
   title: string;
-  href: string;
   children: React.ReactNode;
   className?: string;
 }) => {
