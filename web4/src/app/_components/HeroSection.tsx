@@ -1,26 +1,20 @@
 'use client';
 
 import Link from "next/link";
-import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden">
-      {/* Optimized Background Image */}
-      <Image
-        src="/images/hero-background.webp"
-        alt="Professional business team working in modern office with Shanghai cityscape background - China Business Solutions"
-        fill
-        priority
-        className="object-cover -z-10"
-        quality={90}
-        sizes="100vw"
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-      />
-      
-      {/* Additional Dark Overlay for better text readability */}
+    <section 
+      className="relative h-screen flex items-center justify-center overflow-hidden"
+      style={{
+        backgroundImage: 'url(/images/hero-background.webp), url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
+      {/* Dark Overlay for better text readability */}
       <div className="absolute inset-0 bg-gradient-to-b from-[rgba(11,17,32,0.6)] to-[rgba(11,17,32,0.9)] z-10" />
       
       <div className="relative z-20 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
