@@ -8,14 +8,13 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        backgroundImage: 'url(/images/hero-background.webp), url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
+        background: 'linear-gradient(rgba(11,17,32,0.7), rgba(11,17,32,0.7)), url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
       }}
     >
-      {/* Dark Overlay for better text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(11,17,32,0.6)] to-[rgba(11,17,32,0.9)] z-10" />
       
       <div className="relative z-20 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <motion.h1 
