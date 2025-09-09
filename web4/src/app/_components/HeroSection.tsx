@@ -6,12 +6,13 @@ import { motion } from "framer-motion";
 export default function HeroSection() {
   return (
     <section 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
+      className="relative h-screen flex items-center justify-center overflow-hidden bg-red-500"
       style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%), url(https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        zIndex: 1
       }}
     >
       

@@ -6,7 +6,7 @@ import { CompanySetupIcon, OperationsSupportIcon, VisaServicesIcon } from '@/com
 
 export default function OurSolutions() {
   return (
-    <section className="py-24 bg-background-secondary">
+    <section className="py-24 bg-background-secondary relative z-0">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

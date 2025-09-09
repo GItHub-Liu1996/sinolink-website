@@ -39,7 +39,7 @@ export default function WhoWeAre() {
   }, [isInView]);
 
   return (
-    <section className="py-24 bg-background-secondary">
+    <section className="py-24 bg-background-secondary relative z-0">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           ref={ref}
