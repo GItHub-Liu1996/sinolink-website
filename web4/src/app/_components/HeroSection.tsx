@@ -8,13 +8,15 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: 'linear-gradient(rgba(11,17,32,0.7), rgba(11,17,32,0.7)), url(/images/hero-background.webp)',
+        backgroundImage: 'url(/images/hero-background.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
         zIndex: 1
       }}
     >
+      {/* Dark overlay for text readability */}
+      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(11,17,32,0.6)] to-[rgba(11,17,32,0.9)] z-10" />
       
       <div className="relative z-20 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <motion.h1 
