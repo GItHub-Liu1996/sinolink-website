@@ -5,25 +5,25 @@ import { motion } from "framer-motion";
 
 export default function HeroSection() {
   return (
-    <section 
-      className="relative h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: 'url(/images/hero-background.webp)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        zIndex: 1
-      }}
-    >
-      {/* Dark overlay for text readability */}
-      <div className="absolute inset-0 bg-gradient-to-b from-[rgba(11,17,32,0.6)] to-[rgba(11,17,32,0.9)] z-10" />
+    <section className="relative h-screen flex items-center justify-center overflow-hidden">
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: 'url(/images/hero-background.webp)',
+        }}
+      />
       
-      <div className="relative z-20 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
+      {/* Dark Overlay */}
+      <div className="absolute inset-0 bg-black bg-opacity-50" />
+      
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto text-center px-4 sm:px-6 lg:px-8">
         <motion.h1 
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-5xl md:text-7xl font-bold text-white mb-6 font-sans"
+          className="text-5xl md:text-7xl font-bold text-white mb-6"
         >
           Launch, Operate, and Thrive in China. We Handle the Complexity.
         </motion.h1>
@@ -32,7 +32,7 @@ export default function HeroSection() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto font-body leading-relaxed"
+          className="text-xl md:text-2xl text-gray-200 mb-8 max-w-4xl mx-auto leading-relaxed"
         >
           From WFOE registration to ongoing compliance, our expert team provides the clarity and support you need to succeed.
         </motion.p>
@@ -49,7 +49,7 @@ export default function HeroSection() {
           >
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-500 shadow-lg hover:shadow-xl inline-block animate-pulse"
+              className="bg-gradient-to-r from-cyan-400 to-purple-500 hover:from-purple-500 hover:to-cyan-400 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-500 shadow-lg hover:shadow-xl inline-block"
             >
               Book a Free Consultation
             </Link>
@@ -61,7 +61,7 @@ export default function HeroSection() {
           >
             <Link
               href="/services"
-              className="border-2 border-white hover:bg-white hover:text-background text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 inline-block"
+              className="border-2 border-white hover:bg-white hover:text-gray-900 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300 inline-block"
             >
               Explore Our Services
             </Link>
