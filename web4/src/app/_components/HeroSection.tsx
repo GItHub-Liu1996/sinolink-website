@@ -8,7 +8,7 @@ export default function HeroSection() {
     <section 
       className="relative h-screen flex items-center justify-center overflow-hidden"
       style={{
-        background: 'linear-gradient(135deg, #ff6b6b 0%, #4ecdc4 100%)',
+        background: 'linear-gradient(rgba(11,17,32,0.7), rgba(11,17,32,0.7)), url(/images/hero-background.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
