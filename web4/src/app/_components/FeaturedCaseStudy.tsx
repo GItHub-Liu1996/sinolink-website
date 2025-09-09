@@ -5,7 +5,7 @@ import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
 export default function FeaturedCaseStudy() {
   return (
-    <section className="py-24 bg-background relative z-0">
+    <section className="py-24 bg-background-primary relative z-0">
       <div className="max-w-7xl mx-auto px-6">
         {/* Module Title */}
         <motion.div

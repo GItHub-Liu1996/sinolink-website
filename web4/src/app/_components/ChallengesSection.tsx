@@ -29,7 +29,7 @@ export default function ChallengesSection() {
   ];
 
   return (
-    <section className="py-24 bg-background relative z-0">
+    <section className="py-24 bg-background-primary relative z-0">
       <div className="max-w-7xl mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}

@@ -27,7 +27,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${montserrat.variable} ${lexend.variable} font-body antialiased bg-background-primary text-text-main`}>
+      <body className={`${montserrat.variable} ${lexend.variable} font-body antialiased text-text-main`}>
         <Navbar />
         <main className="min-h-screen">
           {children}
