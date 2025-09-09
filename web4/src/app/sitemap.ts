@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 import { getAllPosts } from '@/lib/posts'
 
+export const dynamic = 'force-static'
+
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = 'https://your-domain.com' // 请替换为您的实际域名
   

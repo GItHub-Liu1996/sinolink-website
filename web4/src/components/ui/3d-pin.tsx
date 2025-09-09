@@ -93,3 +93,5 @@ export const Pin = ({
     </div>
   );
 };
+
+export default Pin;
