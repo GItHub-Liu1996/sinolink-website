@@ -136,7 +136,7 @@ export default function WhoWeAre() {
                   alt="Professional China Business Solutions team of experts in modern office environment - experienced consultants for market entry and compliance"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  quality={75}
+                  quality={65}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
                   placeholder="blur"

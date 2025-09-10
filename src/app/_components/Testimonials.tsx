@@ -1,6 +1,5 @@
 'use client';
 
-import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
 
 export default function Testimonials() {
@@ -52,35 +51,21 @@ export default function Testimonials() {
     <section className="py-16 sm:py-20 lg:py-24 bg-background">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-12 sm:mb-16"
-          >
+                  <div className="text-center mb-12 sm:mb-16 animate-fade-in">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-text-heading font-sans">
               Success Stories from Our Partners
             </h2>
             <p className="text-base sm:text-lg text-text-main font-body leading-relaxed max-w-2xl mx-auto">
               Hear from our satisfied clients who have successfully established their presence in China.
             </p>
-          </motion.div>
+                  </div>
 
         <div 
           className="relative"
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentIndex}
-              initial={{ opacity: 0, x: 50 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -50 }}
-              transition={{ duration: 0.5 }}
-              className="bg-background-secondary rounded-lg p-6 sm:p-8 md:p-10 border border-gray-700"
-            >
+                  <div className="bg-background-secondary rounded-lg p-6 sm:p-8 md:p-10 border border-gray-700 animate-fade-in">
               <div className="text-center">
                 {/* Quote Icon */}
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8">
@@ -117,8 +102,7 @@ export default function Testimonials() {
                   </div>
                 </div>
               </div>
-            </motion.div>
-          </AnimatePresence>
+                    </div>
 
           {/* Navigation Arrows - Hidden on mobile */}
           <button
