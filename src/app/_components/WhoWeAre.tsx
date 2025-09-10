@@ -132,11 +132,11 @@ export default function WhoWeAre() {
             <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl relative bg-gradient-to-br from-accent-cyan/20 to-accent-magenta/20 p-1">
               <div className="w-full h-full overflow-hidden rounded-2xl">
                 <Image
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
+                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=75"
                   alt="Professional China Business Solutions team of experts in modern office environment - experienced consultants for market entry and compliance"
                   fill
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  quality={90}
+                  quality={75}
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   loading="lazy"
                   placeholder="blur"

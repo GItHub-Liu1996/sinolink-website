@@ -9,6 +9,7 @@ const montserrat = Montserrat({
   weight: '700',
   display: 'swap',
   preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 const lexend = Lexend({
@@ -17,6 +18,7 @@ const lexend = Lexend({
   weight: ['400', '500'],
   display: 'swap',
   preload: true,
+  fallback: ['system-ui', 'arial'],
 });
 
 export const metadata: Metadata = {
