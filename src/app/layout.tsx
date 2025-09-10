@@ -10,6 +10,7 @@ const montserrat = Montserrat({
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],
+  adjustFontFallback: false,
 });
 
 const lexend = Lexend({
@@ -19,6 +20,7 @@ const lexend = Lexend({
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],
+  adjustFontFallback: false,
 });
 
 export const metadata: Metadata = {
