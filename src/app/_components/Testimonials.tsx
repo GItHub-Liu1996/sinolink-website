@@ -9,27 +9,24 @@ export default function Testimonials() {
 
   const testimonials = [
     {
-      quote: "ChinaBiz Solutions transformed our China market entry from a daunting challenge into a smooth, successful launch. Their expertise in WFOE registration and ongoing compliance support allowed us to focus on growing our business rather than navigating bureaucratic complexities.",
+      quote: "ChinaBiz Solutions transformed our China market entry from a daunting challenge into a smooth, successful launch.",
       author: "David Thompson",
       position: "CEO",
       company: "TechGlobal Solutions",
-      industry: "Manufacturing & Technology",
       logo: "TG"
     },
     {
-      quote: "The team's deep understanding of Chinese business culture and regulations was invaluable. They not only handled all our legal requirements but also provided strategic guidance that helped us establish strong local partnerships and accelerate our market penetration.",
+      quote: "Their expertise in Chinese business culture and regulations was invaluable for our market penetration.",
       author: "Sarah Chen",
-      position: "Managing Director",
+      position: "Managing Director", 
       company: "Global Innovations Ltd",
-      industry: "Financial Services",
       logo: "GI"
     },
     {
-      quote: "Working with ChinaBiz Solutions was one of the best decisions we made for our China expansion. Their comprehensive approach, from initial setup to ongoing operational support, ensured we remained compliant while scaling our business efficiently.",
+      quote: "Working with ChinaBiz Solutions was one of the best decisions we made for our China expansion.",
       author: "Michael Rodriguez",
       position: "Founder",
       company: "EcoTech Industries",
-      industry: "Clean Technology",
       logo: "ET"
     }
   ];
@@ -52,20 +49,20 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="max-w-6xl mx-auto">
+    <section className="py-16 sm:py-20 lg:py-24 bg-background">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-4xl font-bold text-center mb-12 text-text-heading font-sans">
-              Success Stories from Our Partners.
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-6 sm:mb-8 text-text-heading font-sans">
+              Success Stories from Our Partners
             </h2>
-            <p className="text-lg text-text-main font-body leading-relaxed max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-text-main font-body leading-relaxed max-w-2xl mx-auto">
               Hear from our satisfied clients who have successfully established their presence in China.
             </p>
           </motion.div>
@@ -82,43 +79,40 @@ export default function Testimonials() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -50 }}
               transition={{ duration: 0.5 }}
-              className="bg-background-secondary rounded-lg p-8 md:p-12 border border-gray-700"
+              className="bg-background-secondary rounded-lg p-6 sm:p-8 md:p-10 border border-gray-700"
             >
               <div className="text-center">
                 {/* Quote Icon */}
-                <div className="w-16 h-16 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mx-auto mb-8">
-                  <svg className="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8">
+                  <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
                   </svg>
                 </div>
 
                 {/* Quote */}
-                <blockquote className="text-xl md:text-2xl text-text-main italic mb-8 font-body leading-relaxed max-w-4xl mx-auto">
+                <blockquote className="text-lg sm:text-xl md:text-2xl text-text-main italic mb-6 sm:mb-8 font-body leading-relaxed max-w-3xl mx-auto">
                   "{testimonials[currentIndex].quote}"
                 </blockquote>
 
                 {/* Author Info */}
-                <div className="flex flex-col md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-8">
+                <div className="flex flex-col items-center justify-center space-y-3 sm:space-y-4">
                   {/* Company Logo */}
-                  <div className="w-16 h-16 bg-gray-600 rounded-lg flex items-center justify-center">
-                    <span className="text-white font-bold text-lg">
+                  <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-600 rounded-lg flex items-center justify-center">
+                    <span className="text-white font-bold text-sm sm:text-base">
                       {testimonials[currentIndex].logo}
                     </span>
                   </div>
 
                   {/* Author Details */}
-                  <div className="text-center md:text-left">
-                    <p className="text-text-heading font-semibold text-lg font-sans">
+                  <div className="text-center">
+                    <p className="text-text-heading font-semibold text-base sm:text-lg font-sans">
                       {testimonials[currentIndex].author}
                     </p>
-                    <p className="text-accent-cyan font-medium">
+                    <p className="text-accent-cyan font-medium text-sm sm:text-base">
                       {testimonials[currentIndex].position}
                     </p>
-                    <p className="text-text-main font-body">
+                    <p className="text-text-main font-body text-sm sm:text-base">
                       {testimonials[currentIndex].company}
-                    </p>
-                    <p className="text-gray-500 text-sm font-body">
-                      {testimonials[currentIndex].industry}
                     </p>
                   </div>
                 </div>
@@ -126,33 +120,33 @@ export default function Testimonials() {
             </motion.div>
           </AnimatePresence>
 
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Hidden on mobile */}
           <button
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-background-secondary border border-gray-700 rounded-full flex items-center justify-center text-text-main hover:text-accent-cyan hover:border-accent-cyan transition-colors duration-300"
+            className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-background-secondary border border-gray-700 rounded-full flex items-center justify-center text-text-main hover:text-accent-cyan hover:border-accent-cyan transition-colors duration-300"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
           </button>
 
           <button
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 w-12 h-12 bg-background-secondary border border-gray-700 rounded-full flex items-center justify-center text-text-main hover:text-accent-cyan hover:border-accent-cyan transition-colors duration-300"
+            className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-background-secondary border border-gray-700 rounded-full flex items-center justify-center text-text-main hover:text-accent-cyan hover:border-accent-cyan transition-colors duration-300"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
             </svg>
           </button>
         </div>
 
         {/* Dots Indicator */}
-        <div className="flex justify-center space-x-2 mt-8">
+        <div className="flex justify-center space-x-2 mt-6 sm:mt-8">
           {testimonials.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentIndex(index)}
-              className={`w-3 h-3 rounded-full transition-colors duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-colors duration-300 ${
                 index === currentIndex 
                   ? 'bg-accent-cyan' 
                   : 'bg-gray-600 hover:bg-gray-500'
