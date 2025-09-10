@@ -1,10 +1,30 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import Navbar from "@/components/Navbar";
+import { Navbar, Footer } from "@/components";
+import { Montserrat, Lexend } from 'next/font/google';
+
+const montserrat = Montserrat({
+  subsets: ['latin'],
+  variable: '--font-montserrat',
+  weight: '700',
+  display: 'swap',
+  preload: true,
+});
+
+const lexend = Lexend({
+  subsets: ['latin'],
+  variable: '--font-lexend',
+  weight: ['400', '500'],
+  display: 'swap',
+  preload: true,
+});
 
 export const metadata: Metadata = {
   title: "China Business Solutions - Your Trusted Partner for Market Entry",
   description: "Professional consulting services for company registration, compliance, and growth in China. Expert guidance for WFOE, Joint Ventures, and business operations.",
+  other: {
+    'font-display': 'swap',
+  },
 };
 
 export default function RootLayout({
@@ -14,11 +34,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased text-text-main">
+      <body className={`${montserrat.variable} ${lexend.variable} font-body antialiased bg-background-primary text-text-main`}>
         <Navbar />
         <main className="min-h-screen">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );
