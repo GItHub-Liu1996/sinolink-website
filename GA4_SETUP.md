@@ -1,47 +1,42 @@
-# Google Analytics 4 (GA4) 配置指南
+# Google Tag Manager (GTM) 配置指南
 
-## 📊 环境变量配置
+## 📊 当前配置状态
 
-### 本地开发环境
+### ✅ 已配置的跟踪系统
 
-1. **创建 `.env.local` 文件**（如果不存在）：
-```bash
-# 在项目根目录创建
-touch .env.local
-```
+**Google Tag Manager (GTM)**
+- **容器ID**: `GTM-MLXZT29K`
+- **状态**: ✅ 已正确配置并运行
+- **功能**: 统一管理所有跟踪代码（包括GA4、Facebook Pixel等）
 
-2. **添加GA4环境变量**：
-```env
-# Google Analytics 4 Configuration
-NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
-```
+### 🎯 推荐配置方式
 
-### 生产环境 (Vercel)
+**通过GTM管理GA4** - 这是最佳实践，因为：
+- ✅ 统一管理所有跟踪代码
+- ✅ 无需修改网站代码
+- ✅ 灵活配置和调试
+- ✅ 更好的性能优化
 
-1. **登录Vercel控制台**：
-   - 访问 [vercel.com](https://vercel.com)
-   - 选择您的项目
+## 🔧 在GTM中配置GA4
 
-2. **添加环境变量**：
-   - 进入 **Settings** → **Environment Variables**
-   - 点击 **Add New**
-   - **Name**: `NEXT_PUBLIC_GA_ID`
-   - **Value**: `G-XXXXXXXXXX`（您的实际GA4衡量ID）
-   - **Environment**: 选择 `Production`, `Preview`, `Development`
+### 步骤1: 登录Google Tag Manager
+1. 访问 [tagmanager.google.com](https://tagmanager.google.com)
+2. 选择容器 `GTM-MLXZT29K`
 
-## 🔧 获取GA4衡量ID
+### 步骤2: 创建GA4标签
+1. 点击 **"标签"** → **"新建"**
+2. 标签名称：`GA4 - 网站跟踪`
+3. 标签配置：选择 **"Google Analytics: GA4 配置"**
+4. 衡量ID：输入您的GA4衡量ID（格式：`G-XXXXXXXXXX`）
 
-1. **访问Google Analytics**：
-   - 登录 [analytics.google.com](https://analytics.google.com)
+### 步骤3: 设置触发器
+1. 触发器类型：**"所有页面"**
+2. 保存标签
 
-2. **创建或选择属性**：
-   - 点击 **"管理"** (Admin)
-   - 选择或创建 **"数据流"** (Data Stream)
-   - 选择 **"网站"** (Web)
-
-3. **获取衡量ID**：
-   - 在数据流详情页面找到 **"衡量ID"**
-   - 格式：`G-XXXXXXXXXX`
+### 步骤4: 发布更改
+1. 点击 **"提交"**
+2. 添加版本名称：`添加GA4跟踪`
+3. 点击 **"发布"**
 
 ## ✅ 验证配置
 
@@ -49,36 +44,22 @@ NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX
 ```bash
 # 启动开发服务器
 npm run dev
-
-# 检查环境变量
-echo $NEXT_PUBLIC_GA_ID
+# 访问 http://localhost:3000
 ```
 
 ### 生产环境测试
-1. 部署到Vercel
-2. 打开网站
-3. 使用浏览器开发者工具检查Network标签
-4. 查找 `gtag/js` 请求
+1. 访问您的网站
+2. 打开浏览器开发者工具
+3. 检查Network标签，查找GTM请求
+4. 在GTM预览模式下验证GA4标签触发
 
-## 📈 功能特性
+## 📈 优势
 
-- ✅ **生产环境专用**：只在生产环境加载，避免开发时发送测试数据
-- ✅ **异步加载**：使用 `next/script` 的 `afterInteractive` 策略
-- ✅ **性能优化**：不阻塞页面渲染
-- ✅ **自动页面跟踪**：自动跟踪页面浏览
-- ✅ **与GTM兼容**：与现有Google Tag Manager共存
-
-## 🚀 部署步骤
-
-1. **配置环境变量**（如上所述）
-2. **提交代码**：
-```bash
-git add .
-git commit -m "feat: 添加Google Analytics 4集成"
-git push origin main
-```
-3. **等待Vercel自动部署**
-4. **验证GA4数据接收**
+- ✅ **统一管理**：所有跟踪代码在GTM中管理
+- ✅ **无需代码修改**：添加新跟踪代码无需修改网站
+- ✅ **灵活配置**：可以轻松启用/禁用跟踪功能
+- ✅ **调试方便**：GTM预览模式便于调试
+- ✅ **性能优化**：GTM自动优化脚本加载
 
 ## 📊 预期结果
 
