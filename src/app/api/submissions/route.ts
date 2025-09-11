@@ -115,60 +115,25 @@ export async function POST(request: NextRequest) {
       properties: notionProperties,
     });
 
-    // Send confirmation email based on type
-    const resend = getResendClient();
+    // Send confirmation email based on type (简化版本，仅控制台输出)
     let emailResponse;
     if (type === 'inquiry') {
-      emailResponse = await resend.emails.send({
-        from: 'noreply@sinolink.monster',
+      // 模拟邮件发送，输出到控制台
+      console.log('📧 咨询确认邮件 (模拟发送):', {
         to: email,
         subject: 'Thank you for your inquiry - ChinaBiz Solutions',
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #22d3ee;">Thank you for your inquiry!</h2>
-            <p>Dear ${name || 'Valued Client'},</p>
-            <p>We have received your inquiry and will get back to you within 24 hours.</p>
-            <p><strong>Your inquiry details:</strong></p>
-            <ul>
-              ${name ? `<li><strong>Name:</strong> ${name}</li>` : ''}
-              <li><strong>Email:</strong> ${email}</li>
-              ${company ? `<li><strong>Company:</strong> ${company}</li>` : ''}
-              ${message ? `<li><strong>Message:</strong> ${message}</li>` : ''}
-            </ul>
-            <p>Our team of experts will review your requirements and provide you with the best solution for your China market entry needs.</p>
-            <p>Best regards,<br>ChinaBiz Solutions Team</p>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-            <p style="font-size: 12px; color: #666;">
-              This is an automated message. Please do not reply to this email.
-            </p>
-          </div>
-        `,
+        name: name,
+        company: company,
+        message: message
       });
+      emailResponse = { data: { id: 'mock-email-id-' + Date.now() } };
     } else if (type === 'subscription') {
-      emailResponse = await resend.emails.send({
-        from: 'noreply@sinolink.monster',
+      // 模拟邮件发送，输出到控制台
+      console.log('📧 订阅欢迎邮件 (模拟发送):', {
         to: email,
-        subject: 'Welcome to ChinaBiz Solutions Newsletter!',
-        html: `
-          <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-            <h2 style="color: #22d3ee;">Welcome to our newsletter!</h2>
-            <p>Thank you for subscribing to ChinaBiz Solutions newsletter.</p>
-            <p>You will now receive:</p>
-            <ul>
-              <li>Latest updates on China business regulations</li>
-              <li>Market entry insights and strategies</li>
-              <li>Exclusive tips for WFOE registration</li>
-              <li>Industry news and analysis</li>
-            </ul>
-            <p>We're excited to share valuable insights to help you succeed in the Chinese market.</p>
-            <p>Best regards,<br>ChinaBiz Solutions Team</p>
-            <hr style="margin: 20px 0; border: none; border-top: 1px solid #eee;">
-            <p style="font-size: 12px; color: #666;">
-              This is an automated message. Please do not reply to this email.
-            </p>
-          </div>
-        `,
+        subject: 'Welcome to ChinaBiz Solutions Newsletter!'
       });
+      emailResponse = { data: { id: 'mock-email-id-' + Date.now() } };
     }
 
     return NextResponse.json({
