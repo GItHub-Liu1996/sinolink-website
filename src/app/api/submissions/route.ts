@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { Client } from '@notionhq/client';
-import { Resend } from 'resend';
 
 // Initialize clients only when needed
 function getNotionClient() {
@@ -12,12 +11,7 @@ function getNotionClient() {
   });
 }
 
-function getResendClient() {
-  if (!process.env.RESEND_API_KEY) {
-    throw new Error('RESEND_API_KEY is not configured');
-  }
-  return new Resend(process.env.RESEND_API_KEY);
-}
+// Resend client已移除，使用模拟邮件发送
 
 export async function POST(request: NextRequest) {
   try {
