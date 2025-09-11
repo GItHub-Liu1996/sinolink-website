@@ -27,7 +27,7 @@ export default function Contact() {
     setSubmitMessage('');
 
     try {
-      const response = await fetch('/api/submissions', {
+      const response = await fetch('/api/submissions/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
