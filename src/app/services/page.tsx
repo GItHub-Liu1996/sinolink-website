@@ -3,6 +3,33 @@
 import { motion } from 'framer-motion';
 import { ServiceCard, RelatedInsights } from './_components';
 import { Accordion } from '@/components';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: "Our Services | ChinaBiz Solutions",
+  description: "Explore our comprehensive suite of services, covering market entry, daily operations, compliance, HR, and intellectual property in China.",
+  keywords: [
+    "China business services",
+    "WFOE registration services",
+    "China market entry",
+    "business compliance China",
+    "China consulting services",
+    "foreign investment China",
+    "China business setup",
+    "China operations support"
+  ],
+  openGraph: {
+    title: "Our Services | ChinaBiz Solutions",
+    description: "Explore our comprehensive suite of services, covering market entry, daily operations, compliance, HR, and intellectual property in China.",
+    url: "https://sinolink-website.vercel.app/services",
+    siteName: "ChinaBiz Solutions",
+    type: "website",
+  },
+  alternates: {
+    canonical: "https://sinolink-website.vercel.app/services",
+  },
+};
+
 import {
   LegalEntityIcon,
   BankAccountIcon,

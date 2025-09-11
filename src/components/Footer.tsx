@@ -29,6 +29,19 @@ export default function Footer() {
                   {link.label}
                 </Link>
               ))}
+              {/* Legal Pages */}
+              <Link
+                href="/privacy-policy"
+                className="text-gray-400 hover:text-accent-cyan block text-sm lg:text-base transition-colors duration-300 hover:translate-x-1"
+              >
+                Privacy Policy
+              </Link>
+              <Link
+                href="/terms-of-service"
+                className="text-gray-400 hover:text-accent-cyan block text-sm lg:text-base transition-colors duration-300 hover:translate-x-1"
+              >
+                Terms of Service
+              </Link>
             </div>
           </div>
 

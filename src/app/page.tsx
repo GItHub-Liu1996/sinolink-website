@@ -9,8 +9,8 @@ const OurSolutions = dynamic(() => import('./_components').then(mod => ({ defaul
 const FeaturedCaseStudy = dynamic(() => import('./_components').then(mod => ({ default: mod.FeaturedCaseStudy })));
 
 export const metadata: Metadata = {
-  title: "China Business Solutions - Launch, Operate & Thrive in China",
-  description: "Expert consulting services for WFOE registration, business compliance, and market entry in China. 15+ years experience, 500+ successful projects. Get professional guidance for your China business journey.",
+  title: "China Business Solutions | Your Gateway to the China Market",
+  description: "End-to-end services for foreign investors in China, specializing in WFOE registration, tax compliance, and operational support.",
   keywords: [
     "China business consulting",
     "WFOE registration",
