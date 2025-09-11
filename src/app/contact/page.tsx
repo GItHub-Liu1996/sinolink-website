@@ -1,31 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Contact Us | ChinaBiz Solutions",
-  description: "Ready to start your China venture? Contact our expert team today for a free consultation and customized solutions.",
-  keywords: [
-    "contact ChinaBiz Solutions",
-    "China business consultation",
-    "free consultation China",
-    "China business contact",
-    "WFOE registration consultation",
-    "China market entry help",
-    "China business support"
-  ],
-  openGraph: {
-    title: "Contact Us | ChinaBiz Solutions",
-    description: "Ready to start your China venture? Contact our expert team today for a free consultation and customized solutions.",
-    url: "https://sinolink-website.vercel.app/contact",
-    siteName: "ChinaBiz Solutions",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://sinolink-website.vercel.app/contact",
-  },
-};
 
 export default function Contact() {
   const [formData, setFormData] = useState({

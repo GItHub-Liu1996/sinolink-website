@@ -20,9 +20,9 @@ export default function PrivacyPolicyPage() {
           </h1>
           
           <div className="prose prose-lg max-w-none text-gray-300 space-y-6">
-            <p className="text-lg leading-relaxed">
-              <strong className="text-white">Last Updated:</strong> [Date]
-            </p>
+              <p className="text-lg leading-relaxed">
+                <strong className="text-white">Last Updated:</strong> January 15, 2025
+              </p>
             
             <div className="space-y-6">
               <section>

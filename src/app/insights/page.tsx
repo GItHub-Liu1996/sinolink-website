@@ -6,32 +6,6 @@ import { useState } from 'react';
 import ArticleCard from './_components/ArticleCard';
 import Pagination from './_components/Pagination';
 import { articles } from '@/config/articles';
-import type { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: "Insights & Resources | ChinaBiz Solutions",
-  description: "Stay ahead with expert insights, market analysis, and practical guidance for your China business journey.",
-  keywords: [
-    "China business insights",
-    "China market analysis",
-    "China business resources",
-    "WFOE registration guide",
-    "China compliance tips",
-    "China business blog",
-    "China market trends",
-    "China business advice"
-  ],
-  openGraph: {
-    title: "Insights & Resources | ChinaBiz Solutions",
-    description: "Stay ahead with expert insights, market analysis, and practical guidance for your China business journey.",
-    url: "https://sinolink-website.vercel.app/insights",
-    siteName: "ChinaBiz Solutions",
-    type: "website",
-  },
-  alternates: {
-    canonical: "https://sinolink-website.vercel.app/insights",
-  },
-};
 
 // PostMeta interface
 interface PostMeta {
