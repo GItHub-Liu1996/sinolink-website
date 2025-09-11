@@ -1,0 +1,13 @@
+{
+  "functions": {
+    "src/app/api/submissions/route.ts": {
+      "runtime": "nodejs18.x"
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/submissions",
+      "destination": "/api/submissions/"
+    }
+  ]
+}

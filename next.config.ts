@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
     webpackBuildWorker: true,
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === 'production',
+    removeConsole: false, // 保留console.log用于调试
   },
   webpack: (config, { isServer }) => {
     if (!isServer) {
