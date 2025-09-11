@@ -51,7 +51,7 @@ export async function POST(request: NextRequest) {
       Email: {
         email: email
       },
-      'Created Date': {
+      'Submitted At': {
         date: {
           start: new Date().toISOString()
         }
