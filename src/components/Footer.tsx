@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { siteConfig, navLinks, contactInfo } from '@/config/site';
+import SocialIcons from '@/components/ui/SocialIcons';
 
 export default function Footer() {
   return (
@@ -14,6 +15,10 @@ export default function Footer() {
             <p className="text-gray-400 text-sm lg:text-base leading-relaxed">
               {siteConfig.description}
             </p>
+            <div className="pt-2">
+              <p className="text-gray-400 text-sm mb-3">Follow us on social media:</p>
+              <SocialIcons size="md" />
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -74,10 +79,16 @@ export default function Footer() {
         </div>
 
         {/* Copyright */}
-        <div className="mt-8 lg:mt-12 pt-8 border-t border-gray-800 text-center">
-          <p className="text-gray-400 text-sm lg:text-base">
-            © 2025 {siteConfig.name}. All Rights Reserved.
-          </p>
+        <div className="mt-8 lg:mt-12 pt-8 border-t border-gray-800">
+          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+            <p className="text-gray-400 text-sm lg:text-base">
+              © 2025 {siteConfig.name}. All Rights Reserved.
+            </p>
+            <div className="flex items-center space-x-2">
+              <span className="text-gray-400 text-sm">Connect with us:</span>
+              <SocialIcons size="sm" />
+            </div>
+          </div>
         </div>
       </div>
     </footer>

@@ -33,8 +33,9 @@ export const contactInfo = {
 // Social media links
 export const socialLinks = [
   { name: 'LinkedIn', href: 'https://linkedin.com/company/chinabizsolutions', icon: 'linkedin' },
-  { name: 'Twitter', href: 'https://twitter.com/chinabizsolutions', icon: 'twitter' },
-  { name: 'WeChat', href: '#', icon: 'wechat' },
+  { name: 'YouTube', href: 'https://youtube.com/@chinabizsolutions', icon: 'youtube' },
+  { name: 'TikTok', href: 'https://tiktok.com/@chinabizsolutions', icon: 'tiktok' },
+  { name: 'Facebook', href: 'https://facebook.com/chinabizsolutions', icon: 'facebook' },
 ];
 
 // Service categories for insights
