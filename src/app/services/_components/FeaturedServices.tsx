@@ -56,6 +56,7 @@ export default function FeaturedServices({ services }: FeaturedServicesProps) {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: index * 0.1 }}
             viewport={{ once: true }}
+            className="h-full"
           >
             <ServiceCard
               icon={iconMap[service.icon as keyof typeof iconMap] || <LegalEntityIcon />}

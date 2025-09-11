@@ -27,7 +27,7 @@ export default function ServiceCard({
       whileInView={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
       viewport={{ once: true }}
-      className={`bg-background-secondary rounded-2xl p-8 border border-gray-700 hover:border-accent-cyan transition-all duration-300 shadow-sm hover:shadow-lg group ${
+      className={`bg-background-secondary rounded-2xl p-8 border border-gray-700 hover:border-accent-cyan transition-all duration-300 shadow-sm hover:shadow-lg group h-full flex flex-col ${
         href ? 'cursor-pointer hover:scale-105' : ''
       }`}
     >
@@ -42,47 +42,46 @@ export default function ServiceCard({
       </div>
 
       {/* Description */}
-      <p className="text-text-main font-body leading-relaxed mb-6">{description}</p>
+      <p className={`text-text-main font-body leading-relaxed mb-6 ${isCompact ? 'flex-1' : ''}`}>
+        {description}
+      </p>
 
       {/* Service Points - Show only first 3 if compact */}
-      <ul className="space-y-3 mb-6">
-        {(isCompact ? servicePoints.slice(0, 3) : servicePoints).map((point, index) => (
-          <motion.li
-            key={index}
-            initial={{ opacity: 0, x: -10 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.4, delay: index * 0.1 }}
-            viewport={{ once: true }}
-            className="flex items-center gap-3"
-          >
-            <div className="w-5 h-5 bg-accent-cyan rounded-full flex items-center justify-center flex-shrink-0">
-              <svg
-                className="w-3 h-3 text-white"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M5 13l4 4L19 7"
-                />
-              </svg>
-            </div>
-            <span className="text-text-main font-body">{point}</span>
-          </motion.li>
-        ))}
-        {isCompact && servicePoints.length > 3 && (
-          <li className="text-accent-cyan font-medium text-sm">
-            +{servicePoints.length - 3} more services
-          </li>
-        )}
-      </ul>
+      {!isCompact && (
+        <ul className="space-y-3 mb-6">
+          {servicePoints.map((point, index) => (
+            <motion.li
+              key={index}
+              initial={{ opacity: 0, x: -10 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3"
+            >
+              <div className="w-5 h-5 bg-accent-cyan rounded-full flex items-center justify-center flex-shrink-0">
+                <svg
+                  className="w-3 h-3 text-white"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+              </div>
+              <span className="text-text-main font-body">{point}</span>
+            </motion.li>
+          ))}
+        </ul>
+      )}
 
       {/* Action Button */}
       {href && (
-        <div className="mt-6 pt-4 border-t border-gray-700">
+        <div className={`${isCompact ? 'mt-auto' : 'mt-6'} pt-4 border-t border-gray-700`}>
           <div className="flex items-center justify-between">
             <span className="text-accent-cyan font-semibold text-sm group-hover:text-accent-cyan-light transition-colors duration-300">
               Learn More
