@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { Navbar, Footer } from "@/components";
+import { Navbar, Footer, ErrorBoundary } from "@/components";
 import { Montserrat, Lexend } from 'next/font/google';
 
 const montserrat = Montserrat({
@@ -100,11 +100,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent-cyan text-background-primary px-4 py-2 rounded-lg z-50">
           Skip to main content
         </a>
-        <Navbar />
-        <main id="main-content" className="min-h-screen" role="main">
-          {children}
-        </main>
-        <Footer />
+        <ErrorBoundary>
+          <Navbar />
+          <main id="main-content" className="min-h-screen" role="main">
+            {children}
+          </main>
+          <Footer />
+        </ErrorBoundary>
       </body>
     </html>
   );

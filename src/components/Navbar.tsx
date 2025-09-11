@@ -6,6 +6,7 @@ import { siteConfig, navLinks } from '@/config/site';
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  // const t = useTranslations('navigation');
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -23,8 +24,8 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+            <div className="flex items-baseline space-x-6 lg:space-x-8">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
@@ -36,6 +37,7 @@ export default function Navbar() {
                 </Link>
               ))}
             </div>
+            
           </div>
 
           {/* CTA Button */}
@@ -80,6 +82,8 @@ export default function Navbar() {
                   {link.label}
                 </Link>
               ))}
+              
+              
               <div className="pt-3 border-t border-gray-800">
                 <Link
                   href="/contact"

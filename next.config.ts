@@ -26,16 +26,63 @@ const nextConfig: NextConfig = {
     if (!isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
+        maxInitialRequests: 30,
+        maxAsyncRequests: 30,
+        minSize: 20000,
+        maxSize: 244000,
         cacheGroups: {
+          // Critical vendor libraries - split by size
           vendor: {
             test: /[\\/]node_modules[\\/]/,
             name: 'vendors',
             chunks: 'all',
+            priority: 10,
+            maxSize: 100000,
           },
+          // Large vendor libraries - separate chunks
+          largeVendor: {
+            test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+            name: 'large-vendor',
+            chunks: 'all',
+            priority: 15,
+            maxSize: 150000,
+          },
+          // Framer Motion - separate chunk for animations
           framerMotion: {
             test: /[\\/]node_modules[\\/]framer-motion[\\/]/,
             name: 'framer-motion',
             chunks: 'all',
+            priority: 20,
+          },
+          // UI components - separate chunk
+          uiComponents: {
+            test: /[\\/]src[\\/]components[\\/]ui[\\/]/,
+            name: 'ui-components',
+            chunks: 'all',
+            priority: 8,
+          },
+          // Page components - separate chunk
+          pageComponents: {
+            test: /[\\/]src[\\/]app[\\/].*[\\/]_components[\\/]/,
+            name: 'page-components',
+            chunks: 'all',
+            priority: 7,
+          },
+          // Common components
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            priority: 5,
+            reuseExistingChunk: true,
+            maxSize: 50000,
+          },
+          // Default chunks
+          default: {
+            minChunks: 2,
+            priority: -20,
+            reuseExistingChunk: true,
+            maxSize: 100000,
           },
         },
       };

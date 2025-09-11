@@ -1,12 +1,25 @@
 import dynamic from 'next/dynamic';
 import { HeroSection } from './_components';
+import { ResourcePreloader, LoadingProgress, ErrorBoundary } from '@/components';
 import type { Metadata } from 'next';
 
-// Lazy load non-critical components
-const WhoWeAre = dynamic(() => import('./_components').then(mod => ({ default: mod.WhoWeAre })));
-const ChallengesSection = dynamic(() => import('./_components').then(mod => ({ default: mod.ChallengesSection })));
-const OurSolutions = dynamic(() => import('./_components').then(mod => ({ default: mod.ServicesOverview })));
-const FeaturedCaseStudy = dynamic(() => import('./_components').then(mod => ({ default: mod.FeaturedCaseStudy })));
+// Critical components - loaded immediately
+// Non-critical components - lazy loaded with intersection observer
+const WhoWeAre = dynamic(() => import('./_components').then(mod => ({ default: mod.WhoWeAre })), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded-lg"></div>
+});
+
+const ChallengesSection = dynamic(() => import('./_components').then(mod => ({ default: mod.ChallengesSection })), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-lg"></div>
+});
+
+const OurSolutions = dynamic(() => import('./_components').then(mod => ({ default: mod.ServicesOverview })), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded-lg"></div>
+});
+
+const FeaturedCaseStudy = dynamic(() => import('./_components').then(mod => ({ default: mod.FeaturedCaseStudy })), {
+  loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-lg"></div>
+});
 
 export const metadata: Metadata = {
   title: "China Business Solutions | Your Gateway to the China Market",
@@ -50,7 +63,10 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <>
+    <ErrorBoundary>
+      {/* Loading Progress Indicator */}
+      <LoadingProgress />
+      
       {/* Structured Data for SEO */}
       <script
         type="application/ld+json"
@@ -90,12 +106,27 @@ export default function HomePage() {
       />
       
       <main>
+        {/* Critical above-the-fold content */}
         <HeroSection />
+        
+        {/* Smart Resource Preloader */}
+        <ResourcePreloader 
+          preloadRoutes={['/services', '/about', '/contact', '/insights']}
+          preloadImages={['/images/hero-background.webp']}
+          preloadComponents={[
+            '@/components/ui/AnimatedCounter',
+            '@/components/ui/hover-effect'
+          ]}
+          delay={1500}
+          userInteraction={true}
+        />
+        
+        {/* Non-critical content - lazy loaded with skeleton screens */}
         <WhoWeAre />
         <ChallengesSection />
         <OurSolutions />
         <FeaturedCaseStudy />
       </main>
-    </>
+    </ErrorBoundary>
   );
 }
