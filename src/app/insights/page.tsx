@@ -1,9 +1,26 @@
+'use client';
+
 import Link from 'next/link';
 import Image from 'next/image';
-import { getAllPosts, PostMeta } from '@/lib/posts';
+import { useState } from 'react';
 import ArticleCard from './_components/ArticleCard';
 import Pagination from './_components/Pagination';
+import { articles } from '@/config/articles';
 
+// PostMeta interface
+interface PostMeta {
+  title: string;
+  date: string;
+  excerpt: string;
+  category: string;
+  slug: string;
+  image?: string;
+  readTime?: string;
+  featured?: boolean;
+  author?: string;
+  tags?: string[];
+  href: string;
+}
 
 // 精选文章大卡片组件
 function FeaturedArticleCard({ post }: { post: PostMeta }) {
@@ -66,9 +83,56 @@ function FeaturedArticleCard({ post }: { post: PostMeta }) {
   );
 }
 
-export default async function InsightsPage() {
+export default function InsightsPage() {
+  // 订阅状态管理
+  const [email, setEmail] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [submitMessage, setSubmitMessage] = useState('');
+
   // 获取所有文章
-  const allPosts = await getAllPosts();
+  const allPosts = articles.map(article => ({
+    ...article,
+    date: article.publishDate, // Map publishDate to date
+    href: `/insights/blog/${article.slug}`
+  }));
+
+  // 订阅处理函数
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+    setSubmitMessage('');
+
+    try {
+      const response = await fetch('/api/submissions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          type: 'subscription',
+          email: email,
+        }),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setSubmitMessage(result.message);
+        setEmail(''); // Reset email
+      } else {
+        setSubmitStatus('error');
+        setSubmitMessage(result.error || 'An error occurred. Please try again.');
+      }
+    } catch (error) {
+      setSubmitStatus('error');
+      setSubmitMessage('Network error. Please check your connection and try again.');
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   
   // 如果没有文章，显示空状态
   if (allPosts.length === 0) {
@@ -193,16 +257,42 @@ export default async function InsightsPage() {
             <p className="text-lg text-text-main font-body leading-relaxed mb-8 max-w-2xl mx-auto">
               Get the latest market analysis and compliance updates delivered straight to your inbox.
             </p>
-            <div className="max-w-md mx-auto flex flex-col sm:flex-row gap-4">
-              <input
-                type="email"
-                placeholder="Enter your email address"
-                className="flex-1 px-4 py-3 bg-background border border-gray-700 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300"
-              />
-              <button className="bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg hover:shadow-xl">
-                Subscribe
-              </button>
-            </div>
+            <form onSubmit={handleSubscribe} className="max-w-md mx-auto">
+              {/* Status Message */}
+              {submitStatus === 'success' && (
+                <div className="mb-4 p-4 bg-green-900 border border-green-700 rounded-lg text-green-300">
+                  {submitMessage}
+                </div>
+              )}
+              
+              {submitStatus === 'error' && (
+                <div className="mb-4 p-4 bg-red-900 border border-red-700 rounded-lg text-red-300">
+                  {submitMessage}
+                </div>
+              )}
+
+              <div className="flex flex-col sm:flex-row gap-4">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email address"
+                  required
+                  className="flex-1 px-4 py-3 bg-background border border-gray-700 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300"
+                />
+                <button 
+                  type="submit"
+                  disabled={isSubmitting}
+                  className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg ${
+                    isSubmitting
+                      ? 'bg-gray-600 text-gray-400 cursor-not-allowed'
+                      : 'bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white hover:shadow-xl'
+                  }`}
+                >
+                  {isSubmitting ? 'Subscribing...' : 'Subscribe'}
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
