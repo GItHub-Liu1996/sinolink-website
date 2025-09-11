@@ -2,7 +2,7 @@ import dynamic from 'next/dynamic';
 import { HeroSection } from './_components';
 import type { Metadata } from 'next';
 
-// 懒加载非首屏组件
+// Lazy load non-critical components
 const WhoWeAre = dynamic(() => import('./_components').then(mod => ({ default: mod.WhoWeAre })));
 const ChallengesSection = dynamic(() => import('./_components').then(mod => ({ default: mod.ChallengesSection })));
 const OurSolutions = dynamic(() => import('./_components').then(mod => ({ default: mod.ServicesOverview })));

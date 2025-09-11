@@ -27,8 +27,8 @@ export default function Contact() {
     setSubmitMessage('');
 
     try {
-      console.log('发送请求到:', '/api/submissions/');
-      console.log('请求数据:', {
+      console.log('Sending request to:', '/api/submissions/');
+      console.log('Request data:', {
         type: 'inquiry',
         name: formData.fullName,
         email: formData.workEmail,
@@ -50,15 +50,15 @@ export default function Contact() {
         }),
       });
 
-      console.log('响应状态:', response.status);
-      console.log('响应头:', response.headers);
+      console.log('Response status:', response.status);
+      console.log('Response headers:', response.headers);
 
       if (!response.ok) {
         throw new Error(`HTTP error! status: ${response.status}`);
       }
 
       const result = await response.json();
-      console.log('响应结果:', result);
+      console.log('Response result:', result);
 
       if (result.success) {
         setSubmitStatus('success');
@@ -75,9 +75,9 @@ export default function Contact() {
         setSubmitMessage(result.error || 'An error occurred. Please try again.');
       }
     } catch (error) {
-      console.error('提交错误:', error);
+      console.error('Submission error:', error);
       setSubmitStatus('error');
-      setSubmitMessage(`提交失败: ${error instanceof Error ? error.message : '未知错误'}`);
+      setSubmitMessage(`Submission failed: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setIsSubmitting(false);
     }

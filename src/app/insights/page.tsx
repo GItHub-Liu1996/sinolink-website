@@ -22,13 +22,13 @@ interface PostMeta {
   href: string;
 }
 
-// 精选文章大卡片组件
+// Featured article large card component
 function FeaturedArticleCard({ post }: { post: PostMeta }) {
   return (
     <Link href={post.href} className="group block">
       <div className="bg-background-secondary rounded-2xl overflow-hidden border border-gray-700 hover:border-accent-cyan transition-all duration-300 hover:shadow-2xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
-          {/* 图片部分 */}
+          {/* Image section */}
           <div className="relative h-64 lg:h-auto overflow-hidden">
             <Image
               src={post.image || 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80'}
@@ -43,7 +43,7 @@ function FeaturedArticleCard({ post }: { post: PostMeta }) {
             </div>
           </div>
           
-          {/* 内容部分 */}
+          {/* Content section */}
           <div className="p-8 lg:p-12 flex flex-col justify-center">
             <div className="mb-4">
               <span className="inline-block px-3 py-1 bg-gradient-to-r from-accent-cyan/20 to-accent-magenta/20 text-accent-cyan rounded-full text-sm font-medium border border-accent-cyan/30">
@@ -84,20 +84,20 @@ function FeaturedArticleCard({ post }: { post: PostMeta }) {
 }
 
 export default function InsightsPage() {
-  // 订阅状态管理
+  // Subscription state management
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [submitMessage, setSubmitMessage] = useState('');
 
-  // 获取所有文章
+  // Get all articles
   const allPosts = articles.map(article => ({
     ...article,
     date: article.publishDate, // Map publishDate to date
     href: `/insights/blog/${article.slug}`
   }));
 
-  // 订阅处理函数
+  // Subscription handler function
   const handleSubscribe = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -134,7 +134,7 @@ export default function InsightsPage() {
     }
   };
   
-  // 如果没有文章，显示空状态
+  // If no articles, show empty state
   if (allPosts.length === 0) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -146,15 +146,15 @@ export default function InsightsPage() {
     );
   }
 
-  // 第一篇作为精选文章，其余作为文章列表
+  // First article as featured, rest as article list
   const featuredPost = allPosts[0];
   const remainingPosts = allPosts.slice(1);
 
-  // 分页设置：每页显示8篇文章（在网格中）
+  // Pagination settings: 8 articles per page (in grid)
   const postsPerPage = 8;
   const totalPages = Math.ceil(remainingPosts.length / postsPerPage);
 
-  // 分类数据
+  // Category data
   const topicCategories = [
     { name: "Market Entry", href: "/insights/category/market-entry" },
     { name: "Operations and Compliance", href: "/insights/category/operations-compliance" },
@@ -237,7 +237,7 @@ export default function InsightsPage() {
             ))}
           </div>
 
-          {/* 分页组件 */}
+          {/* Pagination component */}
           {totalPages > 1 && (
             <Pagination
               currentPage={1}
