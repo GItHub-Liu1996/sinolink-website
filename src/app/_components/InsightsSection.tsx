@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Link from 'next/link';
+import { lazy, Suspense } from 'react';
 
 export default function InsightsSection() {
   const insights = [
@@ -109,7 +110,7 @@ export default function InsightsSection() {
                   href={insight.href}
                   className={`inline-flex items-center gap-2 text-${insight.color} font-semibold hover:text-${insight.color}/80 transition-colors duration-300 font-body`}
                 >
-                  Read more
+                  {item.type === 'blog' ? '阅读完整文章' : item.type === 'case-study' ? '查看案例详情' : '了解更多'}
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
