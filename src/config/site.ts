@@ -46,49 +46,52 @@ export const insightCategories = [
   { slug: 'growth-strategy', label: 'Growth & Strategy' },
 ];
 
-// Service categories for footer
-export const serviceCategories = [
+// Core service areas for footer (simplified)
+export const coreServices = [
   {
-    title: 'Company Formation',
+    title: 'Strategic Consulting',
+    description: 'Market entry strategies and business planning',
     links: [
-      { href: '/services/wfoe-registration', label: 'WFOE Registration' },
-      { href: '/services/company-setup', label: 'Company Setup' },
-      { href: '/services/business-license', label: 'Business License' },
-    ]
-  },
-  {
-    title: 'Compliance & Operations',
-    links: [
-      { href: '/services/tax-compliance', label: 'Tax Compliance' },
-      { href: '/services/accounting', label: 'Accounting Services' },
-      { href: '/services/hr-services', label: 'HR Services' },
-    ]
-  },
-  {
-    title: 'Market Entry',
-    links: [
-      { href: '/services/market-research', label: 'Market Research' },
-      { href: '/services/partnership', label: 'Partnership Setup' },
+      { href: '/services/market-entry', label: 'Market Entry Strategy' },
+      { href: '/services/business-planning', label: 'Business Planning' },
       { href: '/services/expansion', label: 'Business Expansion' },
     ]
   },
   {
-    title: 'Support Services',
+    title: 'Operations & Compliance',
+    description: 'Regulatory compliance and operational excellence',
     links: [
+      { href: '/services/wfoe-registration', label: 'WFOE Registration' },
+      { href: '/services/tax-compliance', label: 'Tax Compliance' },
+      { href: '/services/accounting', label: 'Accounting Services' },
+    ]
+  },
+  {
+    title: 'Compliance Management',
+    description: 'Ongoing compliance and regulatory support',
+    links: [
+      { href: '/services/hr-services', label: 'HR Services' },
       { href: '/services/visa-services', label: 'Visa Services' },
       { href: '/services/legal-support', label: 'Legal Support' },
+    ]
+  },
+  {
+    title: 'Market Entry',
+    description: 'Complete market entry solutions',
+    links: [
+      { href: '/services/market-research', label: 'Market Research' },
+      { href: '/services/partnership', label: 'Partnership Setup' },
       { href: '/services/consulting', label: 'Strategic Consulting' },
     ]
   }
 ];
 
-// Resource center links
-export const resourceLinks = [
-  { href: '/insights', label: 'Latest Insights', description: 'Industry news and analysis' },
-  { href: '/insights/case-studies', label: 'Case Studies', description: 'Success stories from our clients' },
-  { href: '/insights/whitepapers', label: 'White Papers', description: 'In-depth research reports' },
-  { href: '/insights/tools', label: 'Business Tools', description: 'Calculators and templates' },
-  { href: '/insights/downloads', label: 'Downloads', description: 'Free resources and guides' },
+// Professional resources for footer (simplified)
+export const professionalResources = [
+  { href: '/insights', label: 'Latest Insights', description: 'Industry analysis and trends' },
+  { href: '/insights/case-studies', label: 'Client Success Stories', description: 'Real-world case studies' },
+  { href: '/insights/whitepapers', label: 'Research Reports', description: 'In-depth market research' },
+  { href: '/insights/tools', label: 'Business Tools', description: 'Practical resources and guides' },
 ];
 
 // Legal links
