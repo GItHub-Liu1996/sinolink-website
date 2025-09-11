@@ -127,13 +127,6 @@ export default function TermsOfServicePage() {
               </section>
             </div>
 
-            <div className="mt-12 p-6 bg-background-primary rounded-xl border border-gray-600">
-              <p className="text-sm text-gray-400 italic">
-                <strong className="text-white">Legal Notice:</strong> This is a template terms of service. 
-                Please consult with a qualified legal professional to ensure compliance with applicable 
-                laws and regulations in your jurisdiction.
-              </p>
-            </div>
           </div>
 
           <div className="mt-12 flex flex-col sm:flex-row gap-4">
