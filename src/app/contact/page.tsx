@@ -27,6 +27,15 @@ export default function Contact() {
     setSubmitMessage('');
 
     try {
+      console.log('发送请求到:', '/api/submissions/');
+      console.log('请求数据:', {
+        type: 'inquiry',
+        name: formData.fullName,
+        email: formData.workEmail,
+        company: formData.companyName,
+        message: formData.message,
+      });
+
       const response = await fetch('/api/submissions/', {
         method: 'POST',
         headers: {
@@ -41,7 +50,15 @@ export default function Contact() {
         }),
       });
 
+      console.log('响应状态:', response.status);
+      console.log('响应头:', response.headers);
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
       const result = await response.json();
+      console.log('响应结果:', result);
 
       if (result.success) {
         setSubmitStatus('success');
@@ -58,8 +75,9 @@ export default function Contact() {
         setSubmitMessage(result.error || 'An error occurred. Please try again.');
       }
     } catch (error) {
+      console.error('提交错误:', error);
       setSubmitStatus('error');
-      setSubmitMessage('Network error. Please check your connection and try again.');
+      setSubmitMessage(`提交失败: ${error instanceof Error ? error.message : '未知错误'}`);
     } finally {
       setIsSubmitting(false);
     }
