@@ -1,6 +1,6 @@
 // Site configuration constants
 export const siteConfig = {
-  name: 'ChinaBiz Solutions',
+  name: 'GoChinaAdvisors',
   description: 'Your trusted partner for seamless market entry into China. Professional consulting services for company registration, compliance, and sustainable growth.',
   url: 'https://chinabizsolutions.com',
   ogImage: '/og-image.jpg',
@@ -13,15 +13,15 @@ export const siteConfig = {
 // Navigation links
 export const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/services', label: 'Services' },
-  { href: '/about', label: 'About' },
-  { href: '/insights', label: 'Insights' },
+  { href: '/services', label: 'Solutions' },
+  { href: '/about', label: 'About Us' },
+  { href: '/insights', label: 'News & Insights' },
   { href: '/contact', label: 'Contact' },
 ];
 
 // Contact information
 export const contactInfo = {
-  email: 'info@chinabizsolutions.com',
+  email: 'info@gochinaadvisors.com',
   phone: '+86 21 1234 5678',
   address: {
     street: 'Suite 2001, Shanghai Tower',
@@ -32,10 +32,10 @@ export const contactInfo = {
 
 // Social media links
 export const socialLinks = [
-  { name: 'LinkedIn', href: 'https://linkedin.com/company/chinabizsolutions', icon: 'linkedin' },
-  { name: 'YouTube', href: 'https://youtube.com/@chinabizsolutions', icon: 'youtube' },
-  { name: 'TikTok', href: 'https://tiktok.com/@chinabizsolutions', icon: 'tiktok' },
-  { name: 'Facebook', href: 'https://facebook.com/chinabizsolutions', icon: 'facebook' },
+  { name: 'LinkedIn', href: 'https://linkedin.com/company/gochinaadvisors', icon: 'linkedin' },
+  { name: 'YouTube', href: 'https://youtube.com/@gochinaadvisors', icon: 'youtube' },
+  { name: 'TikTok', href: 'https://tiktok.com/@gochinaadvisors', icon: 'tiktok' },
+  { name: 'Facebook', href: 'https://facebook.com/gochinaadvisors', icon: 'facebook' },
 ];
 
 // Service categories for insights

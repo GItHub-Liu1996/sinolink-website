@@ -67,14 +67,39 @@ export default function Services() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-text-heading mb-6 font-sans">
+          <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent-primary/10 text-accent-primary text-sm font-medium mb-6">
+            <span className="w-2 h-2 bg-accent-primary rounded-full mr-2"></span>
+            Professional Services
+          </div>
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-heading mb-6 font-sans leading-tight">
             An End-to-End Service Ecosystem
           </h1>
-          <p className="text-xl text-text-main max-w-3xl mx-auto font-body leading-relaxed">
-            Covering the entire lifecycle of your business in China—from initial setup to long-term growth.
+          <p className="text-xl text-text-main max-w-4xl mx-auto font-body leading-relaxed mb-8">
+            Covering the entire lifecycle of your business in China—from initial setup to long-term growth. 
+            Our comprehensive solutions ensure your success at every stage.
           </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="flex items-center text-sm text-text-muted">
+              <span className="w-8 h-8 bg-accent-primary/20 rounded-full flex items-center justify-center mr-3">
+                <span className="text-accent-primary font-bold">15+</span>
+              </span>
+              Years of Experience
+            </div>
+            <div className="flex items-center text-sm text-text-muted">
+              <span className="w-8 h-8 bg-accent-primary/20 rounded-full flex items-center justify-center mr-3">
+                <span className="text-accent-primary font-bold">500+</span>
+              </span>
+              Successful Projects
+            </div>
+            <div className="flex items-center text-sm text-text-muted">
+              <span className="w-8 h-8 bg-accent-primary/20 rounded-full flex items-center justify-center mr-3">
+                <span className="text-accent-primary font-bold">99%</span>
+              </span>
+              Success Rate
+            </div>
+          </div>
         </motion.div>
 
         {/* Featured Services */}

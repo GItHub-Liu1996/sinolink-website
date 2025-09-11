@@ -24,13 +24,13 @@ const lexend = Lexend({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://sinolink.monster'),
-  title: "China Business Solutions - Your Trusted Partner for Market Entry",
+  metadataBase: new URL('https://gochinaadvisors.com'),
+  title: "GoChinaAdvisors - Your Trusted Partner for Market Entry",
   description: "Professional consulting services for company registration, compliance, and growth in China. Expert guidance for WFOE, Joint Ventures, and business operations.",
   keywords: ["China business", "WFOE registration", "company setup", "business compliance", "China market entry", "business consulting"],
-  authors: [{ name: "ChinaBiz Solutions" }],
-  creator: "ChinaBiz Solutions",
-  publisher: "ChinaBiz Solutions",
+  authors: [{ name: "GoChinaAdvisors" }],
+  creator: "GoChinaAdvisors",
+  publisher: "GoChinaAdvisors",
   robots: {
     index: true,
     follow: true,

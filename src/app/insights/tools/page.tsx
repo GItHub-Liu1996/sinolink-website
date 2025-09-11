@@ -84,7 +84,7 @@ export default function ToolsPage() {
           {categories.map((category) => (
             <button
               key={category}
-              className="px-4 py-2 rounded-full border border-gray-600 text-gray-300 hover:border-accent-cyan hover:text-accent-cyan transition-colors duration-300"
+              className="px-4 py-2 rounded-full border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary transition-all duration-300"
             >
               {category}
             </button>

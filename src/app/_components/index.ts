@@ -10,3 +10,5 @@ export { default as ProblemSolution } from './ProblemSolution';
 export { default as SolutionCard } from './SolutionCard';
 export { default as Testimonials } from './Testimonials';
 export { default as ChallengesWeSolve } from './ChallengesWeSolve';
+export { default as StatsSection } from './StatsSection';
+export { default as InsightsSection } from './InsightsSection';

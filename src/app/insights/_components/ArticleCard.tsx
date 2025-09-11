@@ -50,8 +50,8 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
         whileHover={{ y: -8, scale: 1.02 }}
-        className={`bg-background-secondary rounded-xl overflow-hidden border border-gray-700 hover:border-accent-cyan transition-all duration-300 shadow-sm hover:shadow-2xl group-hover:shadow-2xl ${
-          featured ? 'shadow-lg' : ''
+        className={`bg-white rounded-2xl overflow-hidden border border-gray-100 hover:border-accent-primary transition-all duration-300 shadow-lg hover:shadow-2xl group-hover:shadow-2xl ${
+          featured ? 'shadow-xl' : ''
         }`}
       >
         {/* Image */}

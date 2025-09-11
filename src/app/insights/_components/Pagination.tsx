@@ -8,7 +8,7 @@ interface PaginationProps {
 export default function Pagination({ currentPage, totalPages }: PaginationProps) {
   const handlePageChange = (page: number) => {
     // 简单的分页逻辑，后续可以添加URL更新等
-    console.log('Page changed to:', page);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
@@ -16,7 +16,7 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
       <button
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className="px-4 py-2 bg-background-secondary border border-gray-700 rounded-lg text-text-main hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+        className="px-4 py-2 border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 rounded-lg"
       >
         Previous
       </button>
@@ -28,8 +28,8 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
             onClick={() => handlePageChange(page)}
             className={`px-3 py-2 rounded-lg transition-all duration-300 ${
               page === currentPage
-                ? 'bg-accent-cyan text-background'
-                : 'bg-background-secondary border border-gray-700 text-text-main hover:bg-gray-700'
+                ? 'bg-gradient-to-r from-accent-cyan to-accent-magenta text-white shadow-lg'
+                : 'border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary'
             }`}
           >
             {page}
@@ -40,7 +40,7 @@ export default function Pagination({ currentPage, totalPages }: PaginationProps)
       <button
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className="px-4 py-2 bg-background-secondary border border-gray-700 rounded-lg text-text-main hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300"
+        className="px-4 py-2 border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 rounded-lg"
       >
         Next
       </button>

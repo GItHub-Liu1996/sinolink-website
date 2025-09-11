@@ -8,25 +8,43 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-montserrat)', 'sans-serif'], // 标题字体
-        body: ['var(--font-lexend)', 'sans-serif'],     // 正文字体
+        sans: ['Source Sans Pro', 'Inter', 'Open Sans', 'sans-serif'], // Vistra风格专业字体
+        body: ['Inter', 'Source Sans Pro', 'sans-serif'],     // 正文字体 - 专业清晰
+        heading: ['Source Sans Pro', 'Inter', 'sans-serif'], // 标题字体 - 企业级
       },
       colors: {
         background: {
-          DEFAULT: '#0B1120', // 深邃午夜蓝
-          secondary: '#1A2130', // 用于卡片
+          primary: '#FFFFFF',      // Vistra's white background
+          secondary: '#F8FAFC',   // Vistra's light gray background
+          tertiary: '#F1F5F9',    // Vistra's elevated elements
+          accent: '#1E40AF',      // Vistra's accent background
         },
         text: {
-          main: '#D1D5DB',      // 主体文字
-          heading: '#FFFFFF',    // 标题
+          main: '#1E293B',        // Vistra's dark text color
+          heading: '#0F172A',     // Vistra's dark heading color
+          muted: '#64748B',        // Vistra's muted text
+          accent: '#3B82F6',      // Vistra's accent text
         },
         accent: {
-          cyan: '#22d3ee',
-          magenta: '#c026d3',
+          primary: '#3B82F6',     // Vistra's primary blue
+          secondary: '#1D4ED8',   // Vistra's darker blue
+          cyan: '#06B6D4',        // Vistra's cyan accent
+          magenta: '#8B5CF6',     // Vistra's purple accent
+          orange: '#F59E0B',      // Vistra's orange accent
+        },
+        status: {
+          success: '#10B981',     // Vistra's success green
+          warning: '#F59E0B',     // Vistra's warning amber
+          error: '#EF4444',       // Vistra's error red
+          info: '#3B82F6',        // Vistra's info blue
         },
       },
       backgroundImage: {
-        'cyber-gradient': 'linear-gradient(90deg, #22d3ee, #c026d3)',
+        'vistra-primary': 'linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%)',
+        'vistra-secondary': 'linear-gradient(135deg, #06B6D4 0%, #0891B2 100%)',
+        'vistra-accent': 'linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%)',
+        'vistra-warm': 'linear-gradient(135deg, #F59E0B 0%, #D97706 100%)',
+        'vistra-hero': 'linear-gradient(135deg, #0B1120 0%, #1E293B 50%, #0B1120 100%)',
       },
       typography: ({ theme }) => ({
         DEFAULT: {

@@ -5,137 +5,201 @@ import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
 export default function FeaturedCaseStudy() {
   return (
-    <section className="py-24 bg-background">
-      <div className="max-w-7xl mx-auto px-6">
+    <section className="py-16 md:py-24 bg-gradient-to-br from-background-primary via-background-secondary to-background-primary">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Module Title */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-12 md:mb-16"
         >
-          <h2 className="text-4xl font-bold text-center mb-6 text-text-heading font-sans">
-            Real Clients, Measurable Results.
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6 text-text-heading font-heading leading-tight">
+            Proven Results, Real Impact
           </h2>
-          <p className="text-lg text-text-main font-body leading-relaxed max-w-3xl mx-auto">
-            We don't just provide services; we deliver outcomes. See how we helped a global leader succeed in China.
+          <p className="text-lg md:text-xl text-text-main font-body leading-relaxed max-w-3xl mx-auto">
+            See how we've transformed businesses across industries with measurable, lasting results.
           </p>
         </motion.div>
 
-        {/* Main Container */}
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-[#1A2130] rounded-2xl p-12 border border-gray-700"
-        >
-          {/* Two Column Layout */}
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
-            {/* Left Column - Results & Data (40%) */}
-            <div className="lg:col-span-2">
-              {/* Client Logo Placeholder */}
-              <div className="mb-8">
-                <div className="w-32 h-16 bg-gray-600 rounded-lg flex items-center justify-center mb-4">
-                  <span className="text-white font-bold text-lg">Global Innovations</span>
-                </div>
-              </div>
-
-              {/* Core Metrics */}
-              <div className="space-y-8">
-                {/* Metric 1 */}
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-accent-cyan mb-2 font-sans">
-                    <AnimatedCounter end={50} suffix="%" />
-                  </div>
-                  <div className="text-lg font-semibold text-text-heading mb-1">Faster</div>
-                  <div className="text-sm text-text-main font-body">Market Entry</div>
-                </div>
-
-                {/* Metric 2 */}
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-accent-cyan mb-2 font-sans">
-                    <AnimatedCounter end={100} suffix="%" />
-                  </div>
-                  <div className="text-lg font-semibold text-text-heading mb-1">Compliance</div>
-                  <div className="text-sm text-text-main font-body">Initial Rate</div>
-                </div>
-
-                {/* Metric 3 */}
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-accent-cyan mb-2 font-sans">
-                    <AnimatedCounter end={6} suffix=" Months" />
-                  </div>
-                  <div className="text-lg font-semibold text-text-heading mb-1">Project</div>
-                  <div className="text-sm text-text-main font-body">Timeline</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column - Story & Testimonial (60%) */}
-            <div className="lg:col-span-3 space-y-8">
-              {/* The Challenge */}
-              <div>
-                <h3 className="text-2xl font-bold text-text-heading mb-4 font-sans">The Challenge</h3>
-                <p className="text-text-main font-body leading-relaxed">
-                  Global Innovations Ltd, a leader in financial services, needed to establish a WFOE in Shanghai under a tight deadline to capture a fleeting market opportunity.
-                </p>
-              </div>
-
-              {/* Our Solution */}
-              <div>
-                <h3 className="text-2xl font-bold text-text-heading mb-4 font-sans">Our Solution</h3>
-                <p className="text-text-main font-body leading-relaxed">
-                  Our team provided end-to-end strategic guidance, navigating complex regulatory hurdles and streamlining the entire registration process.
-                </p>
-              </div>
-
-              {/* Client Testimonial */}
-              <div className="bg-background-secondary rounded-xl p-8 border border-gray-600">
-                <div className="flex items-start gap-4">
-                  {/* Quote Icon */}
-                  <div className="w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h4v10h-10z"/>
-                    </svg>
-                  </div>
-                  
-                  {/* Testimonial Content */}
-                  <div className="flex-1">
-                    <blockquote className="text-lg text-text-main italic mb-6 font-body leading-relaxed">
-                      "ChinaBiz Solutions transformed our China market entry from a daunting challenge into a smooth, successful launch. Their expertise in WFOE registration and ongoing compliance support allowed us to focus on growing our business rather than navigating bureaucratic complexities."
-                    </blockquote>
-                    
-                    {/* Client Info */}
-                    <div className="flex items-center gap-4">
-                      <div className="w-12 h-12 bg-gray-600 rounded-full flex items-center justify-center">
-                        <span className="text-white font-bold text-sm">SC</span>
-                      </div>
-                      <div>
-                        <div className="text-text-heading font-semibold font-sans">Sarah Chen</div>
-                        <div className="text-accent-cyan font-medium text-sm">CEO</div>
-                        <div className="text-text-main font-body text-sm">Global Innovations Ltd</div>
-                      </div>
+        {/* 创意时间线设计 */}
+        <div className="relative">
+          {/* 中央时间线 */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent-cyan via-accent-magenta to-accent-orange rounded-full"></div>
+          
+          {/* 时间线节点 */}
+          <div className="space-y-16">
+            {/* 节点1 - 左侧 */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.1 }}
+              viewport={{ once: true }}
+              className="relative flex items-center"
+            >
+              {/* 时间线圆点 */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent-cyan rounded-full border-4 border-white shadow-lg z-10"></div>
+              
+              {/* 内容卡片 - 左侧 */}
+              <div className="w-5/12 ml-auto pr-8">
+                <div className="bg-white rounded-2xl p-8 border-2 border-accent-cyan/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-text-heading font-heading">TechGlobal Solutions</h3>
+                      <p className="text-accent-cyan font-semibold font-body">SaaS Technology Leader</p>
                     </div>
                   </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent-cyan font-heading">2.5</div>
+                      <div className="text-sm text-text-main font-body">Months</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-500 font-heading">$180K</div>
+                      <div className="text-sm text-text-main font-body">Saved</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent-magenta font-heading">$2.1M</div>
+                      <div className="text-sm text-text-main font-body">Revenue</div>
+                    </div>
+                  </div>
+                  
+                  <blockquote className="text-text-main italic font-body">
+                    "ChinaBiz helped us launch 6 months ahead of schedule, generating $2.1M in first-year revenue."
+                  </blockquote>
                 </div>
               </div>
-            </div>
-          </div>
-        </motion.div>
+            </motion.div>
 
-        {/* CTA Button */}
+            {/* 节点2 - 右侧 */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="relative flex items-center"
+            >
+              {/* 时间线圆点 */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent-magenta rounded-full border-4 border-white shadow-lg z-10"></div>
+              
+              {/* 内容卡片 - 右侧 */}
+              <div className="w-5/12 mr-auto pl-8">
+                <div className="bg-white rounded-2xl p-8 border-2 border-accent-magenta/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent-magenta to-accent-orange rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-text-heading font-heading">EcoTech Industries</h3>
+                      <p className="text-accent-magenta font-semibold font-body">Manufacturing Excellence</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent-cyan font-heading">4</div>
+                      <div className="text-sm text-text-main font-body">Months</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-500 font-heading">$320K</div>
+                      <div className="text-sm text-text-main font-body">Saved</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent-magenta font-heading">+150%</div>
+                      <div className="text-sm text-text-main font-body">Capacity</div>
+                    </div>
+                  </div>
+                  
+                  <blockquote className="text-text-main italic font-body">
+                    "Their expertise in manufacturing regulations saved us $320K in compliance costs."
+                  </blockquote>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* 节点3 - 左侧 */}
+            <motion.div
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+              className="relative flex items-center"
+            >
+              {/* 时间线圆点 */}
+              <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent-orange rounded-full border-4 border-white shadow-lg z-10"></div>
+              
+              {/* 内容卡片 - 左侧 */}
+              <div className="w-5/12 ml-auto pr-8">
+                <div className="bg-white rounded-2xl p-8 border-2 border-accent-orange/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-accent-orange to-yellow-500 rounded-full flex items-center justify-center">
+                      <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-text-heading font-heading">Global Innovations</h3>
+                      <p className="text-accent-orange font-semibold font-body">Financial Services</p>
+                    </div>
+                  </div>
+                  
+                  <div className="grid grid-cols-3 gap-4 mb-6">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent-cyan font-heading">3</div>
+                      <div className="text-sm text-text-main font-body">Months</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-green-500 font-heading">$450K</div>
+                      <div className="text-sm text-text-main font-body">Saved</div>
+                    </div>
+                    <div className="text-center">
+                      <div className="text-3xl font-bold text-accent-magenta font-heading">+25%</div>
+                      <div className="text-sm text-text-main font-body">Market Share</div>
+                    </div>
+                  </div>
+                  
+                  <blockquote className="text-text-main italic font-body">
+                    "Complex financial regulations handled flawlessly. We're now market leaders in Shanghai."
+                  </blockquote>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+
+        {/* 底部统计 - 六边形设计 */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
+          transition={{ duration: 0.8, delay: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mt-12"
+          className="mt-20 text-center"
         >
-          <button className="border-2 border-accent-cyan hover:bg-accent-cyan hover:text-background text-accent-cyan px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-300">
-            Explore More Case Studies
-          </button>
+          <div className="inline-flex items-center gap-8 bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-2xl">
+            <div className="text-center">
+              <div className="text-4xl font-bold text-accent-cyan font-heading">340%</div>
+              <div className="text-sm text-text-main font-body">Average ROI</div>
+            </div>
+            <div className="w-px h-12 bg-gray-300"></div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-accent-magenta font-heading">98%</div>
+              <div className="text-sm text-text-main font-body">Success Rate</div>
+            </div>
+            <div className="w-px h-12 bg-gray-300"></div>
+            <div className="text-center">
+              <div className="text-4xl font-bold text-accent-orange font-heading">500+</div>
+              <div className="text-sm text-text-main font-body">Companies</div>
+            </div>
+          </div>
         </motion.div>
       </div>
     </section>

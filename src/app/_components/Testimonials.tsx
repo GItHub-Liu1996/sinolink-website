@@ -65,7 +65,7 @@ export default function Testimonials() {
           onMouseEnter={() => setIsHovered(true)}
           onMouseLeave={() => setIsHovered(false)}
         >
-                  <div className="bg-background-secondary rounded-lg p-6 sm:p-8 md:p-10 border border-gray-700 animate-fade-in">
+                  <div className="bg-white rounded-2xl p-8 sm:p-10 md:p-12 border border-gray-100 shadow-xl animate-fade-in">
               <div className="text-center">
                 {/* Quote Icon */}
                 <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mx-auto mb-6 sm:mb-8">

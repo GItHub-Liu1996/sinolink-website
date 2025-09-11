@@ -14,7 +14,7 @@ export default function SolutionCard({ icon, title, overviewText, services }: So
   const [activeTab, setActiveTab] = useState<'overview' | 'services'>('overview');
 
   return (
-    <div className="bg-background-secondary rounded-2xl p-6 sm:p-8 h-full border border-gray-700 hover:border-accent-cyan transition-all duration-300 hover:shadow-lg hover:shadow-accent-cyan/10">
+    <div className="bg-white rounded-3xl p-8 sm:p-10 h-full border-2 border-gray-200 hover:border-accent-primary transition-all duration-300 hover:shadow-2xl hover:shadow-accent-primary/20 hover:-translate-y-2 group">
       {/* Icon and Title */}
       <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
         <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-lg flex items-center justify-center text-white flex-shrink-0">
@@ -30,20 +30,20 @@ export default function SolutionCard({ icon, title, overviewText, services }: So
       <div className="flex gap-2 mb-4 sm:mb-6">
         <button
           onClick={() => setActiveTab('overview')}
-          className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+          className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
             activeTab === 'overview'
-              ? 'bg-accent-cyan text-white'
-              : 'bg-gray-700 text-text-body hover:bg-gray-600'
+              ? 'bg-gradient-to-r from-accent-cyan to-accent-magenta text-white shadow-lg'
+              : 'border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary'
           }`}
         >
           Overview
         </button>
         <button
           onClick={() => setActiveTab('services')}
-          className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-all duration-200 ${
+          className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
             activeTab === 'services'
-              ? 'bg-accent-cyan text-white'
-              : 'bg-gray-700 text-text-body hover:bg-gray-600'
+              ? 'bg-gradient-to-r from-accent-cyan to-accent-magenta text-white shadow-lg'
+              : 'border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary'
           }`}
         >
           Key Services

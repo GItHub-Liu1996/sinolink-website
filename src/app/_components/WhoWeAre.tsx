@@ -1,153 +1,162 @@
 'use client';
 
 import { motion, useInView } from 'framer-motion';
-import { useRef, useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useRef } from 'react';
 
 export default function WhoWeAre() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
-  const [count15, setCount15] = useState(0);
-  const [count500, setCount500] = useState(0);
 
-  useEffect(() => {
-    if (isInView) {
-      const duration = 2000; // 2 seconds
-      const steps = 60;
-      const stepDuration = duration / steps;
-      
-      let step = 0;
-      const timer = setInterval(() => {
-        step++;
-        const progress = step / steps;
-        
-        // Easing function for smooth animation
-        const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-        
-        setCount15(Math.floor(15 * easeOutQuart));
-        setCount500(Math.floor(500 * easeOutQuart));
-        
-        if (step >= steps) {
-          clearInterval(timer);
-          setCount15(15);
-          setCount500(500);
-        }
-      }, stepDuration);
-      
-      return () => clearInterval(timer);
+  const teamMembers = [
+    {
+      name: "Sarah Chen",
+      role: "Managing Director",
+      credentials: "Former MOFCOM Official, 12 years China regulatory experience",
+      expertise: "WFOE Registration, Government Relations",
+      avatar: "SC",
+      color: "from-accent-cyan to-accent-magenta"
+    },
+    {
+      name: "David Thompson", 
+      role: "Head of Legal",
+      credentials: "Partner at Dentons Beijing, 15 years M&A experience",
+      expertise: "Corporate Law, Cross-border Transactions",
+      avatar: "DT",
+      color: "from-accent-magenta to-accent-orange"
+    },
+    {
+      name: "Lisa Wang",
+      role: "Tax Director", 
+      credentials: "Ex-PwC Tax Partner, CPA China & US",
+      expertise: "Tax Planning, Transfer Pricing",
+      avatar: "LW",
+      color: "from-accent-orange to-yellow-500"
     }
-  }, [isInView]);
+  ];
 
   return (
     <section 
-      className="py-20 sm:py-24 lg:py-32 bg-background-secondary"
+      ref={ref}
+      className="py-20 sm:py-24 lg:py-32 bg-background-secondary relative overflow-hidden"
       aria-labelledby="who-we-are-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      {/* 背景装饰 */}
+      <div className="absolute top-0 left-0 w-full h-full">
+        <div className="absolute top-20 left-20 w-64 h-64 bg-accent-cyan/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-accent-magenta/10 rounded-full blur-3xl"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent-orange/5 rounded-full blur-3xl"></div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
+          className="text-center mb-16"
         >
-          {/* Left Column - Text & Data */}
-          <div className="space-y-10">
-            <motion.h2 
-              id="who-we-are-heading"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-              className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-heading font-sans leading-tight"
-            >
-              Expertise on the Ground, Global Vision.
-            </motion.h2>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              viewport={{ once: true }}
-              className="space-y-6 text-lg sm:text-xl text-text-main font-body leading-relaxed"
-            >
-              <p>
-                We are more than just consultants; we are your strategic partners in China. Our team combines deep local knowledge with international business standards to demystify the market and empower your growth.
-              </p>
-            </motion.div>
-            
-            {/* Dynamic Data Display */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex flex-col sm:flex-row gap-8 sm:gap-12"
-              role="region"
-              aria-label="Company statistics"
-            >
-              <div className="text-center group">
-                <motion.div
-                  initial={{ scale: 0.8 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.2 }}
-                  viewport={{ once: true }}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-accent-cyan mb-3 font-sans group-hover:text-accent-magenta transition-colors duration-300"
-                  aria-label={`${count15} years of experience`}
-                >
-                  {count15}+
-                </motion.div>
-                <div className="text-sm sm:text-base text-text-main font-body font-medium">
-                  Years of Experience
-                </div>
-              </div>
-              
-              <div className="text-center group">
-                <motion.div
-                  initial={{ scale: 0.8 }}
-                  whileInView={{ scale: 1 }}
-                  transition={{ duration: 0.5, delay: 0.4 }}
-                  viewport={{ once: true }}
-                  className="text-4xl sm:text-5xl lg:text-6xl font-bold text-accent-cyan mb-3 font-sans group-hover:text-accent-magenta transition-colors duration-300"
-                  aria-label={`${count500} successful projects`}
-                >
-                  {count500}+
-                </motion.div>
-                <div className="text-sm sm:text-base text-text-main font-body font-medium">
-                  Successful Projects
-                </div>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Right Column - Professional Team Image */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            viewport={{ once: true }}
-            className="relative group"
+          <h2 
+            id="who-we-are-heading"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-heading font-heading leading-tight mb-6"
           >
-            <div className="aspect-[4/3] w-full overflow-hidden rounded-2xl shadow-2xl relative bg-gradient-to-br from-accent-cyan/20 to-accent-magenta/20 p-1">
-              <div className="w-full h-full overflow-hidden rounded-2xl">
-                <Image
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=60"
-                  alt="Professional China Business Solutions team of experts in modern office environment - experienced consultants for market entry and compliance"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                  quality={65}
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                  loading="lazy"
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-                />
+            Meet Our Expert Team
+          </h2>
+          <p className="text-lg sm:text-xl text-text-main font-body leading-relaxed max-w-3xl mx-auto">
+            Our team combines former government officials, Big 4 partners, and seasoned legal experts with deep China market knowledge.
+          </p>
+        </motion.div>
+
+        {/* 创意团队展示 - 圆形布局 */}
+        <div className="relative">
+          {/* 中央核心 */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center shadow-2xl z-10"
+          >
+            <div className="text-center text-white">
+              <div className="text-2xl font-bold font-heading">15+</div>
+              <div className="text-sm font-body">Years</div>
+            </div>
+          </motion.div>
+
+          {/* 团队成员 - 圆形排列 */}
+          <div className="relative h-96 flex items-center justify-center">
+            {teamMembers.map((member, index) => {
+              const angle = (index * 120) * (Math.PI / 180); // 120度间隔
+              const radius = 180; // 半径
+              const x = Math.cos(angle) * radius;
+              const y = Math.sin(angle) * radius;
+              
+              return (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, scale: 0.5, x: 0, y: 0 }}
+                  whileInView={{ opacity: 1, scale: 1, x, y }}
+                  transition={{ duration: 0.8, delay: 0.3 + index * 0.2 }}
+                  viewport={{ once: true }}
+                  className="absolute"
+                  style={{ transform: `translate(${x}px, ${y}px)` }}
+                >
+                  <div className="bg-white rounded-3xl p-6 w-64 border-2 border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
+                    {/* 头像 */}
+                    <div className={`w-16 h-16 bg-gradient-to-br ${member.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
+                      <span className="text-white font-bold text-lg font-heading">{member.avatar}</span>
+                    </div>
+                    
+                    {/* 信息 */}
+                    <div className="text-center">
+                      <h3 className="text-xl font-bold text-text-heading mb-2 font-heading">
+                        {member.name}
+                      </h3>
+                      <p className={`text-${member.color.split(' ')[0].replace('from-', '')} font-semibold mb-3 font-body`}>
+                        {member.role}
+                      </p>
+                      <p className="text-sm text-text-main mb-3 font-body leading-relaxed">
+                        {member.credentials}
+                      </p>
+                      <p className="text-sm text-accent-magenta font-medium font-body">
+                        {member.expertise}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
+        </div>
+
+        {/* 底部统计 - 波浪形设计 */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          viewport={{ once: true }}
+          className="mt-20"
+        >
+          <div className="bg-gradient-to-r from-accent-cyan/10 via-accent-magenta/10 to-accent-orange/10 rounded-3xl p-8 border-2 border-gray-200">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-accent-cyan font-heading">Former</div>
+                <div className="text-sm text-text-main font-body">MOFCOM Officials</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-accent-magenta font-heading">Big 4</div>
+                <div className="text-sm text-text-main font-body">Accounting Partners</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-accent-orange font-heading">Top-tier</div>
+                <div className="text-sm text-text-main font-body">Law Firm Partners</div>
+              </div>
+              <div className="space-y-2">
+                <div className="text-3xl font-bold text-green-500 font-heading">Multilingual</div>
+                <div className="text-sm text-text-main font-body">Local Experts</div>
               </div>
             </div>
-            {/* Decorative elements */}
-            <div className="absolute -top-4 -right-4 w-8 h-8 bg-accent-cyan rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
-            <div className="absolute -bottom-4 -left-4 w-6 h-6 bg-accent-magenta rounded-full opacity-60 group-hover:opacity-100 transition-opacity duration-300"></div>
-          </motion.div>
+          </div>
         </motion.div>
       </div>
     </section>

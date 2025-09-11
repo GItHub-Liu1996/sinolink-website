@@ -3,18 +3,17 @@ import { HeroSection } from './_components';
 import { ResourcePreloader, LoadingProgress, ErrorBoundary } from '@/components';
 import type { Metadata } from 'next';
 
-// Critical components - loaded immediately
-// Non-critical components - lazy loaded with intersection observer
+// Import critical components directly
+import StatsSection from './_components/StatsSection';
+import ServicesOverview from './_components/ServicesOverview';
+
+// Non-critical components - lazy loaded
 const WhoWeAre = dynamic(() => import('./_components').then(mod => ({ default: mod.WhoWeAre })), {
   loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded-lg"></div>
 });
 
-const ChallengesSection = dynamic(() => import('./_components').then(mod => ({ default: mod.ChallengesSection })), {
+const InsightsSection = dynamic(() => import('./_components').then(mod => ({ default: mod.InsightsSection })), {
   loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-lg"></div>
-});
-
-const OurSolutions = dynamic(() => import('./_components').then(mod => ({ default: mod.ServicesOverview })), {
-  loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded-lg"></div>
 });
 
 const FeaturedCaseStudy = dynamic(() => import('./_components').then(mod => ({ default: mod.FeaturedCaseStudy })), {
@@ -106,8 +105,20 @@ export default function HomePage() {
       />
       
       <main>
-        {/* Critical above-the-fold content */}
+        {/* 1. Hero Section - 主要价值主张 */}
         <HeroSection />
+        
+        {/* 2. Why Choose Us - 核心竞争优势 */}
+        <StatsSection />
+        
+        {/* 3. Our Solutions - 服务和解决方案 */}
+        <ServicesOverview />
+        
+        {/* 4. Insights Section - 见解内容 */}
+        <InsightsSection />
+        
+        {/* 5. Featured Solution - 具体服务展示 */}
+        <FeaturedCaseStudy />
         
         {/* Smart Resource Preloader */}
         <ResourcePreloader 
@@ -120,12 +131,6 @@ export default function HomePage() {
           delay={1500}
           userInteraction={true}
         />
-        
-        {/* Non-critical content - lazy loaded with skeleton screens */}
-        <WhoWeAre />
-        <ChallengesSection />
-        <OurSolutions />
-        <FeaturedCaseStudy />
       </main>
     </ErrorBoundary>
   );

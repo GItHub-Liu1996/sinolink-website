@@ -1,39 +1,87 @@
 /* Version 2.2 - Cache Busting Update */
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800&family=Source+Sans+Pro:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;500;600;700;800&display=swap');
 
 :root {
-  --background-primary: #0B1120;
-  --background-secondary: #1A2130;
-  --text-main: #D1D5DB;
-  --text-heading: #FFFFFF;
-  --accent-cyan: #22d3ee;
-  --accent-magenta: #c026d3;
-  --shadow-glow: 0 0 20px rgba(34, 211, 238, 0.3);
-  --shadow-glow-magenta: 0 0 20px rgba(192, 38, 211, 0.3);
+  /* Vistra-Inspired Professional Color Palette */
+  --background-primary: #FFFFFF;         /* Vistra's white background */
+  --background-secondary: #F8FAFC;      /* Vistra's light gray background */
+  --background-tertiary: #F1F5F9;       /* Vistra's elevated elements */
+  --background-accent: #1E40AF;          /* Vistra's accent background */
+  
+  /* Text Colors - Vistra Style */
+  --text-main: #1E293B;                 /* Vistra's dark text color */
+  --text-heading: #0F172A;              /* Vistra's dark heading color */
+  --text-muted: #64748B;                /* Vistra's muted text */
+  --text-accent: #3B82F6;               /* Vistra's accent text */
+  
+  /* Primary Brand Colors - Vistra Blue Scheme */
+  --accent-primary: #3B82F6;            /* Vistra's primary blue */
+  --accent-secondary: #1D4ED8;          /* Vistra's darker blue */
+  --accent-cyan: #06B6D4;               /* Vistra's cyan accent */
+  --accent-magenta: #8B5CF6;            /* Vistra's purple accent */
+  --accent-orange: #F59E0B;             /* Vistra's orange accent */
+  
+  /* Status Colors - Vistra Style */
+  --success: #10B981;                   /* Vistra's success green */
+  --warning: #F59E0B;                   /* Vistra's warning amber */
+  --error: #EF4444;                     /* Vistra's error red */
+  --info: #3B82F6;                      /* Vistra's info blue */
+  
+  /* Vistra-Style Shadows and Effects */
+  --shadow-glow: 0 0 20px rgba(59, 130, 246, 0.4);
+  --shadow-glow-soft: 0 0 30px rgba(59, 130, 246, 0.2);
+  --shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.2), 0 2px 4px -1px rgba(0, 0, 0, 0.1);
+  --shadow-elevated: 0 20px 25px -5px rgba(0, 0, 0, 0.2), 0 10px 10px -5px rgba(0, 0, 0, 0.1);
+  --shadow-inset: inset 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+  
+  /* Vistra-Style Gradients */
+  --gradient-primary: linear-gradient(135deg, #3B82F6 0%, #1D4ED8 100%);
+  --gradient-secondary: linear-gradient(135deg, #06B6D4 0%, #0891B2 100%);
+  --gradient-accent: linear-gradient(135deg, #8B5CF6 0%, #7C3AED 100%);
+  --gradient-warm: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
 }
 
 @theme inline {
   --color-background-primary: var(--background-primary);
   --color-background-secondary: var(--background-secondary);
+  --color-background-tertiary: var(--background-tertiary);
+  --color-background-accent: var(--background-accent);
   --color-text-main: var(--text-main);
   --color-text-heading: var(--text-heading);
+  --color-text-muted: var(--text-muted);
+  --color-text-accent: var(--text-accent);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-secondary: var(--accent-secondary);
   --color-accent-cyan: var(--accent-cyan);
   --color-accent-magenta: var(--accent-magenta);
-  --font-sans: 'Montserrat', system-ui, sans-serif;
-  --font-body: 'Lexend', system-ui, sans-serif;
+  --color-accent-orange: var(--accent-orange);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
+  /* Vistra-Style Professional Font Stack */
+  --font-sans: 'Source Sans Pro', 'Inter', 'Open Sans', system-ui, sans-serif;
+  --font-body: 'Inter', 'Source Sans Pro', system-ui, sans-serif;
+  --font-heading: 'Source Sans Pro', 'Inter', system-ui, sans-serif;
 }
 
 body {
-  background-color: #0B1120;
-  color: #D1D5DB;
-  font-family: 'Lexend', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--background-primary);
+  color: var(--text-main);
+  font-family: var(--font-body);
   font-display: swap;
+  font-weight: 400;
+  line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  color: #FFFFFF;
+  font-family: var(--font-heading);
+  color: var(--text-heading);
   font-display: swap;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.025em;
 }
 
 /* Font loading optimization */

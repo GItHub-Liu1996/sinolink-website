@@ -82,7 +82,7 @@ export default function FinalCTA() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.5 }}
             viewport={{ once: true }}
-            className="mt-16 bg-background-secondary rounded-lg p-8 border border-gray-700"
+            className="mt-16 bg-white rounded-2xl p-8 border border-gray-100 shadow-lg"
           >
             <blockquote className="text-lg text-text-main italic mb-6 font-body">
               "ChinaBiz Solutions transformed our China market entry from a daunting challenge into a smooth, successful launch. 
