@@ -46,6 +46,59 @@ export const insightCategories = [
   { slug: 'growth-strategy', label: 'Growth & Strategy' },
 ];
 
+// Service categories for footer
+export const serviceCategories = [
+  {
+    title: 'Company Formation',
+    links: [
+      { href: '/services/wfoe-registration', label: 'WFOE Registration' },
+      { href: '/services/company-setup', label: 'Company Setup' },
+      { href: '/services/business-license', label: 'Business License' },
+    ]
+  },
+  {
+    title: 'Compliance & Operations',
+    links: [
+      { href: '/services/tax-compliance', label: 'Tax Compliance' },
+      { href: '/services/accounting', label: 'Accounting Services' },
+      { href: '/services/hr-services', label: 'HR Services' },
+    ]
+  },
+  {
+    title: 'Market Entry',
+    links: [
+      { href: '/services/market-research', label: 'Market Research' },
+      { href: '/services/partnership', label: 'Partnership Setup' },
+      { href: '/services/expansion', label: 'Business Expansion' },
+    ]
+  },
+  {
+    title: 'Support Services',
+    links: [
+      { href: '/services/visa-services', label: 'Visa Services' },
+      { href: '/services/legal-support', label: 'Legal Support' },
+      { href: '/services/consulting', label: 'Strategic Consulting' },
+    ]
+  }
+];
+
+// Resource center links
+export const resourceLinks = [
+  { href: '/insights', label: 'Latest Insights', description: 'Industry news and analysis' },
+  { href: '/insights/case-studies', label: 'Case Studies', description: 'Success stories from our clients' },
+  { href: '/insights/whitepapers', label: 'White Papers', description: 'In-depth research reports' },
+  { href: '/insights/tools', label: 'Business Tools', description: 'Calculators and templates' },
+  { href: '/insights/downloads', label: 'Downloads', description: 'Free resources and guides' },
+];
+
+// Legal links
+export const legalLinks = [
+  { href: '/privacy-policy', label: 'Privacy Policy' },
+  { href: '/terms-of-service', label: 'Terms of Service' },
+  { href: '/cookie-policy', label: 'Cookie Policy' },
+  { href: '/disclaimer', label: 'Disclaimer' },
+];
+
 // FAQ items
 export const faqItems = [
   {
