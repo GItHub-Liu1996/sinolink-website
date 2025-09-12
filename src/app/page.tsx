@@ -8,7 +8,7 @@ import StatsSection from './_components/StatsSection';
 import ServicesOverview from './_components/ServicesOverview';
 
 // Non-critical components - lazy loaded
-const WhoWeAre = dynamic(() => import('./_components').then(mod => ({ default: mod.WhoWeAre })), {
+const ModernWhoWeAre = dynamic(() => import('./_components/ModernWhoWeAre'), {
   loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded-lg"></div>
 });
 
@@ -121,7 +121,7 @@ export default function HomePage() {
                    title="To Better Understand Your Needs"
                    subtitle="Answer a few questions to get personalized business consultation and recommendations"
                    showTitle={true}
-                   maxQuestions={11}
+                   maxQuestions={6}
                  />
           </div>
         </section>
@@ -131,6 +131,9 @@ export default function HomePage() {
         
         {/* 5. Featured Solution - Specific service showcase */}
         <FeaturedCaseStudy />
+        
+        {/* 6. Modern Team Section - Expert team showcase */}
+        <ModernWhoWeAre />
         
         {/* Smart Resource Preloader */}
         <ResourcePreloader 

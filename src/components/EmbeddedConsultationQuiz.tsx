@@ -95,31 +95,36 @@ const questions: Question[] = [
     id: 'companyName',
     question: 'Company Name',
     type: 'text',
-    placeholder: 'Enter your company name'
+    placeholder: 'Enter your company name',
+    category: 'Contact Information'
   },
   {
     id: 'contactName',
     question: 'Contact Name',
     type: 'text',
-    placeholder: 'Enter your name'
+    placeholder: 'Enter your name',
+    category: 'Contact Information'
   },
   {
     id: 'email',
     question: 'Email Address',
     type: 'text',
-    placeholder: 'Enter your email'
+    placeholder: 'Enter your email',
+    category: 'Contact Information'
   },
   {
     id: 'phone',
     question: 'Phone Number',
     type: 'text',
-    placeholder: 'Enter your phone number'
+    placeholder: 'Enter your phone number',
+    category: 'Contact Information'
   },
   {
     id: 'message',
     question: 'Additional Message',
     type: 'textarea',
-    placeholder: 'Tell us more about your specific needs or questions...'
+    placeholder: 'Tell us more about your specific needs or questions...',
+    category: 'Contact Information'
   }
 ];
 
@@ -134,19 +139,13 @@ export default function EmbeddedConsultationQuiz({
   title = "To Better Understand Your Needs",
   subtitle = "Answer a few questions to get personalized business consultation and recommendations",
   showTitle = true,
-  maxQuestions = 11
+  maxQuestions = 6
 }: EmbeddedConsultationQuizProps) {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Answer[]>([]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
-  const [showContactForm, setShowContactForm] = useState(false);
-  const [contactInfo, setContactInfo] = useState({
-    companyName: '',
-    contactName: '',
-    email: '',
-    phone: ''
-  });
+  // Contact form removed - using direct contact page redirect
 
   const displayQuestions = questions.slice(0, maxQuestions);
   const currentQuestion = displayQuestions[currentQuestionIndex];
@@ -183,7 +182,8 @@ export default function EmbeddedConsultationQuiz({
     if (currentQuestionIndex < displayQuestions.length - 1) {
       setCurrentQuestionIndex(prev => prev + 1);
     } else {
-      setShowContactForm(true);
+      // If it's the last question, submit the form
+      handleSubmit();
     }
   };
 
@@ -197,13 +197,6 @@ export default function EmbeddedConsultationQuiz({
     setIsSubmitting(true);
     
     try {
-      // Extract contact information from answers
-      const companyNameAnswer = answers.find(a => a.questionId === 'companyName');
-      const contactNameAnswer = answers.find(a => a.questionId === 'contactName');
-      const emailAnswer = answers.find(a => a.questionId === 'email');
-      const phoneAnswer = answers.find(a => a.questionId === 'phone');
-      const messageAnswer = answers.find(a => a.questionId === 'message');
-
       const response = await fetch('/api/consultation-quiz/', {
         method: 'POST',
         headers: {
@@ -211,11 +204,11 @@ export default function EmbeddedConsultationQuiz({
         },
         body: JSON.stringify({
           answers,
-          companyName: companyNameAnswer?.value || '',
-          contactName: contactNameAnswer?.value || '',
-          email: emailAnswer?.value || '',
-          phone: phoneAnswer?.value || '',
-          message: messageAnswer?.value || ''
+          companyName: '',
+          contactName: '',
+          email: '',
+          phone: '',
+          message: ''
         }),
       });
 
@@ -252,8 +245,6 @@ export default function EmbeddedConsultationQuiz({
             setShowSuccess(false);
             setCurrentQuestionIndex(0);
             setAnswers([]);
-            setShowContactForm(false);
-            setContactInfo({ companyName: '', contactName: '', email: '', phone: '' });
           }}
           className="px-6 py-3 bg-gradient-to-r from-accent-cyan to-accent-magenta text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
         >
@@ -263,143 +254,58 @@ export default function EmbeddedConsultationQuiz({
     );
   }
 
-  if (showContactForm) {
-    return (
-      <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
-        <div className="text-center mb-8">
-          <MessageCircle className="w-12 h-12 text-accent-cyan mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-text-heading mb-2 font-sans">Get Professional Consultation</h3>
-          <p className="text-gray-600 font-body">Please provide your contact information, and we will arrange a professional consultant for you</p>
-        </div>
-
-        <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} className="space-y-6">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Company Name *</label>
-              <input
-                type="text"
-                required
-                value={contactInfo.companyName}
-                onChange={(e) => setContactInfo(prev => ({ ...prev, companyName: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="Enter company name"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Contact Name *</label>
-              <input
-                type="text"
-                required
-                value={contactInfo.contactName}
-                onChange={(e) => setContactInfo(prev => ({ ...prev, contactName: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="Enter contact name"
-              />
-            </div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Email Address *</label>
-              <input
-                type="email"
-                required
-                value={contactInfo.email}
-                onChange={(e) => setContactInfo(prev => ({ ...prev, email: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="Enter email address"
-              />
-            </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Phone Number</label>
-              <input
-                type="tel"
-                value={contactInfo.phone}
-                onChange={(e) => setContactInfo(prev => ({ ...prev, phone: e.target.value }))}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="Enter phone number"
-              />
-            </div>
-          </div>
-
-          <div className="flex justify-between items-center pt-4">
-            <button
-              type="button"
-              onClick={() => setShowContactForm(false)}
-              className="flex items-center px-4 py-2 text-gray-600 hover:text-accent-cyan hover:bg-accent-cyan/10 rounded-lg transition-all duration-300 font-body"
-            >
-              <ChevronLeft className="w-5 h-5 mr-2" />
-              Back to Quiz
-            </button>
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className={`flex items-center px-6 py-3 rounded-lg font-semibold transition-all duration-300 font-body ${
-                isSubmitting
-                  ? 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                  : 'bg-gradient-to-r from-accent-cyan to-accent-magenta text-white hover:shadow-lg hover:scale-105'
-              }`}
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit Consultation Request'}
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </button>
-          </div>
-        </form>
-      </div>
-    );
-  }
+  // Contact form removed - using direct contact page redirect
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="bg-white/70 backdrop-blur-md rounded-xl shadow-lg p-8 border border-gray-200/30">
-        {/* Title and Progress - Compact Version */}
+    <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="bg-white/70 backdrop-blur-md rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200/30">
+        {/* Title and Progress - Responsive Version */}
         {showTitle && (
-          <div className="text-center mb-6">
-            <h2 className="text-xl font-bold text-text-heading mb-2 font-sans">{title}</h2>
-            <p className="text-gray-600 mb-4 font-body text-sm">{subtitle}</p>
+          <div className="text-center mb-4 sm:mb-6">
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-text-heading mb-2 font-sans leading-tight">{title}</h2>
+            <p className="text-gray-600 mb-3 sm:mb-4 font-body text-xs sm:text-sm lg:text-base leading-relaxed max-w-2xl mx-auto">{subtitle}</p>
             
             {/* Progress Bar */}
-            <div className="w-full bg-gray-200/50 rounded-full h-1.5 mb-2">
+            <div className="w-full max-w-md mx-auto bg-gray-200/50 rounded-full h-1 sm:h-1.5 mb-2">
               <motion.div
-                className="bg-gradient-to-r from-accent-cyan to-accent-magenta h-1.5 rounded-full"
+                className="bg-gradient-to-r from-accent-cyan to-accent-magenta h-1 sm:h-1.5 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${getProgressPercentage()}%` }}
                 transition={{ duration: 0.5 }}
               />
             </div>
-            <p className="text-xs text-gray-500 font-body">
+            <p className="text-xs sm:text-sm text-gray-500 font-body">
               Question {currentQuestionIndex + 1} / {displayQuestions.length}
             </p>
           </div>
         )}
 
-        {/* Question Card - Long Strip Layout with Carousel Buttons */}
+        {/* Question Card - Responsive Layout with Carousel Buttons */}
         <div className="relative">
           {/* Left Carousel Button */}
           <button
             onClick={handlePrevious}
             disabled={isFirstQuestion}
-            className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
               isFirstQuestion
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-white/90 backdrop-blur-sm text-accent-cyan hover:bg-accent-cyan hover:text-white shadow-lg hover:shadow-xl'
             }`}
           >
-            <ChevronLeft className="w-5 h-5" />
+            <ChevronLeft className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
           {/* Right Carousel Button */}
           <button
             onClick={handleNext}
             disabled={isLastQuestion}
-            className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-4 z-10 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
+            className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-2 sm:translate-x-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
               isLastQuestion
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
                 : 'bg-gradient-to-r from-accent-cyan to-accent-magenta text-white hover:shadow-lg hover:scale-105'
             }`}
           >
-            <ChevronRight className="w-5 h-5" />
+            <ChevronRight className="w-4 h-4 sm:w-5 sm:h-5" />
           </button>
 
           <AnimatePresence mode="wait">
@@ -409,25 +315,37 @@ export default function EmbeddedConsultationQuiz({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.3 }}
-              className="px-12"
+              className="px-8 sm:px-12 lg:px-16"
             >
-              <div className="flex items-center gap-8">
+              <div className="flex flex-col lg:flex-row lg:items-start gap-6 sm:gap-8 lg:gap-12">
                 {/* Left Side: Question Information */}
-                <div className="flex-1 min-w-0">
+                <div className="flex-1 min-w-0 space-y-6">
                   {/* Category Tag and Progress */}
-                  <div className="flex items-center justify-between mb-4">
-                    <span className="px-3 py-1 bg-accent-cyan/10 text-accent-cyan rounded-full text-sm font-medium font-body">
+                  <div className="flex items-center justify-between">
+                    <span className="px-3 sm:px-4 py-2 bg-accent-cyan/10 text-accent-cyan rounded-full text-sm sm:text-base font-medium font-body">
                       {currentQuestion.category}
                     </span>
-                    <span className="text-sm text-gray-500 font-body">
+                    <span className="text-sm sm:text-base text-gray-500 font-body">
                       {currentQuestionIndex + 1} / {displayQuestions.length}
                     </span>
                   </div>
 
                   {/* Question Title */}
-                  <h3 className="text-xl font-semibold text-text-heading mb-6 font-sans">
-                    {currentQuestion.question}
-                  </h3>
+                  <div className="space-y-4">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-text-heading font-sans leading-relaxed break-words">
+                      {currentQuestion.question}
+                    </h3>
+                    
+                    {/* Contact Button */}
+                    <div className="pt-2 flex justify-center">
+                      <button
+                        onClick={() => window.open('/contact', '_blank')}
+                        className="p-2.5 sm:p-3 rounded-lg border transition-all duration-300 text-left font-body border-gray-200 hover:border-accent-cyan/50 hover:bg-gray-50"
+                      >
+                        <span className="font-medium font-body text-xs sm:text-sm leading-relaxed">Contact Us</span>
+                      </button>
+                    </div>
+                  </div>
                 </div>
 
                 {/* Right Side: Options or Input Fields */}
@@ -439,8 +357,8 @@ export default function EmbeddedConsultationQuiz({
                           value={getCurrentAnswer()?.value || ''}
                           onChange={(e) => handleTextInput(e.target.value)}
                           placeholder={currentQuestion.placeholder}
-                          className="w-full p-4 rounded-lg border border-gray-200 focus:border-accent-cyan focus:ring-2 focus:ring-accent-cyan/20 transition-all duration-300 font-body text-sm resize-none"
-                          rows={4}
+                          className="w-full p-3 sm:p-4 rounded-lg border border-gray-200 focus:border-accent-cyan focus:ring-2 focus:ring-accent-cyan/20 transition-all duration-300 font-body text-sm sm:text-base resize-none"
+                          rows={3}
                         />
                       ) : (
                         <input
@@ -448,19 +366,19 @@ export default function EmbeddedConsultationQuiz({
                           value={getCurrentAnswer()?.value || ''}
                           onChange={(e) => handleTextInput(e.target.value)}
                           placeholder={currentQuestion.placeholder}
-                          className="w-full p-4 rounded-lg border border-gray-200 focus:border-accent-cyan focus:ring-2 focus:ring-accent-cyan/20 transition-all duration-300 font-body text-sm"
+                          className="w-full p-3 sm:p-4 rounded-lg border border-gray-200 focus:border-accent-cyan focus:ring-2 focus:ring-accent-cyan/20 transition-all duration-300 font-body text-sm sm:text-base"
                         />
                       )}
                     </div>
                   ) : (
-                    <div className="grid grid-cols-2 gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                       {currentQuestion.options?.map((option, index) => {
                         const isSelected = getCurrentAnswer()?.value === option.value;
                         return (
                           <motion.button
                             key={option.value}
                             onClick={() => handleAnswer(option)}
-                            className={`p-3 rounded-lg border transition-all duration-300 text-left font-body ${
+                            className={`p-2.5 sm:p-3 rounded-lg border transition-all duration-300 text-left font-body ${
                               isSelected
                                 ? 'border-accent-cyan bg-accent-cyan/10 text-accent-cyan'
                                 : 'border-gray-200 hover:border-accent-cyan/50 hover:bg-gray-50'
@@ -468,7 +386,7 @@ export default function EmbeddedConsultationQuiz({
                             whileHover={{ scale: 1.02 }}
                             whileTap={{ scale: 0.98 }}
                           >
-                            <span className="font-medium font-body text-sm">{option.label}</span>
+                            <span className="font-medium font-body text-xs sm:text-sm leading-relaxed">{option.label}</span>
                           </motion.button>
                         );
                       })}
@@ -481,11 +399,11 @@ export default function EmbeddedConsultationQuiz({
         </div>
 
         {/* Progress Indicators */}
-        <div className="flex justify-center space-x-2 mt-6">
+        <div className="flex justify-center space-x-1.5 sm:space-x-2 mt-4 sm:mt-6">
           {displayQuestions.map((_, index) => (
             <div
               key={index}
-              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
                 index === currentQuestionIndex
                   ? 'bg-accent-cyan'
                   : index < currentQuestionIndex
@@ -496,8 +414,8 @@ export default function EmbeddedConsultationQuiz({
           ))}
         </div>
 
-        {/* Bottom Information - Compact Version */}
-        <div className="text-center text-gray-500 text-xs font-body mt-4">
+        {/* Bottom Information - Responsive Version */}
+        <div className="text-center text-gray-500 text-xs sm:text-sm font-body mt-3 sm:mt-4">
           <p>Your information will be kept strictly confidential</p>
         </div>
       </div>

@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import AnimatedCounter from '@/components/ui/AnimatedCounter';
 import { EmbeddedConsultationQuiz } from '@/components';
+import ModernWhoWeAre from '../_components/ModernWhoWeAre';
 
 export default function AboutClient() {
   return (
@@ -262,68 +263,8 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="py-24 bg-background-secondary">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-text-heading mb-6 font-sans">
-              Meet Our Expert Team
-            </h2>
-            <p className="text-lg text-text-main max-w-3xl mx-auto font-body leading-relaxed">
-              A diverse team of professionals with deep local knowledge and international experience.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Sarah Chen",
-                role: "Founder & CEO",
-                description: "15+ years in China business consulting, former McKinsey consultant",
-                image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-              },
-              {
-                name: "David Wang",
-                role: "Head of Legal Affairs",
-                description: "Expert in Chinese corporate law and regulatory compliance",
-                image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-              },
-              {
-                name: "Lisa Zhang",
-                role: "Tax & Finance Director",
-                description: "CPA with extensive experience in China tax planning",
-                image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-              }
-            ].map((member, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                viewport={{ once: true }}
-                className="bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-xl hover:shadow-2xl hover:border-accent-cyan transition-all duration-300 hover:-translate-y-1 group"
-              >
-                <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-xl font-bold text-text-heading mb-2 font-sans">{member.name}</h3>
-                <p className="text-accent-cyan font-semibold mb-4">{member.role}</p>
-                <p className="text-text-main font-body leading-relaxed">{member.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Modern Team Section */}
+      <ModernWhoWeAre />
 
       {/* CTA Section */}
       <section className="py-24 bg-background-primary">
@@ -365,7 +306,7 @@ export default function AboutClient() {
                    title="To Better Understand Your Needs"
                    subtitle="Answer a few questions to get personalized business consultation and recommendations"
                    showTitle={true}
-                   maxQuestions={11}
+                   maxQuestions={6}
                  />
         </div>
       </section>

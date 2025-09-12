@@ -259,7 +259,7 @@ export default function InsightsPage() {
                      title="To Better Understand Your Needs"
                      subtitle="Answer a few questions to get personalized business consultation and recommendations"
                      showTitle={true}
-                     maxQuestions={11}
+                     maxQuestions={6}
                    />
         </div>
       </section>

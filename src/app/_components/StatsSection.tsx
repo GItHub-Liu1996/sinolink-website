@@ -120,24 +120,24 @@ export default function StatsSection() {
           </p>
         </motion.div>
 
-        {/* Creative hexagon grid layout */}
+        {/* Responsive grid layout with smart spacing */}
         <div className="relative">
-          {/* Central large hexagon */}
+          {/* Central large circle - responsive sizing */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-32 h-32 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center shadow-2xl z-10"
+            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center shadow-2xl z-10"
           >
             <div className="text-center text-white">
-              <div className="text-2xl font-bold font-heading">15+</div>
-              <div className="text-sm font-body">Years</div>
+              <div className="text-lg sm:text-xl lg:text-2xl font-bold font-heading">15+</div>
+              <div className="text-xs sm:text-sm font-body">Years</div>
             </div>
           </motion.div>
 
-          {/* Four corner hexagons */}
-          <div className="grid grid-cols-2 gap-8 lg:gap-16">
+          {/* Responsive grid with smart spacing */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-16">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -145,59 +145,61 @@ export default function StatsSection() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 + index * 0.1 }}
                 viewport={{ once: true }}
-                className="relative"
+                className="relative flex flex-col items-center"
               >
-                {/* Hexagon background */}
-                <div className="w-48 h-48 mx-auto relative">
-                  <div className={`absolute inset-0 bg-gradient-to-br from-${stat.color} to-${stat.color}/80 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 group`}>
-                    <div className="text-center text-white p-6">
-                      <div className="flex justify-center mb-4">
-                        {stat.icon}
+                {/* Responsive circle background */}
+                <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 relative mb-4 sm:mb-6">
+                  <div className={`absolute inset-0 bg-gradient-to-br from-${stat.color} to-${stat.color}/80 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group`}>
+                    <div className="text-center text-white p-3 sm:p-4 lg:p-6">
+                      <div className="flex justify-center mb-2 sm:mb-3 lg:mb-4">
+                        <div className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8">
+                          {stat.icon}
+                        </div>
                       </div>
-                      <div className="text-3xl font-bold font-heading mb-2">
+                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading mb-1 sm:mb-2">
                         {animatedValues[stat.label] || 0}
                         {stat.label === 'Compliance Rate' ? '%' : stat.label === 'Cost Reduction' ? '%' : stat.label === 'Hour Support' ? '/7' : ''}
                       </div>
-                      <div className="text-sm font-semibold font-body mb-1">
+                      <div className="text-xs sm:text-sm font-semibold font-body">
                         {stat.label}
                       </div>
                     </div>
                   </div>
-                  
-                  {/* Description text */}
-                  <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-64 text-center">
-                    <p className="text-sm text-text-main font-body leading-relaxed">
-                      {stat.description}
-                    </p>
-                  </div>
+                </div>
+                
+                {/* Description text - positioned below circle */}
+                <div className="w-full max-w-xs sm:max-w-sm text-center">
+                  <p className="text-xs sm:text-sm text-text-main font-body leading-relaxed">
+                    {stat.description}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </div>
         </div>
 
-        {/* Bottom decorative statistics */}
+        {/* Bottom decorative statistics - responsive */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
           viewport={{ once: true }}
-          className="mt-20 text-center"
+          className="mt-12 sm:mt-16 lg:mt-20 flex justify-center"
         >
-          <div className="inline-flex items-center gap-12 bg-white/80 backdrop-blur-sm rounded-3xl p-8 border-2 border-gray-200 shadow-xl">
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 lg:gap-12 bg-white/60 backdrop-blur-md rounded-2xl sm:rounded-3xl p-4 sm:p-6 lg:p-8 border border-gray-200/50 shadow-xl">
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent-cyan font-heading">500+</div>
-              <div className="text-sm text-text-main font-body">Companies Launched</div>
+              <div className="text-2xl sm:text-3xl font-bold text-accent-cyan font-heading">500+</div>
+              <div className="text-xs sm:text-sm text-text-main font-body">Companies Launched</div>
             </div>
-            <div className="w-px h-12 bg-gray-300"></div>
+            <div className="hidden sm:block w-px h-8 lg:h-12 bg-gray-300"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent-magenta font-heading">50+</div>
-              <div className="text-sm text-text-main font-body">Industry Sectors</div>
+              <div className="text-2xl sm:text-3xl font-bold text-accent-magenta font-heading">50+</div>
+              <div className="text-xs sm:text-sm text-text-main font-body">Industry Sectors</div>
             </div>
-            <div className="w-px h-12 bg-gray-300"></div>
+            <div className="hidden sm:block w-px h-8 lg:h-12 bg-gray-300"></div>
             <div className="text-center">
-              <div className="text-3xl font-bold text-accent-orange font-heading">24/7</div>
-              <div className="text-sm text-text-main font-body">Support</div>
+              <div className="text-2xl sm:text-3xl font-bold text-accent-orange font-heading">24/7</div>
+              <div className="text-xs sm:text-sm text-text-main font-body">Support</div>
             </div>
           </div>
         </motion.div>

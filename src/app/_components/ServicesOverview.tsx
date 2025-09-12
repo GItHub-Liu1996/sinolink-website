@@ -33,7 +33,7 @@ export default function OurSolutions() {
             <SolutionCard
               icon={<CompanySetupIcon />}
               title="Establish Your Presence"
-              overviewText="From selecting the right legal structure to opening your bank accounts, we provide a seamless, end-to-end company formation service, ensuring you are established correctly and efficiently."
+              overviewText="Complete company formation service from legal structure selection to bank account opening."
               services={['WFOE & JV Registration', 'Bank Account Opening', 'Company Chop Application', 'Initial Tax Registration']}
             />
           </motion.div>
@@ -47,7 +47,7 @@ export default function OurSolutions() {
             <SolutionCard
               icon={<OperationsSupportIcon />}
               title="Operate with Confidence"
-              overviewText="Focus on your growth while we handle the complexities of day-to-day operations. Our expert accounting, tax, and HR services keep your business compliant and running smoothly."
+              overviewText="Expert accounting, tax, and HR services to keep your business compliant and running smoothly."
               services={['Accounting & Tax Advisory', 'HR & Payroll Management', 'Annual Compliance & Audit', 'Business License Renewals']}
             />
           </motion.div>
@@ -61,7 +61,7 @@ export default function OurSolutions() {
             <SolutionCard
               icon={<VisaServicesIcon />}
               title="Mobilize Your Talent"
-              overviewText="Bring your key international talent to China with ease. We manage the entire immigration process for your executives and their families, from work permits to residence permits."
+              overviewText="Complete immigration process management for executives and families, from work permits to residence permits."
               services={['Work Permit Applications', 'Business Visa Processing', 'Residence Permit Services', 'Family & Dependant Visa Support']}
             />
           </motion.div>

@@ -76,41 +76,5 @@ export const consultationQuestions: Question[] = [
       { label: '6-12 months', value: '12_months' },
       { label: 'Over 1 year', value: 'over_year' }
     ]
-  },
-  // Contact information questions
-  {
-    id: 'company_name',
-    question: 'What is your company name?',
-    category: 'Contact Information',
-    type: 'text',
-    placeholder: 'Enter your company name'
-  },
-  {
-    id: 'contact_name',
-    question: 'What is your name?',
-    category: 'Contact Information',
-    type: 'text',
-    placeholder: 'Enter your full name'
-  },
-  {
-    id: 'email',
-    question: 'What is your email address?',
-    category: 'Contact Information',
-    type: 'text',
-    placeholder: 'Enter your email address'
-  },
-  {
-    id: 'phone',
-    question: 'What is your phone number?',
-    category: 'Contact Information',
-    type: 'text',
-    placeholder: 'Enter your phone number'
-  },
-  {
-    id: 'message',
-    question: 'Any additional message or questions?',
-    category: 'Additional Information',
-    type: 'textarea',
-    placeholder: 'Tell us more about your needs...'
   }
 ];

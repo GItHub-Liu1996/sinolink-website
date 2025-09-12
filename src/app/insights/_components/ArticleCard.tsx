@@ -20,15 +20,15 @@ const getCategoryStyle = (category: string) => {
   const categoryLower = category.toLowerCase();
   
   if (categoryLower.includes('market') || categoryLower.includes('entry')) {
-    return 'bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-blue-400 border-blue-500/30';
+    return 'bg-gradient-to-r from-blue-500/20 to-blue-600/20 text-black border-blue-500/30';
   } else if (categoryLower.includes('operations') || categoryLower.includes('compliance')) {
-    return 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-green-400 border-green-500/30';
+    return 'bg-gradient-to-r from-green-500/20 to-green-600/20 text-black border-green-500/30';
   } else if (categoryLower.includes('hr') || categoryLower.includes('visa')) {
-    return 'bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-purple-400 border-purple-500/30';
+    return 'bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-black border-purple-500/30';
   } else if (categoryLower.includes('growth') || categoryLower.includes('protection')) {
-    return 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-orange-400 border-orange-500/30';
+    return 'bg-gradient-to-r from-orange-500/20 to-orange-600/20 text-black border-orange-500/30';
   } else {
-    return 'bg-gradient-to-r from-accent-cyan/20 to-accent-magenta/20 text-accent-cyan border-accent-cyan/30';
+    return 'bg-gradient-to-r from-accent-cyan/20 to-accent-magenta/20 text-black border-accent-cyan/30';
   }
 };
 
@@ -76,19 +76,19 @@ const ArticleCard: React.FC<ArticleCardProps> = ({
         
         {/* Content */}
         <div className={`${featured ? 'p-8' : 'p-6'}`}>
-          <h3 className={`font-bold text-text-heading mb-3 font-sans line-clamp-2 group-hover:text-accent-cyan transition-colors duration-300 ${
+          <h3 className={`font-bold text-black mb-3 font-sans line-clamp-2 group-hover:text-accent-cyan transition-colors duration-300 ${
             featured ? 'text-2xl' : 'text-xl'
           }`}>
             {title}
           </h3>
-          <p className={`text-text-main font-body leading-relaxed mb-4 line-clamp-3 ${
+          <p className={`text-gray-800 font-body leading-relaxed mb-4 line-clamp-3 ${
             featured ? 'text-lg' : 'text-base'
           }`}>
             {excerpt}
           </p>
           
           <div className="flex items-center justify-between mb-4">
-            <div className="flex items-center space-x-3 text-sm text-text-main">
+            <div className="flex items-center space-x-3 text-sm text-gray-600">
               <span>{readTime || '5 min read'}</span>
               <span>•</span>
               <span>{new Date(date).toLocaleDateString('en-US', { 
