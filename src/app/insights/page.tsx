@@ -2,7 +2,8 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import ArticleCard from './_components/ArticleCard';
 import Pagination from './_components/Pagination';
 import { articles } from '@/config/articles';
@@ -84,6 +85,13 @@ function FeaturedArticleCard({ post }: { post: PostMeta }) {
 }
 
 export default function InsightsPage() {
+  // URL and navigation hooks
+  const searchParams = useSearchParams();
+  const router = useRouter();
+  
+  // Pagination state
+  const [currentPage, setCurrentPage] = useState(1);
+  
   // Subscription state management
   const [email, setEmail] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -96,6 +104,38 @@ export default function InsightsPage() {
     date: article.publishDate, // Map publishDate to date
     href: `/insights/blog/${article.slug}`
   }));
+
+  // Pagination settings: 8 articles per page (in grid)
+  const postsPerPage = 8;
+  const totalPages = Math.ceil((allPosts.length - 1) / postsPerPage); // -1 for featured article
+
+  // Initialize current page from URL
+  useEffect(() => {
+    const page = searchParams.get('page');
+    if (page) {
+      const pageNum = parseInt(page, 10);
+      if (pageNum >= 1 && pageNum <= totalPages) {
+        setCurrentPage(pageNum);
+      }
+    }
+  }, [searchParams, totalPages]);
+
+  // Handle page change
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page);
+    // Update URL without page reload
+    const params = new URLSearchParams(searchParams);
+    if (page === 1) {
+      params.delete('page');
+    } else {
+      params.set('page', page.toString());
+    }
+    const queryString = params.toString();
+    const newUrl = queryString ? `?${queryString}` : '/insights';
+    router.push(newUrl, { scroll: false });
+    // Scroll to top of articles section
+    window.scrollTo({ top: 800, behavior: 'smooth' });
+  };
 
   // Subscription handler function
   const handleSubscribe = async (e: React.FormEvent) => {
@@ -150,9 +190,10 @@ export default function InsightsPage() {
   const featuredPost = allPosts[0];
   const remainingPosts = allPosts.slice(1);
 
-  // Pagination settings: 8 articles per page (in grid)
-  const postsPerPage = 8;
-  const totalPages = Math.ceil(remainingPosts.length / postsPerPage);
+  // Calculate current page posts
+  const startIndex = (currentPage - 1) * postsPerPage;
+  const endIndex = startIndex + postsPerPage;
+  const currentPagePosts = remainingPosts.slice(startIndex, endIndex);
 
   // Category data
   const topicCategories = [
@@ -232,16 +273,24 @@ export default function InsightsPage() {
           <h2 className="text-3xl font-bold text-text-heading mb-12 font-sans text-center">All Articles</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {remainingPosts.slice(0, postsPerPage).map((post) => (
+            {currentPagePosts.map((post) => (
               <ArticleCard key={post.slug} {...post} />
             ))}
           </div>
 
+          {/* Show message if no posts on current page */}
+          {currentPagePosts.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-text-main text-lg">No articles found on this page.</p>
+            </div>
+          )}
+
           {/* Pagination component */}
           {totalPages > 1 && (
             <Pagination
-              currentPage={1}
+              currentPage={currentPage}
               totalPages={totalPages}
+              onPageChange={handlePageChange}
             />
           )}
         </div>
