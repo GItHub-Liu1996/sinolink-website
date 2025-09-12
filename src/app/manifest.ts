@@ -17,14 +17,20 @@ export default function manifest(): MetadataRoute.Manifest {
     categories: ['business', 'consulting', 'china'],
     icons: [
       {
+        src: '/favicon.ico',
+        sizes: '16x16 32x32 48x48',
+        type: 'image/x-icon',
+      },
+      {
         src: '/images/logo/favicon.svg',
         sizes: 'any',
         type: 'image/svg+xml',
       },
       {
-        src: '/favicon.ico',
-        sizes: 'any',
-        type: 'image/x-icon',
+        src: '/images/logo/favicon.svg',
+        sizes: '192x192',
+        type: 'image/svg+xml',
+        purpose: 'any maskable',
       },
     ],
   }

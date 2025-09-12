@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.2] - 2025-01-12
+
+### 🔧 Favicon修复
+- **修复部署后favicon显示问题**: 解决生产环境中显示Vercel默认图标的问题
+- **优化favicon配置**: 在public目录添加favicon.ico和favicon.svg文件
+- **完善图标配置**: 更新layout.tsx和manifest.ts中的favicon路径配置
+- **多格式支持**: 支持ICO、SVG等多种favicon格式，确保跨浏览器兼容性
+- **品牌一致性**: favicon设计与网站品牌色彩保持一致
+
 ## [1.2.1] - 2025-01-12
 
 ### 🧹 代码清理和项目优化

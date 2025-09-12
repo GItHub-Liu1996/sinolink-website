@@ -52,9 +52,11 @@ export async function generateMetadata(): Promise<Metadata> {
       icon: [
         { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
         { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+        { url: '/favicon.svg', type: 'image/svg+xml' },
         { url: '/images/logo/favicon.svg', type: 'image/svg+xml' }
       ],
       apple: [
+        { url: '/favicon.svg', sizes: '180x180', type: 'image/svg+xml' },
         { url: '/images/logo/favicon.svg', sizes: '180x180', type: 'image/svg+xml' }
       ],
       shortcut: '/favicon.ico'
@@ -102,9 +104,12 @@ export default function RootLayout({
         {/* Favicon */}
         <link rel="icon" href="/favicon.ico" sizes="16x16" type="image/x-icon" />
         <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <link rel="icon" href="/images/logo/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/favicon.svg" sizes="180x180" />
         <link rel="apple-touch-icon" href="/images/logo/favicon.svg" sizes="180x180" />
         <link rel="shortcut icon" href="/favicon.ico" />
+        <meta name="msapplication-TileImage" content="/favicon.svg" />
         
         {/* Google Tag Manager */}
         <script dangerouslySetInnerHTML={{
