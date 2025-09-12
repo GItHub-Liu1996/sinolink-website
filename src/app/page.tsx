@@ -20,8 +20,76 @@ const FeaturedCaseStudy = dynamic(() => import('./_components/FeaturedCaseStudy'
   loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-lg"></div>
 });
 
+const companyName = "GoChinaAdvisors";
+const siteUrl = "https://gochinaadvisors.com";
+
+const homePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: 'GoChinaAdvisors - Your Gateway to the China Market',
+  description: 'End-to-end services for foreign investors in China, specializing in WFOE registration, tax compliance, and operational support.',
+  url: siteUrl,
+  mainEntity: {
+    '@type': 'Organization',
+    name: companyName,
+    url: siteUrl,
+    logo: `${siteUrl}/images/logo/logo.svg`,
+    description: 'Professional consulting services for company registration, compliance, and growth in China.',
+    foundingDate: '2008',
+    numberOfEmployees: '50-100',
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Suite 2001, Shanghai Tower, 501 Yincheng Middle Road',
+      addressLocality: 'Shanghai',
+      postalCode: '200120',
+      addressCountry: 'CN'
+    },
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+86-21-1234-5678',
+      contactType: 'Customer Service',
+      areaServed: 'CN',
+      availableLanguage: ['English', 'Chinese']
+    },
+    serviceArea: {
+      '@type': 'Country',
+      name: 'China'
+    },
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: 'China Business Services',
+      itemListElement: [
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'WFOE Registration',
+            description: 'Complete Wholly Foreign-Owned Enterprise registration services'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'Tax Compliance',
+            description: 'Comprehensive tax compliance and reporting services'
+          }
+        },
+        {
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name: 'HR & Visa Services',
+            description: 'Human resources and visa application support'
+          }
+        }
+      ]
+    }
+  }
+};
+
 export const metadata: Metadata = {
-  title: "China Business Solutions | Your Gateway to the China Market",
+  title: "GoChinaAdvisors | Your Gateway to the China Market",
   description: "End-to-end services for foreign investors in China, specializing in WFOE registration, tax compliance, and operational support.",
   keywords: [
     "China business consulting",
@@ -34,16 +102,16 @@ export const metadata: Metadata = {
     "business registration China"
   ],
   openGraph: {
-    title: "China Business Solutions - Launch, Operate & Thrive in China",
+    title: "GoChinaAdvisors - Launch, Operate & Thrive in China",
     description: "Expert consulting services for WFOE registration, business compliance, and market entry in China. 15+ years experience, 500+ successful projects.",
-    url: "https://sinolink-website.vercel.app",
-    siteName: "ChinaBiz Solutions",
+    url: siteUrl,
+    siteName: "GoChinaAdvisors",
     images: [
       {
-        url: "/images/hero-background.webp",
+        url: `${siteUrl}/images/hero-background.webp`,
         width: 1200,
         height: 630,
-        alt: "Professional China Business Solutions team",
+        alt: "Professional GoChinaAdvisors team",
       },
     ],
     locale: "en_US",
@@ -51,12 +119,18 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "China Business Solutions - Launch, Operate & Thrive in China",
+    title: "GoChinaAdvisors - Launch, Operate & Thrive in China",
     description: "Expert consulting services for WFOE registration, business compliance, and market entry in China.",
-    images: ["/images/hero-background.webp"],
+    images: [`${siteUrl}/images/hero-background.webp`],
   },
   alternates: {
-    canonical: "https://sinolink-website.vercel.app",
+    canonical: siteUrl,
+  },
+  other: {
+    'script-homepage': {
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify(homePageSchema),
+    },
   },
 };
 
@@ -66,43 +140,6 @@ export default function HomePage() {
       {/* Loading Progress Indicator */}
       <LoadingProgress />
       
-      {/* Structured Data for SEO */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "China Business Solutions",
-            "alternateName": "ChinaBiz Solutions",
-            "url": "https://sinolink-website.vercel.app",
-            "logo": "https://sinolink-website.vercel.app/favicon.ico",
-            "description": "Professional consulting services for company registration, compliance, and growth in China.",
-            "address": {
-              "@type": "PostalAddress",
-              "streetAddress": "123 Business District",
-              "addressLocality": "Shanghai",
-              "addressRegion": "Shanghai",
-              "addressCountry": "CN"
-            },
-            "contactPoint": {
-              "@type": "ContactPoint",
-              "telephone": "+86-21-1234-5678",
-              "contactType": "customer service",
-              "availableLanguage": ["English", "Chinese"]
-            },
-            "sameAs": [
-              "https://sinolink-website.vercel.app"
-            ],
-            "foundingDate": "2010",
-            "numberOfEmployees": "50-100",
-            "serviceArea": {
-              "@type": "Country",
-              "name": "China"
-            }
-          })
-        }}
-      />
       
       <main>
         {/* 1. Hero Section - Main value proposition */}

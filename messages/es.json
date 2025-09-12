@@ -1,0 +1,805 @@
+{
+  "Navbar": {
+    "home": "Inicio",
+    "solutions": "Soluciones",
+    "about": "Quiénes Somos",
+    "insights": "Noticias y Análisis",
+    "contact": "Contacto",
+    "freeConsultation": "Consulta Gratuita",
+    "openSearch": "Abrir búsqueda",
+    "toggleMobileMenu": "Alternar menú móvil"
+  },
+  "HeroSection": {
+    "title": "Inicie, Opere y Prospere en China. Nosotros Gestionamos la Complejidad.",
+    "subtitle": "Desde el registro de WFOE hasta el cumplimiento normativo continuo, nuestro equipo de expertos le proporciona la claridad y el apoyo que necesita para tener éxito.",
+    "primaryButton": "Comience Hoy",
+    "secondaryButton": "Explore Nuestros Servicios",
+    "backgroundAlt": "Equipo de negocios profesional trabajando en una oficina moderna con el paisaje urbano de Shanghái de fondo - Soluciones Empresariales en China"
+  },
+  "StatsSection": {
+    "title": "Por Qué Elegirnos Sobre la Competencia",
+    "subtitle": "Métricas de rendimiento reales que importan para el éxito de su negocio en China.",
+    "stats": {
+      "monthsAverage": {
+        "value": "3",
+        "label": "Meses en Promedio",
+        "description": "Plazo de registro de WFOE frente al promedio de la industria de más de 12 meses"
+      },
+      "costReduction": {
+        "value": "85",
+        "label": "Reducción de Costos",
+        "description": "Ahorro promedio en comparación con el enfoque de hacerlo usted mismo"
+      },
+      "hourSupport": {
+        "value": "24",
+        "label": "Horas de Soporte",
+        "description": "Monitoreo de cumplimiento dedicado"
+      },
+      "complianceRate": {
+        "value": "100",
+        "label": "Tasa de Cumplimiento",
+        "description": "Cero violaciones regulatorias en 5 años"
+      }
+    },
+    "bottomStats": {
+      "companiesLaunched": "Empresas Lanzadas",
+      "industrySectors": "Sectores Industriales",
+      "support": "Soporte"
+    }
+  },
+  "ModernWhoWeAre": {
+    "badge": "Equipo Experto",
+    "title": "Conozca a los Expertos",
+    "subtitle": "Nuestro equipo combina ex funcionarios del gobierno, socios de las Big 4 y expertos legales experimentados con un profundo conocimiento del mercado chino.",
+    "teamMembers": {
+      "sarahChen": {
+        "name": "Sarah Chen",
+        "role": "Directora General",
+        "credentials": "Ex funcionaria del MOFCOM, 12 años de experiencia regulatoria en China",
+        "expertise": "Registro de WFOE, Relaciones Gubernamentales",
+        "achievements": ["+500 Empresas Registradas", "+15 Años de Experiencia", "Cero Problemas de Cumplimiento"]
+      },
+      "davidThompson": {
+        "name": "David Thompson",
+        "role": "Director Legal",
+        "credentials": "Socio en Dentons Beijing, 15 años de experiencia en M&A",
+        "expertise": "Derecho Corporativo, Transacciones Transfronterizas",
+        "achievements": ["+$2B en Transacciones", "Firma de Abogados de Primer Nivel", "Experiencia Internacional"]
+      },
+      "lisaWang": {
+        "name": "Lisa Wang",
+        "role": "Directora de Impuestos",
+        "credentials": "Ex Socia de Impuestos en PwC, CPA China y EE. UU.",
+        "expertise": "Planificación Fiscal, Precios de Transferencia",
+        "achievements": ["Experta en Optimización Fiscal", "Doble Licencia CPA", "Experiencia en Big 4"]
+      }
+    },
+    "specialization": "Especialización",
+    "stats": {
+      "formerOfficials": "Ex Funcionarios del MOFCOM",
+      "big4Partners": "Socios de Contabilidad de las Big 4",
+      "topTierLawyers": "Socios de Firmas de Abogados de Primer Nivel",
+      "multilingualExperts": "Expertos Locales Multilingües"
+    },
+    "cta": {
+      "title": "¿Listo para Trabajar con Nuestros Expertos?",
+      "subtitle": "Obtenga una consulta personalizada de nuestro equipo de especialistas en el mercado chino. Agende una llamada de descubrimiento gratuita de 30 minutos hoy.",
+      "button": "Agendar Consulta Gratuita"
+    }
+  },
+  "ServicesOverview": {
+    "title": "Soluciones Integrales para Cada Etapa.",
+    "subtitle": "Servicios completos diseñados para abordar cada aspecto de su entrada y operaciones en el mercado chino.",
+    "solutions": {
+      "establishPresence": {
+        "title": "Establezca su Presencia",
+        "overviewText": "Servicio completo de formación de empresas, desde la selección de la estructura legal hasta la apertura de cuentas bancarias.",
+        "services": ["Registro de WFOE y JV", "Apertura de Cuentas Bancarias", "Solicitud de Sellos de la Empresa", "Registro Fiscal Inicial"]
+      },
+      "operateConfidence": {
+        "title": "Opere con Confianza",
+        "overviewText": "Servicios expertos de contabilidad, impuestos y recursos humanos para mantener su negocio en cumplimiento y funcionando sin problemas.",
+        "services": ["Asesoría Contable y Fiscal", "Gestión de RR. HH. y Nóminas", "Cumplimiento y Auditoría Anual", "Renovación de Licencias Comerciales"]
+      },
+      "mobilizeTalent": {
+        "title": "Movilice su Talento",
+        "overviewText": "Gestión completa del proceso de inmigración para ejecutivos y sus familias, desde permisos de trabajo hasta permisos de residencia.",
+        "services": ["Solicitud de Permisos de Trabajo", "Procesamiento de Visas de Negocios", "Servicios de Permisos de Residencia", "Soporte para Visas Familiares y de Dependientes"]
+      }
+    }
+  },
+  "InsightsSection": {
+    "title": "Noticias y Análisis",
+    "subtitle": "Navegue las complejidades de los negocios en China con visión local y experiencia global.",
+    "articles": {
+      "wfoeGuide": {
+        "title": "Registro de WFOE: Guía Completa 2025",
+        "excerpt": "Todo lo que necesita saber sobre la creación de una Empresa de Propiedad Totalmente Extranjera (WFOE) en China, incluidos los últimos cambios regulatorios.",
+        "category": "Guía Legal",
+        "readTime": "8 min de lectura",
+        "date": "12 de sep, 2025"
+      },
+      "taxPrimer": {
+        "title": "Sistema Fiscal Chino: Guía para Inversores Extranjeros",
+        "excerpt": "Navegue el complejo panorama fiscal de China con nuestra guía completa sobre impuestos corporativos, IVA y requisitos de cumplimiento.",
+        "category": "Impuestos y Cumplimiento",
+        "readTime": "12 min de lectura",
+        "date": "10 de sep, 2025"
+      },
+      "legalEntity": {
+        "title": "Eligiendo la Entidad Legal Correcta para China",
+        "excerpt": "Compare las estructuras de WFOE, Joint Venture y Oficina de Representación para encontrar la que mejor se adapte a su modelo de negocio.",
+        "category": "Estrategia de Negocios",
+        "readTime": "6 min de lectura",
+        "date": "8 de sep, 2025"
+      },
+      "hrVisa": {
+        "title": "Esenciales de RR. HH. y Visas: Permisos de Trabajo en China",
+        "excerpt": "Guía completa para obtener permisos de trabajo y residencia para empleados extranjeros en China.",
+        "category": "RR. HH. y Visas",
+        "readTime": "10 min de lectura",
+        "date": "6 de sep, 2025"
+      }
+    },
+    "readMoreButton": "Leer Más Análisis"
+  },
+  "FeaturedCaseStudy": {
+    "title": "Resultados Comprobados, Impacto Real",
+    "subtitle": "Vea cómo hemos ayudado a empresas a establecerse y operar con éxito en China con nuestros servicios de soporte integral.",
+    "caseStudies": {
+      "techGlobal": {
+        "companyName": "TechGlobal Solutions",
+        "industry": "Servicios de Tecnología",
+        "timeline": "2.5",
+        "timelineUnit": "Meses",
+        "savings": "$15K",
+        "savingsUnit": "Ahorrados",
+        "compliance": "100%",
+        "complianceUnit": "Cumplimiento",
+        "testimonial": "Registro completo de WFOE y configuración de cumplimiento completados eficientemente con cero problemas regulatorios."
+      },
+      "ecoTech": {
+        "companyName": "EcoTech Industries",
+        "industry": "Manufactura",
+        "timeline": "4",
+        "timelineUnit": "Meses",
+        "savings": "$25K",
+        "savingsUnit": "Ahorrados",
+        "compliance": "100%",
+        "complianceUnit": "Cumplimiento",
+        "testimonial": "Configuración completa de licencias de fabricación y soporte de cumplimiento continuo aseguraron operaciones sin problemas."
+      },
+      "globalInnovations": {
+        "companyName": "Global Innovations",
+        "industry": "Servicios Financieros",
+        "timeline": "3",
+        "timelineUnit": "Meses",
+        "savings": "$20K",
+        "savingsUnit": "Ahorrados",
+        "compliance": "100%",
+        "complianceUnit": "Cumplimiento",
+        "testimonial": "Configuración compleja de licencias financieras y cumplimiento completada con guía experta y soporte continuo."
+      }
+    },
+    "bottomStats": {
+      "successRate": "Tasa de Éxito",
+      "companies": "Empresas",
+      "yearsExperience": "Años de Experiencia"
+    }
+  },
+  "AboutPage": {
+    "metadata": {
+      "title": "Quiénes Somos | ChinaBiz Solutions",
+      "description": "Conozca nuestra misión, valores y el equipo de expertos dedicado a ayudar a su negocio a tener éxito en el complejo mercado chino.",
+      "keywords": [
+        "acerca de ChinaBiz Solutions",
+        "consultores de negocios en China",
+        "expertos en el mercado chino",
+        "inversión extranjera en China",
+        "equipo de negocios en China",
+        "empresa de consultoría en China",
+        "expertos en entrada al mercado chino"
+      ]
+    },
+    "hero": {
+      "title": "Su Ambición, Nuestra Misión.",
+      "subtitle": "Nos fundamos con un principio simple: ser el puente más confiable para empresas globales ambiciosas que ingresan al complejo mercado chino."
+    },
+    "coreValues": {
+      "title": "Nuestros Valores Fundamentales",
+      "subtitle": "Estos principios guían cada decisión que tomamos y cada relación que construimos.",
+      "values": {
+        "integrity": {
+          "title": "Integridad Primero",
+          "description": "Creemos en la comunicación transparente, el asesoramiento honesto y las prácticas comerciales éticas que construyen una confianza duradera."
+        },
+        "clientSuccess": {
+          "title": "Éxito del Cliente",
+          "description": "Su éxito es nuestro éxito. Medimos nuestros logros por el crecimiento y la prosperidad de nuestros clientes."
+        },
+        "culturalBridge": {
+          "title": "Puente Cultural",
+          "description": "Entendemos tanto las prácticas comerciales occidentales como la dinámica del mercado chino, creando conexiones fluidas."
+        }
+      },
+      "stats": {
+        "ethicalStandards": "Estándares Éticos",
+        "clientRetention": "Retención de Clientes",
+        "support": "Soporte",
+        "successStories": "Casos de Éxito"
+      }
+    },
+    "impactNumbers": {
+      "title": "Nuestro Impacto en Cifras",
+      "subtitle": "Más de una década de experiencia, cientos de proyectos exitosos e innumerables clientes satisfechos.",
+      "stats": {
+        "yearsExperience": {
+          "value": "+15",
+          "title": "Años de Experiencia",
+          "description": "Profundo conocimiento del panorama empresarial de China"
+        },
+        "successfulProjects": {
+          "value": "+500",
+          "title": "Proyectos Exitosos",
+          "description": "Empresas lanzadas y prosperando en China"
+        },
+        "clientSatisfaction": {
+          "value": "98%",
+          "title": "Satisfacción del Cliente",
+          "description": "Tasa de retención de clientes consistentemente alta"
+        }
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Iniciar su Viaje en China?",
+      "subtitle": "Deje que nuestro experimentado equipo lo guíe en cada paso de su entrada al mercado chino.",
+      "primaryButton": "Comience Hoy",
+      "secondaryButton": "Explore Nuestros Servicios"
+    },
+    "consultationQuiz": {
+      "title": "Para Entender Mejor sus Necesidades",
+      "subtitle": "Responda algunas preguntas para obtener una consulta y recomendaciones de negocio personalizadas."
+    }
+  },
+  "ContactPage": {
+    "title": "Iniciemos la Conversación",
+    "subtitle": "¿Listo para establecer su negocio en China? Póngase en contacto con nuestros expertos para una consulta gratuita y orientación personalizada.",
+    "form": {
+      "title": "Envíenos un Mensaje",
+      "fields": {
+        "fullName": {
+          "label": "Nombre Completo *",
+          "placeholder": "Ingrese su nombre completo"
+        },
+        "companyName": {
+          "label": "Nombre de la Empresa *",
+          "placeholder": "Ingrese el nombre de su empresa"
+        },
+        "workEmail": {
+          "label": "Correo Electrónico Laboral *",
+          "placeholder": "Ingrese su correo electrónico laboral"
+        },
+        "message": {
+          "label": "Su Mensaje *",
+          "placeholder": "Cuéntenos sobre sus objetivos de negocio y cómo podemos ayudar..."
+        }
+      },
+      "submitButton": "Enviar Mensaje",
+      "submittingButton": "Enviando...",
+      "successMessage": "¡Gracias por su mensaje! Nos pondremos en contacto con usted en 24 horas.",
+      "errorMessage": "Lo sentimos, hubo un error al enviar su mensaje. Por favor, inténtelo de nuevo."
+    },
+    "contactInfo": {
+      "title": "Información de Contacto",
+      "email": {
+        "title": "Correo Electrónico",
+        "address": "info@chinabizsolutions.com",
+        "responseTime": "Normalmente respondemos en 24 horas"
+      },
+      "phone": {
+        "title": "Teléfono",
+        "number": "+86 21 1234 5678",
+        "hours": "Lun-Vie 9:00 AM - 6:00 PM (CST)"
+      },
+      "address": {
+        "title": "Dirección de la Oficina",
+        "details": "Suite 2001, Shanghai Tower\n501 Yincheng Middle Road\nPudong New Area, Shanghai 200120\nChina"
+      }
+    },
+    "whyChooseUs": {
+      "title": "¿Por Qué Elegirnos?",
+      "benefits": [
+        "Consulta inicial gratuita",
+        "Precios transparentes",
+        "Conocimiento local experto",
+        "Soporte continuo"
+      ]
+    }
+  },
+  "ServicesPage": {
+    "badge": "Servicios Profesionales",
+    "title": "Un Ecosistema de Servicios de Extremo a Extremo",
+    "subtitle": "Cubriendo el ciclo de vida completo de su negocio en China, desde la configuración inicial hasta el crecimiento a largo plazo. Nuestras soluciones integrales aseguran su éxito en cada etapa.",
+    "stats": {
+      "yearsExperience": "Años de Experiencia",
+      "successfulProjects": "Proyectos Exitosos",
+      "successRate": "Tasa de Éxito"
+    },
+    "categories": {
+      "marketEntry": {
+        "id": "entrada-al-mercado",
+        "title": "Entrada al Mercado y Configuración",
+        "description": "Estableciendo su base legal y su infraestructura operativa en China."
+      },
+      "operations": {
+        "id": "operaciones",
+        "title": "Operaciones y Cumplimiento",
+        "description": "Manteniendo operaciones fluidas mientras se asegura el pleno cumplimiento normativo."
+      },
+      "growth": {
+        "id": "crecimiento",
+        "title": "Crecimiento y Protección",
+        "description": "Protegiendo sus activos y acelerando el crecimiento a través de iniciativas estratégicas."
+      }
+    },
+    "faq": {
+      "title": "Preguntas Frecuentes",
+      "subtitle": "Obtenga respuestas a las preguntas más comunes sobre nuestros servicios y las operaciones comerciales en China.",
+      "questions": {
+        "wfoeTimeframe": {
+          "question": "¿Cuál es el plazo típico para el registro de una WFOE?",
+          "answer": "El plazo estándar es generalmente de 2 a 3 meses desde la presentación de todos los documentos requeridos. Sin embargo, esto puede variar según la ciudad de registro y la industria específica."
+        },
+        "physicalOffice": {
+          "question": "¿Se requiere una oficina física para registrar una empresa en China?",
+          "answer": "Aunque generalmente se requiere una oficina física, ofrecemos soluciones como direcciones virtuales para fines de registro, proporcionando flexibilidad para su configuración inicial."
+        },
+        "profitRepatriation": {
+          "question": "¿Cómo puedo sacar legalmente mis ganancias de China?",
+          "answer": "Las ganancias se pueden repatriar legalmente a su país de origen como dividendos después de la conciliación anual del impuesto sobre la renta de las sociedades. Ofrecemos una guía completa para asegurar que este proceso sea fluido y cumpla con la normativa."
+        }
+      }
+    }
+  },
+  "InsightsPage": {
+    "title": "Noticias y Análisis",
+    "subtitle": "Análisis de expertos y orientación práctica para su viaje de negocios en China.",
+    "search": {
+      "placeholder": "Buscar artículos...",
+      "noResults": {
+        "title": "No se encontraron artículos",
+        "description": "Intente ajustar sus criterios de búsqueda o filtro."
+      }
+    },
+    "results": {
+      "showing": "Mostrando",
+      "articles": "artículo",
+      "articlesPlural": "artículos",
+      "inCategory": "en",
+      "page": "Página",
+      "of": "de"
+    },
+    "articleCard": {
+      "featured": "Destacado",
+      "readMore": "Leer Más"
+    },
+    "valueProposition": {
+      "title": "Conviértase en un Experto del Mercado Chino",
+      "subtitle": "Únase a más de 2,000 líderes empresariales que confían en nuestros análisis exclusivos para navegar el complejo panorama del mercado chino. Obtenga actualizaciones semanales sobre cambios regulatorios, oportunidades de mercado y orientación estratégica.",
+      "benefits": {
+        "weeklyInsights": {
+          "title": "Análisis Semanales",
+          "description": "Tendencias de mercado, actualizaciones de políticas y análisis estratégico"
+        },
+        "earlyAccess": {
+          "title": "Acceso Anticipado",
+          "description": "Sea el primero en saber sobre cambios regulatorios y oportunidades"
+        },
+        "expertNetwork": {
+          "title": "Red de Expertos",
+          "description": "Conecte con expertos y colegas de negocios en China"
+        }
+      },
+      "buttons": {
+        "startConsultation": "Iniciar Consulta Inteligente",
+        "subscribeNewsletter": "Suscribirse al Boletín"
+      },
+      "disclaimer": "Obtenga asesoramiento personalizado o manténgase actualizado con nuestros análisis. Sin spam, cancele la suscripción en cualquier momento."
+    },
+    "consultationQuiz": {
+      "title": "Para Entender Mejor sus Necesidades",
+      "subtitle": "Responda algunas preguntas para obtener una consulta y recomendaciones de negocio personalizadas."
+    }
+  },
+  "ChallengesSection": {
+    "title": "Anticipe los Desafíos Antes de que se Conviertan en Problemas.",
+    "subtitle": "Convertimos sus mayores incertidumbres en sus mayores fortalezas.",
+    "challenges": {
+      "bureaucracy": {
+        "title": "¿Se perderá mi negocio en la burocracia china?",
+        "description": "Navegue con Claridad.",
+        "hoverTitle": "Navegue con Claridad.",
+        "hoverDescription": "Nuestro proceso optimizado y nuestras relaciones expertas con el gobierno aseguran un registro fluido y en cumplimiento desde el primer día. Nosotros nos encargamos del papeleo, para que usted pueda enfocarse en su negocio."
+      },
+      "finances": {
+        "title": "¿Se manejan mis finanzas e impuestos de manera correcta y transparente?",
+        "description": "Logre el Pleno Cumplimiento.",
+        "hoverTitle": "Logre el Pleno Cumplimiento.",
+        "hoverDescription": "Obtenga total tranquilidad. Ofrecemos una rigurosa asesoría contable y fiscal bilingüe para asegurar que siempre esté listo para auditorías y en control."
+      },
+      "operations": {
+        "title": "¿Cómo gestiono la contratación, los contratos y las operaciones diarias en una nueva cultura?",
+        "description": "Opere con Confianza.",
+        "hoverTitle": "Opere con Confianza.",
+        "hoverDescription": "Desde RR. HH. y nóminas hasta la protección de la propiedad intelectual, ofrecemos el soporte operativo continuo que necesita para prosperar a largo plazo en el mercado chino."
+      }
+    }
+  },
+  "ChallengesWeSolve": {
+    "title": "Desafíos que Resolvemos",
+    "subtitle": "Entendemos las complejidades de hacer negocios en China y ofrecemos soluciones integrales para superar estos obstáculos.",
+    "challenges": {
+      "regulatoryMaze": {
+        "title": "Laberinto Regulatorio",
+        "description": "Navegar el complejo entorno regulatorio de China puede ser abrumador. Con políticas en constante evolución, múltiples departamentos gubernamentales y requisitos de cumplimiento intrincados, las empresas a menudo luchan por cumplir con todas las obligaciones. Nuestros expertos lo guían a través de cada requisito, asegurando el pleno cumplimiento."
+      },
+      "financialCompliance": {
+        "title": "Cumplimiento Financiero",
+        "description": "Las regulaciones financieras de China requieren una atención meticulosa al detalle, desde el registro de impuestos hasta los controles de divisas. Muchas empresas enfrentan desafíos con el cumplimiento del IVA y las complejidades del sistema fiscal. Nuestros expertos financieros aseguran que su negocio cumpla con todas las obligaciones fiscales."
+      },
+      "operationalHurdles": {
+        "title": "Obstáculos Operativos",
+        "description": "Desde la gestión de recursos humanos y nóminas hasta la configuración de la oficina, operar en China presenta desafíos únicos. Las diferencias culturales y las barreras idiomáticas pueden crear obstáculos significativos. Nuestro soporte operativo lo ayuda a establecer procesos eficientes y un modelo de negocio sostenible."
+      }
+    }
+  },
+  "FinalCTA": {
+    "title": "¿Listo para Entrar al Mercado Chino?",
+    "subtitle": "Únase a cientos de empresas exitosas que han confiado en nosotros para su entrada al mercado chino. Convirtamos su visión en realidad.",
+    "primaryButton": "Comience Hoy",
+    "secondaryButton": "Explore Nuestros Servicios",
+    "trustIndicators": {
+      "yearsExperience": "Años de Experiencia",
+      "successfulProjects": "Proyectos Exitosos",
+      "clientSatisfaction": "Satisfacción del Cliente"
+    }
+  },
+  "HowItWorks": {
+    "title": "Cómo Funciona",
+    "subtitle": "Nuestro proceso probado de 4 pasos asegura una entrada al mercado chino fluida y exitosa.",
+    "steps": {
+      "consultation": {
+        "number": "1",
+        "title": "Consulta y Estrategia",
+        "description": "Comenzamos con una consulta detallada para entender sus objetivos de negocio y recomendar la mejor estructura para su empresa en China."
+      },
+      "documentPreparation": {
+        "number": "2",
+        "title": "Preparación de Documentos",
+        "description": "Nuestros expertos preparan toda la documentación requerida, asegurando el cumplimiento con las regulaciones y requisitos chinos."
+      },
+      "governmentSubmission": {
+        "number": "3",
+        "title": "Presentación al Gobierno",
+        "description": "Nos encargamos de todas las presentaciones al gobierno y coordinamos con las autoridades relevantes para asegurar un procesamiento sin problemas."
+      },
+      "licenseHandover": {
+        "number": "4",
+        "title": "Entrega de Licencia y Soporte",
+        "description": "Una vez aprobado, le entregamos sus licencias de negocio y ofrecemos una entrega completa con soporte continuo."
+      }
+    }
+  },
+  "ProblemSolution": {
+    "title": "Navegar el Mercado Chino es Complejo",
+    "problems": {
+      "bureaucracy": {
+        "title": "Burocracia Compleja",
+        "description": "Múltiples departamentos gubernamentales, papeleo intrincado y regulaciones en constante cambio hacen que el proceso sea abrumador."
+      },
+      "timeConsuming": {
+        "title": "Proceso Lento",
+        "description": "Sin la guía adecuada, el registro puede demorar de 6 a 12 meses, retrasando su entrada al mercado y aumentando los costos."
+      },
+      "culturalBarriers": {
+        "title": "Barreras Culturales y Lingüísticas",
+        "description": "Entender las prácticas comerciales locales, los estilos de comunicación y los matices culturales requiere una profunda experiencia local."
+      },
+      "complianceRisks": {
+        "title": "Riesgos de Cumplimiento",
+        "description": "El incumplimiento puede resultar en multas, cierre de la empresa o consecuencias legales que podrían impactar sus operaciones globales."
+      }
+    },
+    "solutions": {
+      "title": "Nosotros Simplificamos Todo",
+      "streamlinedProcess": {
+        "title": "Proceso Optimizado",
+        "description": "Nuestra metodología probada reduce el tiempo de registro a 2-3 meses con una garantía de cumplimiento del 100%."
+      },
+      "expertGuidance": {
+        "title": "Guía Experta",
+        "description": "Equipo bilingüe con profundo conocimiento de las prácticas comerciales occidentales y la dinámica del mercado chino."
+      },
+      "ongoingSupport": {
+        "title": "Soporte Continuo",
+        "description": "Desde el registro hasta las operaciones diarias, ofrecemos soporte continuo para asegurar su éxito a largo plazo."
+      },
+      "riskMitigation": {
+        "title": "Mitigación de Riesgos",
+        "description": "Monitoreo integral del cumplimiento y gestión proactiva de riesgos para proteger sus intereses comerciales."
+      }
+    }
+  },
+  "Testimonials": {
+    "testimonials": {
+      "techGlobal": {
+        "quote": "ChinaBiz Solutions transformó nuestra entrada al mercado chino de un desafío abrumador a un lanzamiento fluido y exitoso.",
+        "author": "David Thompson",
+        "position": "CEO",
+        "company": "TechGlobal Solutions"
+      },
+      "globalInnovations": {
+        "quote": "Su experiencia en la cultura empresarial y las regulaciones chinas fue invaluable para nuestra penetración en el mercado.",
+        "author": "Sarah Chen",
+        "position": "Directora General",
+        "company": "Global Innovations Ltd"
+      },
+      "ecoTech": {
+        "quote": "Trabajar con ChinaBiz Solutions fue una de las mejores decisiones que tomamos para nuestra expansión en China.",
+        "author": "Michael Rodriguez",
+        "position": "Fundador",
+        "company": "EcoTech Industries"
+      }
+    }
+  },
+  "WhoWeAre": {
+    "title": "Conozca a Nuestro Equipo de Expertos",
+    "subtitle": "Nuestro equipo combina una profunda experiencia local con la perspicacia de los negocios internacionales para ofrecer resultados excepcionales.",
+    "teamMembers": {
+      "sarahChen": {
+        "name": "Sarah Chen",
+        "role": "Directora General",
+        "credentials": "Ex funcionaria del MOFCOM, 12 años de experiencia regulatoria en China",
+        "expertise": "Registro de WFOE, Relaciones Gubernamentales"
+      },
+      "davidThompson": {
+        "name": "David Thompson",
+        "role": "Director Legal",
+        "credentials": "Socio en Dentons Beijing, 15 años de experiencia en M&A",
+        "expertise": "Derecho Corporativo, Transacciones Transfronterizas"
+      },
+      "lisaWang": {
+        "name": "Lisa Wang",
+        "role": "Directora de Impuestos",
+        "credentials": "Ex Socia de Impuestos en PwC, CPA China y EE. UU.",
+        "expertise": "Planificación Fiscal, Precios de Transferencia"
+      }
+    },
+    "cta": {
+      "title": "¿Listo para Trabajar con Nuestros Expertos?",
+      "subtitle": "Deje que nuestro experimentado equipo lo guíe en su viaje de entrada al mercado chino.",
+      "primaryButton": "Comience Hoy",
+      "secondaryButton": "Conozca Nuestros Servicios"
+    }
+  },
+  "ServicePages": {
+    "wfoeRegistration": {
+      "metadata": {
+        "title": "Registro de WFOE | China Business Solutions",
+        "description": "Servicios completos de registro de WFOE (Empresa de Propiedad Totalmente Extranjera) en China. Guía experta en configuración de empresas, licencias y cumplimiento.",
+        "keywords": "registro de WFOE, registro de empresas en China, inversión extranjera, licencia comercial, configuración en China"
+      },
+      "title": "Registro de WFOE",
+      "subtitle": "Una Empresa de Propiedad Totalmente Extranjera (WFOE) es la estructura empresarial más común para las empresas extranjeras que ingresan a China. Nuestros servicios integrales de registro de WFOE aseguran un proceso de configuración fluido y en cumplimiento.",
+      "process": {
+        "title": "Proceso de Registro de WFOE",
+        "steps": {
+          "planning": {
+            "title": "Planificación Previa al Registro",
+            "description": "Definición del ámbito de negocio, evaluación de los requisitos de capital y orientación en la selección de la ubicación."
+          },
+          "documents": {
+            "title": "Preparación de Documentos",
+            "description": "Preparación de todos los documentos legales requeridos, incluidos los estatutos de la sociedad y los certificados de inversión."
+          },
+          "approvals": {
+            "title": "Aprobaciones Gubernamentales",
+            "description": "Presentación ante las autoridades pertinentes y coordinación de los procesos de aprobación."
+          }
+        }
+      }
+    },
+    "taxCompliance": {
+      "metadata": {
+        "title": "Cumplimiento Fiscal | China Business Solutions",
+        "description": "Servicios integrales de cumplimiento fiscal para empresas extranjeras en China. Guía experta sobre impuestos corporativos, IVA y precios de transferencia.",
+        "keywords": "cumplimiento fiscal en China, impuesto de sociedades, IVA, precios de transferencia, planificación fiscal"
+      },
+      "title": "Cumplimiento Fiscal",
+      "subtitle": "Navegue el complejo sistema fiscal de China con confianza. Nuestros servicios de cumplimiento fiscal aseguran que su negocio cumpla con todos los requisitos regulatorios mientras optimiza su posición fiscal.",
+      "services": {
+        "title": "Nuestros Servicios Fiscales",
+        "corporateTax": {
+          "title": "Cumplimiento de Impuestos Corporativos",
+          "features": [
+            "Declaraciones de impuestos mensuales y anuales",
+            "Planificación y optimización fiscal",
+            "Soporte en auditorías fiscales",
+            "Resolución de disputas fiscales"
+          ]
+        },
+        "vatManagement": {
+          "title": "Gestión del IVA",
+          "features": [
+            "Registro y declaración de IVA",
+            "Recuperación de IVA soportado",
+            "Cumplimiento de IVA transfronterizo",
+            "Estrategias de optimización del IVA"
+          ]
+        },
+        "transferPricing": {
+          "title": "Precios de Transferencia",
+          "features": [
+            "Documentación de precios de transferencia",
+            "Cumplimiento de BEPS",
+            "Acuerdos entre compañías",
+            "Auditorías de precios de transferencia"
+          ]
+        }
+      }
+    }
+  },
+  "InsightsSubPages": {
+    "caseStudies": {
+      "metadata": {
+        "title": "Casos de Éxito de Clientes | China Business Solutions",
+        "description": "Casos de estudio del mundo real que muestran una entrada exitosa al mercado y un crecimiento empresarial en China. Aprenda de las experiencias de nuestros clientes.",
+        "keywords": "casos de estudio de negocios en China, historias de éxito, ejemplos de entrada al mercado, testimonios de clientes"
+      },
+      "title": "Casos de Éxito de Clientes",
+      "caseStudies": {
+        "techStartup": {
+          "title": "Entrada al Mercado de una Startup Tecnológica",
+          "industry": "Tecnología",
+          "challenge": "Una startup fintech europea necesitaba establecer operaciones en China mientras navegaba por complejas regulaciones financieras.",
+          "solution": "Les ayudamos a establecer una WFOE, obtener las licencias financieras necesarias y establecer asociaciones con bancos locales.",
+          "result": "Lanzamiento exitoso en 3 ciudades chinas importantes con $2M en ingresos el primer año.",
+          "duration": "6 meses"
+        },
+        "manufacturing": {
+          "title": "Expansión de la Manufactura",
+          "industry": "Manufactura",
+          "challenge": "Una empresa manufacturera de EE. UU. quería ampliar su capacidad de producción en China manteniendo los estándares de calidad.",
+          "solution": "Investigación de mercado integral, selección de sitios, cumplimiento normativo y desarrollo de asociaciones locales.",
+          "result": "Estableció 3 instalaciones de producción con una reducción de costos del 40% y mantuvo estándares de calidad del 99.5%.",
+          "duration": "8 meses"
+        },
+        "ecommerce": {
+          "title": "Lanzamiento de Plataforma de E-commerce",
+          "industry": "E-commerce",
+          "challenge": "Una plataforma global de e-commerce necesitaba adaptarse a las preferencias y regulaciones del mercado chino.",
+          "solution": "Desarrollo de plataforma localizada, integración de pagos, optimización logística y gestión de cumplimiento.",
+          "result": "Alcanzó 500K usuarios activos en el primer año y una cuota de mercado del 15% en el segmento objetivo.",
+          "duration": "12 meses"
+        },
+        "professionalServices": {
+          "title": "Firma de Servicios Profesionales",
+          "industry": "Servicios Profesionales",
+          "challenge": "Una firma de consultoría requería una estructura legal y una configuración operativa para sus operaciones en China.",
+          "solution": "Registro de WFOE, optimización fiscal, configuración de RR. HH. y desarrollo de estrategias de adquisición de clientes.",
+          "result": "Generó $1.5M en ingresos en los primeros 18 meses con márgenes de beneficio del 25%.",
+          "duration": "4 meses"
+        }
+      }
+    }
+  },
+  "ArticlesConfig": {
+    "articles": {
+      "wfoeGuide": {
+        "title": "La Guía Definitiva para el Registro de WFOE en China (Edición 2025)",
+        "excerpt": "Un recorrido completo paso a paso del proceso de registro de una Empresa de Propiedad Totalmente Extranjera, desde la aprobación del nombre hasta la apertura de la cuenta bancaria.",
+        "category": "Entrada al Mercado",
+        "readTime": "12 min de lectura"
+      },
+      "taxPrimer": {
+        "title": "Decodificando el Sistema Fiscal Chino: Guía para Empresas Extranjeras",
+        "excerpt": "Entender el Impuesto sobre la Renta de las Sociedades (CIT), el Impuesto al Valor Agregado (IVA) y otras obligaciones fiscales clave es crucial para el cumplimiento.",
+        "category": "Operaciones y Cumplimiento",
+        "readTime": "10 min de lectura"
+      },
+      "workPermits": {
+        "title": "Permisos de Trabajo y Residencia: Guía Completa para Empleados Extranjeros",
+        "excerpt": "Navegue el complejo proceso de obtención de permisos de trabajo y residencia para los miembros de su equipo internacional en China.",
+        "category": "RR. HH. y Visas",
+        "readTime": "8 min de lectura"
+      },
+      "citiesComparison": {
+        "title": "Eligiendo su Campo de Batalla: Comparativa de las Principales Ciudades de Nivel 1 en China",
+        "excerpt": "Compare Beijing, Shanghái, Guangzhou y Shenzhen para encontrar la mejor ubicación para sus operaciones en China.",
+        "category": "Entrada al Mercado",
+        "readTime": "15 min de lectura"
+      }
+    }
+  },
+  "LegalPages": {
+    "privacyPolicy": {
+      "metadata": {
+        "title": "Política de Privacidad | ChinaBiz Solutions",
+        "description": "Aprenda cómo ChinaBiz Solutions recopila, utiliza y protege su información personal de acuerdo con las leyes y regulaciones de privacidad."
+      },
+      "title": "Política de Privacidad",
+      "lastUpdated": "15 de enero de 2025",
+      "sections": {
+        "informationCollection": {
+          "title": "1. Información que Recopilamos",
+          "content": "Recopilamos la información que usted nos proporciona directamente, como cuando crea una cuenta, solicita nuestros servicios o se pone en contacto con nosotros para obtener soporte. Esto puede incluir su nombre, dirección de correo electrónico, número de teléfono, información de la empresa y cualquier otra información que decida proporcionar."
+        },
+        "informationUse": {
+          "title": "2. Cómo Usamos su Información",
+          "content": "Utilizamos la información que recopilamos para proporcionar, mantener y mejorar nuestros servicios, comunicarnos con usted y cumplir con las obligaciones legales. También podemos utilizar su información con fines de marketing con su consentimiento."
+        },
+        "informationSharing": {
+          "title": "3. Intercambio de Información",
+          "content": "No vendemos, intercambiamos ni transferimos de otro modo su información personal a terceros sin su consentimiento, excepto como se describe en esta política de privacidad o según lo exija la ley."
+        }
+      }
+    },
+    "termsOfService": {
+      "metadata": {
+        "title": "Términos de Servicio | ChinaBiz Solutions",
+        "description": "Lea nuestros términos de servicio para comprender los términos y condiciones para usar los servicios y el sitio web de ChinaBiz Solutions."
+      },
+      "title": "Términos de Servicio",
+      "lastUpdated": "15 de enero de 2025",
+      "sections": {
+        "acceptanceOfTerms": {
+          "title": "1. Aceptación de los Términos",
+          "content": "Al acceder y utilizar el sitio web y los servicios de ChinaBiz Solutions, usted acepta y se compromete a estar sujeto a los términos y disposiciones de este acuerdo. Si no está de acuerdo con estos términos, por favor no utilice nuestros servicios."
+        },
+        "descriptionOfService": {
+          "title": "2. Descripción del Servicio",
+          "content": "ChinaBiz Solutions ofrece servicios de consultoría integrales para empresas extranjeras que ingresan al mercado chino, que incluyen, entre otros:",
+          "services": [
+            "Registro y configuración de WFOE (Empresa de Propiedad Totalmente Extranjera)",
+            "Orientación sobre cumplimiento y regulaciones comerciales",
+            "Soporte para la planificación y el cumplimiento fiscal",
+            "Servicios de RR. HH. y visas",
+            "Protección de la propiedad intelectual",
+            "Servicios de contabilidad y externalización financiera"
+          ]
+        }
+      }
+    }
+  },
+  "Footer": {
+    "tagline": "Su socio de confianza para navegar la complejidad del mercado chino.",
+    "connect": "Conectar",
+    "newsletter": {
+      "placeholder": "Ingrese su email para recibir análisis",
+      "subscribe": "Suscribirse",
+      "subscribing": "Suscribiendo...",
+      "successMessage": "¡Suscripción a nuestro boletín exitosa!",
+      "errorMessage": "Error al suscribirse. Por favor, inténtelo de nuevo más tarde."
+    },
+    "sections": {
+      "ourServices": "Nuestros Servicios",
+      "resources": "Recursos",
+      "quickLinks": "Enlaces Rápidos",
+      "contact": "Contacto"
+    },
+    "resources": {
+      "latestInsights": "Últimos Análisis",
+      "toolsGuides": "Herramientas y Guías",
+      "businessTools": "Herramientas de Negocio",
+      "successStories": "Casos de Éxito",
+      "researchReports": "Informes de Investigación"
+    },
+    "articles": {
+      "wfoeGuide": "Guía de Registro WFOE 2025",
+      "taxPrimer": "Guía del Sistema Fiscal Chino",
+      "hrVisa": "Esenciales de RR. HH. y Visas",
+      "ipProtection": "Protección de PI en China"
+    },
+    "copyright": "© 2025 GoChinaAdvisors. Todos los derechos reservados."
+  }
+}

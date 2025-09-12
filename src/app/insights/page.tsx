@@ -7,6 +7,9 @@ import { articles } from '@/config/articles';
 import Pagination from './_components/Pagination';
 import { EmbeddedConsultationQuiz } from '@/components';
 
+// Import metadata for SEO
+export { metadata } from './metadata';
+
 export default function InsightsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');

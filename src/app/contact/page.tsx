@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 
+// Import metadata for SEO
+export { metadata } from './metadata';
+
 export default function Contact() {
   const [formData, setFormData] = useState({
     fullName: '',

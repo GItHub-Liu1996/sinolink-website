@@ -23,53 +23,110 @@ const lexend = Lexend({
   adjustFontFallback: false,
 });
 
-export const metadata: Metadata = {
-  metadataBase: new URL('https://gochinaadvisors.com'),
-  title: "GoChinaAdvisors - Your Trusted Partner for Market Entry",
-  description: "Professional consulting services for company registration, compliance, and growth in China. Expert guidance for WFOE, Joint Ventures, and business operations.",
-  keywords: ["China business", "WFOE registration", "company setup", "business compliance", "China market entry", "business consulting"],
-  authors: [{ name: "GoChinaAdvisors" }],
-  creator: "GoChinaAdvisors",
-  publisher: "GoChinaAdvisors",
-  icons: {
-    icon: [
-      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
-      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
-      { url: '/images/logo/favicon.svg', type: 'image/svg+xml' }
+// Generate metadata with structured data
+export async function generateMetadata(): Promise<Metadata> {
+  const companyName = "GoChinaAdvisors";
+  const siteUrl = "https://gochinaadvisors.com";
+
+  const organizationSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: companyName,
+    url: siteUrl,
+    logo: `${siteUrl}/images/logo/logo.svg`,
+    contactPoint: {
+      '@type': 'ContactPoint',
+      telephone: '+86-21-1234-5678',
+      contactType: 'Customer Service',
+      areaServed: 'CN',
+      availableLanguage: ['English', 'Chinese']
+    },
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: 'Suite 2001, Shanghai Tower, 501 Yincheng Middle Road',
+      addressLocality: 'Shanghai',
+      postalCode: '200120',
+      addressCountry: 'CN'
+    },
+    sameAs: [
+      'https://www.linkedin.com/company/gochinaadvisors',
+      'https://twitter.com/gochinaadvisors'
     ],
-    apple: [
-      { url: '/images/logo/favicon.svg', sizes: '180x180', type: 'image/svg+xml' }
-    ],
-    shortcut: '/favicon.ico'
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
+    description: 'Professional consulting services for company registration, compliance, and growth in China.'
+  };
+
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: companyName,
+    url: siteUrl,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${siteUrl}/search?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: companyName
+    }
+  };
+
+  return {
+    metadataBase: new URL(siteUrl),
+    title: "GoChinaAdvisors - Your Trusted Partner for Market Entry",
+    description: "Professional consulting services for company registration, compliance, and growth in China. Expert guidance for WFOE, Joint Ventures, and business operations.",
+    keywords: ["China business", "WFOE registration", "company setup", "business compliance", "China market entry", "business consulting"],
+    authors: [{ name: "GoChinaAdvisors" }],
+    creator: "GoChinaAdvisors",
+    publisher: "GoChinaAdvisors",
+    icons: {
+      icon: [
+        { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
+        { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+        { url: '/images/logo/favicon.svg', type: 'image/svg+xml' }
+      ],
+      apple: [
+        { url: '/images/logo/favicon.svg', sizes: '180x180', type: 'image/svg+xml' }
+      ],
+      shortcut: '/favicon.ico'
+    },
+    robots: {
       index: true,
       follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
+      googleBot: {
+        index: true,
+        follow: true,
+        'max-video-preview': -1,
+        'max-image-preview': 'large',
+        'max-snippet': -1,
+      },
     },
-  },
-  openGraph: {
-    type: 'website',
-    locale: 'en_US',
-    url: 'https://sinolink-website.vercel.app',
-    title: 'China Business Solutions - Your Trusted Partner for Market Entry',
-    description: 'Professional consulting services for company registration, compliance, and growth in China.',
-    siteName: 'ChinaBiz Solutions',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: 'China Business Solutions - Your Trusted Partner for Market Entry',
-    description: 'Professional consulting services for company registration, compliance, and growth in China.',
-  },
-  other: {
-    'font-display': 'swap',
-  },
-};
+    openGraph: {
+      type: 'website',
+      locale: 'en_US',
+      url: siteUrl,
+      title: 'GoChinaAdvisors - Your Trusted Partner for Market Entry',
+      description: 'Professional consulting services for company registration, compliance, and growth in China.',
+      siteName: 'GoChinaAdvisors',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: 'GoChinaAdvisors - Your Trusted Partner for Market Entry',
+      description: 'Professional consulting services for company registration, compliance, and growth in China.',
+    },
+    other: {
+      'font-display': 'swap',
+      'script-organization': {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(organizationSchema),
+      },
+      'script-website': {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(websiteSchema),
+      },
+    },
+  };
+}
 
 export default function RootLayout({
   children,

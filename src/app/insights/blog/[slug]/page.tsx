@@ -11,10 +11,11 @@ export async function generateStaticParams() {
   }));
 }
 
-// Generate metadata
+// Generate metadata with structured data
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
+  const siteUrl = "https://gochinaadvisors.com";
   
   if (!post) {
     return {
@@ -22,13 +23,61 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     };
   }
 
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: post.title,
+    description: post.excerpt,
+    image: post.image ? `${siteUrl}${post.image}` : `${siteUrl}/images/default-og-image.png`,
+    datePublished: post.date,
+    dateModified: post.date,
+    author: {
+      '@type': 'Organization',
+      name: 'GoChinaAdvisors',
+      url: siteUrl
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: 'GoChinaAdvisors',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${siteUrl}/images/logo/logo.svg`
+      }
+    },
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `${siteUrl}/insights/blog/${slug}`
+    },
+    articleSection: post.category || 'Business Insights',
+    keywords: post.tags || ['China business', 'market entry', 'compliance'],
+    wordCount: post.content.split(' ').length,
+    inLanguage: 'en-US'
+  };
+
   return {
     title: post.title,
     description: post.excerpt,
     openGraph: {
       title: post.title,
       description: post.excerpt,
-      images: post.image ? [post.image] : [],
+      images: post.image ? [`${siteUrl}${post.image}`] : [`${siteUrl}/images/default-og-image.png`],
+      type: 'article',
+      publishedTime: post.date,
+      authors: ['GoChinaAdvisors'],
+      section: post.category || 'Business Insights',
+      tags: post.tags || ['China business', 'market entry', 'compliance']
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.title,
+      description: post.excerpt,
+      images: post.image ? [`${siteUrl}${post.image}`] : [`${siteUrl}/images/default-og-image.png`]
+    },
+    other: {
+      'script-article': {
+        type: 'application/ld+json',
+        innerHTML: JSON.stringify(articleSchema),
+      },
     },
   };
 }
