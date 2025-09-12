@@ -34,9 +34,9 @@ export default function Navbar() {
           <div className="flex-shrink-0">
             <Logo 
               variant="default" 
-              width={200} 
-              height={60} 
-              className="h-14 lg:h-16 w-auto"
+              width={250} 
+              height={75} 
+              className="h-16 lg:h-20 w-auto"
             />
           </div>
 
@@ -82,7 +82,7 @@ export default function Navbar() {
             </button>
             <Link
               href="/contact"
-              className="bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white px-6 py-2.5 rounded-lg text-sm xl:text-base font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-105 border-2 border-transparent hover:border-accent-cyan/20 tracking-tight"
+              className="bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-300 shadow-sm hover:shadow-md hover:scale-105 border border-transparent hover:border-accent-cyan/20 tracking-tight"
             >
               Free Consultation
             </Link>
@@ -124,7 +124,7 @@ export default function Navbar() {
               <div className="pt-4 border-t border-gray-200">
                 <Link
                   href="/contact"
-                  className="bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white block px-6 py-4 rounded-lg text-lg font-bold transition-all duration-300 text-center shadow-lg hover:shadow-xl hover:scale-105"
+                  className="bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white block px-4 py-2.5 rounded-md text-sm font-medium transition-all duration-300 text-center shadow-sm hover:shadow-md hover:scale-105"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Free Consultation
