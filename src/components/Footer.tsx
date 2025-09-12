@@ -1,9 +1,58 @@
+'use client';
+
 import Link from 'next/link';
+import { useState } from 'react';
 import { siteConfig, navLinks, contactInfo, coreServices, professionalResources, legalLinks } from '@/config/site';
 import SocialIcons from '@/components/ui/SocialIcons';
 import Logo from './Logo';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+  const [isSubscribing, setIsSubscribing] = useState(false);
+  const [subscribeStatus, setSubscribeStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [subscribeMessage, setSubscribeMessage] = useState('');
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setIsSubscribing(true);
+    setSubscribeStatus('idle');
+    setSubscribeMessage('');
+
+    try {
+      const response = await fetch('/api/subscriptions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          source: 'footer'
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubscribeStatus('success');
+        setSubscribeMessage('Successfully subscribed to our newsletter!');
+        setEmail('');
+      } else {
+        setSubscribeStatus('error');
+        setSubscribeMessage(result.message || 'Failed to subscribe. Please try again.');
+      }
+    } catch (error) {
+      console.error('Subscription error:', error);
+      setSubscribeStatus('error');
+      setSubscribeMessage('Failed to subscribe. Please try again later.');
+    } finally {
+      setIsSubscribing(false);
+    }
+  };
+
   return (
     <footer className="bg-background-primary border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -12,8 +61,8 @@ export default function Footer() {
         <div className="py-20">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-20">
             
-            {/* Column 1: Company Info + Social Media */}
-            <div className="flex flex-col justify-between min-h-[400px]">
+            {/* Column 1: Company Info + Social Media + Newsletter */}
+            <div className="flex flex-col justify-between min-h-[500px]">
               <div>
                 <Logo 
                   variant="default" 
@@ -27,14 +76,50 @@ export default function Footer() {
                 </p>
               </div>
               
-              <div>
-                <h3 className="text-text-heading font-semibold text-2xl mb-6">Connect with us</h3>
-                <SocialIcons size="lg" />
+              <div className="space-y-8">
+                <div>
+                  <h3 className="text-text-heading font-semibold text-2xl mb-6">Connect with us</h3>
+                  <SocialIcons size="lg" />
+                </div>
+
+                {/* Newsletter Subscription */}
+                <div>
+                  <h3 className="text-text-heading font-semibold text-2xl mb-4">Stay Updated</h3>
+                  <p className="text-text-main text-sm mb-4">
+                    Get the latest China business insights delivered to your inbox.
+                  </p>
+                  <form onSubmit={handleSubscribe} className="space-y-3">
+                    <div>
+                      <input
+                        type="email"
+                        placeholder="Enter your email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        className="w-full px-4 py-2 bg-background border border-gray-300 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300 text-sm"
+                        required
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      disabled={isSubscribing}
+                      className="w-full px-4 py-2 rounded-lg font-semibold transition-all duration-300 bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white hover:shadow-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {isSubscribing ? 'Subscribing...' : 'Subscribe'}
+                    </button>
+                    {subscribeMessage && (
+                      <p className={`text-sm ${
+                        subscribeStatus === 'success' ? 'text-green-600' : 'text-red-600'
+                      }`}>
+                        {subscribeMessage}
+                      </p>
+                    )}
+                  </form>
+                </div>
               </div>
             </div>
 
             {/* Column 2: Core Services */}
-            <div className="flex flex-col justify-start min-h-[400px]">
+            <div className="flex flex-col justify-between min-h-[500px]">
               <div>
                 <h3 className="text-text-heading font-semibold text-2xl mb-8">Our Services</h3>
                 <div className="space-y-8">
@@ -59,7 +144,7 @@ export default function Footer() {
             </div>
 
             {/* Column 3: Resources & Insights */}
-            <div className="flex flex-col justify-start min-h-[400px]">
+            <div className="flex flex-col justify-between min-h-[500px]">
               <div>
                 <h3 className="text-text-heading font-semibold text-2xl mb-8">Resources</h3>
                 <div className="space-y-8">
@@ -99,7 +184,7 @@ export default function Footer() {
             </div>
 
             {/* Column 4: Quick Links + Contact */}
-            <div className="flex flex-col justify-start min-h-[400px]">
+            <div className="flex flex-col justify-between min-h-[500px]">
               <div>
                 <h3 className="text-text-heading font-semibold text-2xl mb-8">Quick Links</h3>
                 <div className="space-y-4 mb-12">
