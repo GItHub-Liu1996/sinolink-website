@@ -62,76 +62,68 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-20">
             
             {/* Column 1: Company Info + Social Media + Newsletter */}
-            <div className="flex flex-col justify-between min-h-[500px]">
+            <div className="space-y-12">
               <div>
                 <Logo 
                   variant="default" 
                   width={500} 
                   height={140} 
-                  className="h-36 lg:h-40 w-auto mb-8"
+                  className="h-32 lg:h-36 w-auto mb-6"
                 />
-                <p className="text-text-main text-lg leading-relaxed mb-8">
-                  Your trusted partner for seamless market entry into China.<br />
-                  Professional consulting services for sustainable business growth.
+                <p className="text-text-main text-base leading-relaxed">
+                  Your trusted partner for seamless market entry into China. Professional consulting services for sustainable business growth.
                 </p>
               </div>
               
-              <div className="space-y-8">
-                <div>
-                  <h3 className="text-text-heading font-semibold text-2xl mb-6">Connect with us</h3>
-                  <SocialIcons size="lg" />
-                </div>
+              <div>
+                <h3 className="text-text-heading font-semibold text-xl mb-4">Connect with us</h3>
+                <SocialIcons size="lg" />
+              </div>
 
-                {/* Newsletter Subscription */}
-                <div>
-                  <h3 className="text-text-heading font-semibold text-2xl mb-4">Stay Updated</h3>
-                  <p className="text-text-main text-sm mb-4">
-                    Get the latest China business insights delivered to your inbox.
+              {/* Newsletter Subscription */}
+              <div>
+                <h3 className="text-text-heading font-semibold text-xl mb-4">Stay Updated</h3>
+                <form onSubmit={handleSubscribe} className="flex gap-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="flex-1 px-3 py-2 bg-background border border-gray-300 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300 text-sm"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSubscribing}
+                    className="px-4 py-2 rounded-lg font-semibold transition-all duration-300 bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white hover:shadow-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed whitespace-nowrap"
+                  >
+                    {isSubscribing ? 'Subscribing...' : 'Subscribe'}
+                  </button>
+                </form>
+                {subscribeMessage && (
+                  <p className={`text-xs mt-2 ${
+                    subscribeStatus === 'success' ? 'text-green-600' : 'text-red-600'
+                  }`}>
+                    {subscribeMessage}
                   </p>
-                  <form onSubmit={handleSubscribe} className="space-y-3">
-                    <div>
-                      <input
-                        type="email"
-                        placeholder="Enter your email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                        className="w-full px-4 py-2 bg-background border border-gray-300 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300 text-sm"
-                        required
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      disabled={isSubscribing}
-                      className="w-full px-4 py-2 rounded-lg font-semibold transition-all duration-300 bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white hover:shadow-lg text-sm disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      {isSubscribing ? 'Subscribing...' : 'Subscribe'}
-                    </button>
-                    {subscribeMessage && (
-                      <p className={`text-sm ${
-                        subscribeStatus === 'success' ? 'text-green-600' : 'text-red-600'
-                      }`}>
-                        {subscribeMessage}
-                      </p>
-                    )}
-                  </form>
-                </div>
+                )}
               </div>
             </div>
 
             {/* Column 2: Core Services */}
-            <div className="flex flex-col justify-between min-h-[500px]">
+            <div className="space-y-8">
               <div>
-                <h3 className="text-text-heading font-semibold text-2xl mb-8">Our Services</h3>
-                <div className="space-y-8">
+                <h3 className="text-text-heading font-semibold text-xl mb-6">Our Services</h3>
+                <div className="space-y-6">
                   {coreServices.slice(0, 3).map((service, index) => (
-                    <div key={index} className="space-y-4">
-                      <h4 className="text-text-heading font-semibold text-lg">{service.title}</h4>
-                      <div className="space-y-3">
+                    <div key={index} className="space-y-3">
+                      <h4 className="text-text-heading font-semibold text-base">{service.title}</h4>
+                      <div className="space-y-2">
                         {service.links.map((link, linkIndex) => (
                           <Link
                             key={linkIndex}
                             href={link.href}
-                            className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1"
+                            className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1"
                           >
                             {link.label}
                           </Link>
@@ -144,37 +136,37 @@ export default function Footer() {
             </div>
 
             {/* Column 3: Resources & Insights */}
-            <div className="flex flex-col justify-between min-h-[500px]">
+            <div className="space-y-8">
               <div>
-                <h3 className="text-text-heading font-semibold text-2xl mb-8">Resources</h3>
-                <div className="space-y-8">
+                <h3 className="text-text-heading font-semibold text-xl mb-6">Resources</h3>
+                <div className="space-y-6">
                   <div>
-                    <h4 className="text-text-heading font-semibold text-lg mb-4">Latest Insights</h4>
-                    <div className="space-y-3">
-                      <Link href="/insights/blog/wfoe-registration-guide-2025" className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1">
+                    <h4 className="text-text-heading font-semibold text-base mb-3">Latest Insights</h4>
+                    <div className="space-y-2">
+                      <Link href="/insights/blog/wfoe-registration-guide-2025" className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1">
                         WFOE Registration Guide 2025
                       </Link>
-                      <Link href="/insights/blog/chinese-tax-system-primer" className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1">
+                      <Link href="/insights/blog/chinese-tax-system-primer" className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1">
                         Chinese Tax System Primer
                       </Link>
-                      <Link href="/insights/blog/hr-and-visa-essentials-china" className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1">
+                      <Link href="/insights/blog/hr-and-visa-essentials-china" className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1">
                         HR & Visa Essentials
                       </Link>
-                      <Link href="/insights/blog/intellectual-property-protection-china" className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1">
+                      <Link href="/insights/blog/intellectual-property-protection-china" className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1">
                         IP Protection in China
                       </Link>
                     </div>
                   </div>
                   <div>
-                    <h4 className="text-text-heading font-semibold text-lg mb-4">Tools & Guides</h4>
-                    <div className="space-y-3">
-                      <Link href="/insights/tools" className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1">
+                    <h4 className="text-text-heading font-semibold text-base mb-3">Tools & Guides</h4>
+                    <div className="space-y-2">
+                      <Link href="/insights/tools" className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1">
                         Business Tools
                       </Link>
-                      <Link href="/insights/case-studies" className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1">
+                      <Link href="/insights/case-studies" className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1">
                         Success Stories
                       </Link>
-                      <Link href="/insights/whitepapers" className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1">
+                      <Link href="/insights/whitepapers" className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1">
                         Research Reports
                       </Link>
                     </div>
@@ -184,15 +176,15 @@ export default function Footer() {
             </div>
 
             {/* Column 4: Quick Links + Contact */}
-            <div className="flex flex-col justify-between min-h-[500px]">
+            <div className="space-y-8">
               <div>
-                <h3 className="text-text-heading font-semibold text-2xl mb-8">Quick Links</h3>
-                <div className="space-y-4 mb-12">
+                <h3 className="text-text-heading font-semibold text-xl mb-6">Quick Links</h3>
+                <div className="space-y-3">
                   {navLinks.map((link, index) => (
                     <Link
                       key={index}
                       href={link.href}
-                      className="text-text-main hover:text-accent-primary block text-base transition-colors duration-300 hover:translate-x-1"
+                      className="text-text-main hover:text-accent-primary block text-sm transition-colors duration-300 hover:translate-x-1"
                     >
                       {link.label}
                     </Link>
@@ -201,23 +193,23 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-text-heading font-semibold text-2xl mb-8">Contact</h3>
-                <div className="space-y-6 text-text-main text-base">
+                <h3 className="text-text-heading font-semibold text-xl mb-6">Contact</h3>
+                <div className="space-y-4 text-text-main text-sm">
                   <div>
                     <a href={`mailto:${contactInfo.email}`} className="hover:text-accent-primary transition-colors duration-300 flex items-center">
-                      <span className="mr-3 text-lg">📧</span>
+                      <span className="mr-3 text-base">📧</span>
                       {contactInfo.email}
                     </a>
                   </div>
                   <div>
                     <a href={`tel:${contactInfo.phone}`} className="hover:text-accent-primary transition-colors duration-300 flex items-center">
-                      <span className="mr-3 text-lg">📞</span>
+                      <span className="mr-3 text-base">📞</span>
                       {contactInfo.phone}
                     </a>
                   </div>
                   <div className="flex items-start">
-                    <span className="mr-3 mt-1 text-lg">📍</span>
-                    <div className="text-base leading-relaxed">
+                    <span className="mr-3 mt-1 text-base">📍</span>
+                    <div className="text-sm leading-relaxed">
                       {contactInfo.address.street}<br />
                       {contactInfo.address.city}<br />
                       {contactInfo.address.district}
