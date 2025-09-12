@@ -1,123 +1,101 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface MegaMenuProps {
+interface InsightsDropdownProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const mainSolutions = [
+const insightsCategories = [
   {
-    title: 'Market Entry · Setup',
-    description: 'Legal foundation & infrastructure',
+    title: 'Knowledge Hub',
+    description: 'Expert insights & industry analysis',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
         </svg>
       </div>
     ),
-    href: '/services',
-    services: [
-      { title: 'WFOE Registration', href: '/services/wfoe-registration' },
-      { title: 'Bank Account Opening', href: '/services/accounting' },
-      { title: 'Premises & Property', href: '/services/consulting' }
+    href: '/insights',
+    links: [
+      { title: 'Blog Articles', href: '/insights' },
+      { title: 'Industry Reports', href: '/insights/reports' },
+      { title: 'Market Analysis', href: '/insights/analysis' },
+      { title: 'Regulatory Updates', href: '/insights/regulatory' }
     ]
   },
   {
-    title: 'Operations · Compliance',
-    description: 'Smooth operations & regulatory compliance',
+    title: 'City Guides',
+    description: 'Business guides for major Chinese cities',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       </div>
     ),
-    href: '/services',
-    services: [
-      { title: 'Tax · Compliance', href: '/services/tax-compliance' },
-      { title: 'HR · Visa Services', href: '/services/hr-services' },
-      { title: 'Financial Outsourcing', href: '/services/accounting' }
+    href: '/city-guides',
+    links: [
+      { title: 'Shanghai Guide', href: '/city-guides/shanghai' },
+      { title: 'Beijing Guide', href: '/city-guides/beijing' },
+      { title: 'Shenzhen Guide', href: '/city-guides/shenzhen' },
+      { title: 'All Cities', href: '/city-guides' }
     ]
   },
   {
-    title: 'Growth · Protection',
-    description: 'Asset protection & strategic growth',
+    title: 'Tools · Resources',
+    description: 'Practical tools & downloadable resources',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
         </svg>
       </div>
     ),
-    href: '/services',
-    services: [
-      { title: 'Intellectual Property', href: '/services/legal-support' },
-      { title: 'Business Planning', href: '/services/business-planning' },
-      { title: 'Market Research', href: '/services/market-research' }
+    href: '/insights/tools',
+    links: [
+      { title: 'Business Tools', href: '/insights/tools' },
+      { title: 'Templates', href: '/insights/templates' },
+      { title: 'Checklists', href: '/insights/checklists' },
+      { title: 'Calculators', href: '/insights/calculators' }
     ]
   }
 ];
 
-const serviceCategories = [
-  {
-    title: 'WFOE Registration',
-    description: 'Complete company registration and legal entity setup.',
-    href: '/services/wfoe-registration'
-  },
-  {
-    title: 'Tax · Compliance',
-    description: 'Comprehensive tax registration and ongoing compliance.',
-    href: '/services/tax-compliance'
-  },
-  {
-    title: 'Bank Account Opening',
-    description: 'Corporate banking and multi-currency account setup.',
-    href: '/services'
-  },
-  {
-    title: 'HR · Visa Services',
-    description: 'Work permits, residence permits, and HR management.',
-    href: '/services/hr-services'
-  },
-  {
-    title: 'Intellectual Property',
-    description: 'Trademark, patent, and IP protection in China.',
-    href: '/services'
-  },
-  {
-    title: 'Financial Outsourcing',
-    description: 'Professional bookkeeping and financial management.',
-    href: '/services/accounting'
-  }
-];
-
-const featuredContent = [
+const latestContent = [
   {
     title: 'WFOE Registration Guide 2025',
-    description: 'Complete step-by-step registration guide.',
-    href: '/insights/blog/wfoe-registration-guide-2025',
+    description: 'Complete step-by-step registration guide',
+    href: '/insights/blog/wfoe-registration-guide-2025/',
     image: '📋'
   },
   {
     title: 'Chinese Tax System Primer',
-    description: 'Understanding China\'s tax landscape.',
-    href: '/insights/blog/chinese-tax-system-primer',
+    description: 'Understanding China\'s tax landscape',
+    href: '/insights/blog/chinese-tax-system-primer/',
     image: '📊'
   },
   {
-    title: 'View All Services',
-    description: 'Explore our complete service portfolio.',
-    href: '/services',
-    image: '🔧'
+    title: 'View All Articles',
+    description: 'Browse our complete knowledge base',
+    href: '/insights/',
+    image: '📚'
+  },
+  {
+    title: 'Subscribe to Updates',
+    description: 'Get the latest insights delivered',
+    href: '/contact/',
+    image: '📧'
   }
 ];
 
-export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
+export default function InsightsDropdown({ isOpen, onClose }: InsightsDropdownProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -150,28 +128,28 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
       >
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Column 1: Market Entry & Setup */}
+            {/* Column 1: Knowledge Hub */}
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  {mainSolutions[0].icon}
+                  {insightsCategories[0].icon}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-text-heading mb-2 font-sans">
-                    {mainSolutions[0].title}
+                    {insightsCategories[0].title}
                   </h3>
                   <p className="text-sm text-text-main mb-4 font-sans">
-                    {mainSolutions[0].description}
+                    {insightsCategories[0].description}
                   </p>
                   <div className="space-y-2">
-                    {mainSolutions[0].services.map((service, index) => (
+                    {insightsCategories[0].links.map((link, index) => (
                       <Link
                         key={index}
-                        href={service.href}
+                        href={link.href}
                         className="block text-sm text-accent-cyan hover:text-accent-magenta transition-colors duration-200 font-medium"
                         onClick={onClose}
                       >
-                        {service.title}
+                        {link.title}
                       </Link>
                     ))}
                   </div>
@@ -179,28 +157,28 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               </div>
             </div>
 
-            {/* Column 2: Operations & Compliance */}
+            {/* Column 2: City Guides */}
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  {mainSolutions[1].icon}
+                  {insightsCategories[1].icon}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-text-heading mb-2 font-sans">
-                    {mainSolutions[1].title}
+                    {insightsCategories[1].title}
                   </h3>
                   <p className="text-sm text-text-main mb-4 font-sans">
-                    {mainSolutions[1].description}
+                    {insightsCategories[1].description}
                   </p>
                   <div className="space-y-2">
-                    {mainSolutions[1].services.map((service, index) => (
+                    {insightsCategories[1].links.map((link, index) => (
                       <Link
                         key={index}
-                        href={service.href}
+                        href={link.href}
                         className="block text-sm text-accent-cyan hover:text-accent-magenta transition-colors duration-200 font-medium"
                         onClick={onClose}
                       >
-                        {service.title}
+                        {link.title}
                       </Link>
                     ))}
                   </div>
@@ -208,28 +186,28 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               </div>
             </div>
 
-            {/* Column 3: Growth & Protection */}
+            {/* Column 3: Tools & Resources */}
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  {mainSolutions[2].icon}
+                  {insightsCategories[2].icon}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-text-heading mb-2 font-sans">
-                    {mainSolutions[2].title}
+                    {insightsCategories[2].title}
                   </h3>
                   <p className="text-sm text-text-main mb-4 font-sans">
-                    {mainSolutions[2].description}
+                    {insightsCategories[2].description}
                   </p>
                   <div className="space-y-2">
-                    {mainSolutions[2].services.map((service, index) => (
+                    {insightsCategories[2].links.map((link, index) => (
                       <Link
                         key={index}
-                        href={service.href}
+                        href={link.href}
                         className="block text-sm text-accent-cyan hover:text-accent-magenta transition-colors duration-200 font-medium"
                         onClick={onClose}
                       >
-                        {service.title}
+                        {link.title}
                       </Link>
                     ))}
                   </div>
@@ -237,10 +215,10 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               </div>
             </div>
 
-            {/* Column 4: Featured Content */}
+            {/* Column 4: Latest Content */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-text-heading mb-4 font-sans">Featured Content</h3>
-              {featuredContent.map((item, index) => (
+              <h3 className="text-lg font-semibold text-text-heading mb-4 font-sans">Latest Content</h3>
+              {latestContent.map((item, index) => (
                 <Link
                   key={index}
                   href={item.href}
@@ -263,11 +241,11 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           {/* Bottom Link */}
           <div className="mt-6 pt-4 border-t border-gray-200">
             <Link
-              href="/services"
+              href="/insights"
               className="inline-flex items-center text-accent-cyan hover:text-accent-magenta font-semibold transition-colors duration-200 font-sans"
               onClick={onClose}
             >
-              Complete Service Portfolio
+              Explore All Insights
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

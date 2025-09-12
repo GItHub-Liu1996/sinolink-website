@@ -10,14 +10,16 @@ export const siteConfig = {
   },
 };
 
-// Navigation links
+// Navigation links - New 4-core structure
 export const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/services', label: 'Solutions' },
-  { href: '/about', label: 'About Us' },
-  { href: '/insights', label: 'News & Insights' },
-  { href: '/contact', label: 'Contact' },
+  { href: '/services', label: 'Solutions', hasDropdown: true },
+  { href: '/about', label: 'Why Us', hasDropdown: true },
+  { href: '/insights', label: 'Insights', hasDropdown: true },
+  { href: '/contact', label: 'Contact', hasDropdown: false },
 ];
+
+// Note: Why Us and Insights dropdown links are now defined within their respective components
+// (WhyUsDropdown.tsx and InsightsDropdown.tsx) for better organization and maintainability
 
 // Contact information
 export const contactInfo = {
@@ -89,7 +91,7 @@ export const coreServices = [
 // Professional resources for footer (simplified)
 export const professionalResources = [
   { href: '/insights', label: 'Latest Insights', description: 'Industry analysis and trends' },
-  { href: '/insights/case-studies', label: 'Client Success Stories', description: 'Real-world case studies' },
+  { href: '/case-studies', label: 'Client Success Stories', description: 'Real-world case studies' },
   { href: '/insights/whitepapers', label: 'Research Reports', description: 'In-depth market research' },
   { href: '/insights/tools', label: 'Business Tools', description: 'Practical resources and guides' },
 ];

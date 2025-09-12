@@ -81,9 +81,6 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/contact`,
   },
   other: {
-    'script-contact': {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify(contactPageSchema),
-    },
+    'script-contact': JSON.stringify(contactPageSchema),
   },
 };

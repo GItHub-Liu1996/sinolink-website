@@ -73,12 +73,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       description: post.excerpt,
       images: post.image ? [`${siteUrl}${post.image}`] : [`${siteUrl}/images/default-og-image.png`]
     },
-    other: {
-      'script-article': {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(articleSchema),
-      },
-    },
+  other: {
+    'script-article': JSON.stringify(articleSchema),
+  },
   };
 }
 

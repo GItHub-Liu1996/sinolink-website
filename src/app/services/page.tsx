@@ -8,8 +8,7 @@ import FeaturedServices from './_components/FeaturedServices';
 import { Accordion } from '@/components';
 import { servicesConfig, featuredServices } from './_components/servicesConfig';
 
-// Import metadata for SEO
-export { metadata } from './metadata';
+// Metadata is handled in layout.tsx for client components
 
 import {
   LegalEntityIcon,

@@ -97,9 +97,6 @@ export const metadata: Metadata = {
     images: [`${siteUrl}/images/services-og-image.png`]
   },
   other: {
-    'script-service': {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify(serviceSchema),
-    },
+    'script-service': JSON.stringify(serviceSchema),
   },
 };

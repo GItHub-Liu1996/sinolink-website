@@ -2,8 +2,7 @@
 
 import { useState } from 'react';
 
-// Import metadata for SEO
-export { metadata } from './metadata';
+// Metadata is handled in layout.tsx for client components
 
 export default function Contact() {
   const [formData, setFormData] = useState({

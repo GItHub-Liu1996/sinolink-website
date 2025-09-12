@@ -7,8 +7,7 @@ import { articles } from '@/config/articles';
 import Pagination from './_components/Pagination';
 import { EmbeddedConsultationQuiz } from '@/components';
 
-// Import metadata for SEO
-export { metadata } from './metadata';
+// Metadata is handled in layout.tsx for client components
 
 export default function InsightsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');

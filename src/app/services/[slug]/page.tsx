@@ -9,7 +9,7 @@ interface ServicePageProps {
 }
 
 export async function generateMetadata({ params }: ServicePageProps): Promise<Metadata> {
-  const service = servicesConfig.find(s => s.slug === params.slug);
+  const service = servicesConfig[params.slug as keyof typeof servicesConfig];
   
   if (!service) {
     return {
@@ -20,18 +20,18 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   return {
     title: `${service.title} | China Business Solutions`,
     description: service.description,
-    keywords: service.keywords,
+    keywords: ['China business', 'market entry', 'compliance', 'WFOE registration'],
   };
 }
 
 export async function generateStaticParams() {
-  return servicesConfig.map((service) => ({
-    slug: service.slug,
+  return Object.keys(servicesConfig).map((slug) => ({
+    slug: slug,
   }));
 }
 
 export default function ServicePage({ params }: ServicePageProps) {
-  const service = servicesConfig.find(s => s.slug === params.slug);
+  const service = servicesConfig[params.slug as keyof typeof servicesConfig];
   
   if (!service) {
     notFound();
@@ -52,10 +52,10 @@ export default function ServicePage({ params }: ServicePageProps) {
               <div className="bg-background-secondary/50 rounded-xl p-6">
                 <h2 className="text-2xl font-bold text-white mb-4">What We Offer</h2>
                 <ul className="space-y-3">
-                  {service.features.map((feature, index) => (
+                  {service.services.slice(0, 5).map((serviceItem, index) => (
                     <li key={index} className="flex items-start">
                       <span className="text-accent-cyan mr-3 mt-1">✓</span>
-                      <span className="text-gray-300">{feature}</span>
+                      <span className="text-gray-300">{serviceItem.title}</span>
                     </li>
                   ))}
                 </ul>
@@ -64,12 +64,22 @@ export default function ServicePage({ params }: ServicePageProps) {
               <div className="bg-background-secondary/50 rounded-xl p-6">
                 <h2 className="text-2xl font-bold text-white mb-4">Why Choose Us</h2>
                 <ul className="space-y-3">
-                  {service.benefits.map((benefit, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="text-accent-cyan mr-3 mt-1">✓</span>
-                      <span className="text-gray-300">{benefit}</span>
-                    </li>
-                  ))}
+                  <li className="flex items-start">
+                    <span className="text-accent-cyan mr-3 mt-1">✓</span>
+                    <span className="text-gray-300">Expert local knowledge and regulatory expertise</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-accent-cyan mr-3 mt-1">✓</span>
+                    <span className="text-gray-300">Streamlined processes and faster approvals</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-accent-cyan mr-3 mt-1">✓</span>
+                    <span className="text-gray-300">Ongoing support and compliance monitoring</span>
+                  </li>
+                  <li className="flex items-start">
+                    <span className="text-accent-cyan mr-3 mt-1">✓</span>
+                    <span className="text-gray-300">Cost-effective solutions tailored to your needs</span>
+                  </li>
                 </ul>
               </div>
             </div>
@@ -77,15 +87,27 @@ export default function ServicePage({ params }: ServicePageProps) {
             <div className="bg-gradient-to-r from-accent-cyan/10 to-accent-magenta/10 rounded-xl p-8 my-12">
               <h2 className="text-2xl font-bold text-white mb-4">Process Overview</h2>
               <div className="grid md:grid-cols-3 gap-6">
-                {service.process.map((step, index) => (
-                  <div key={index} className="text-center">
-                    <div className="w-12 h-12 bg-accent-cyan rounded-full flex items-center justify-center mx-auto mb-4">
-                      <span className="text-white font-bold">{index + 1}</span>
-                    </div>
-                    <h3 className="text-lg font-semibold text-white mb-2">{step.title}</h3>
-                    <p className="text-gray-300 text-sm">{step.description}</p>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-accent-cyan rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold">1</span>
                   </div>
-                ))}
+                  <h3 className="text-lg font-semibold text-white mb-2">Consultation</h3>
+                  <p className="text-gray-300 text-sm">Initial discussion to understand your business needs and goals</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-accent-cyan rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold">2</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Planning</h3>
+                  <p className="text-gray-300 text-sm">Detailed strategy development and documentation preparation</p>
+                </div>
+                <div className="text-center">
+                  <div className="w-12 h-12 bg-accent-cyan rounded-full flex items-center justify-center mx-auto mb-4">
+                    <span className="text-white font-bold">3</span>
+                  </div>
+                  <h3 className="text-lg font-semibold text-white mb-2">Execution</h3>
+                  <p className="text-gray-300 text-sm">Handling all regulatory processes and official submissions</p>
+                </div>
               </div>
             </div>
 

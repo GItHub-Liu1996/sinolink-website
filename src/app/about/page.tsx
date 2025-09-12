@@ -69,10 +69,7 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/about`,
   },
   other: {
-    'script-about': {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify(aboutPageSchema),
-    },
+    'script-about': JSON.stringify(aboutPageSchema),
   },
 };
 

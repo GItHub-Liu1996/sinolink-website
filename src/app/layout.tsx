@@ -116,14 +116,8 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     other: {
       'font-display': 'swap',
-      'script-organization': {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(organizationSchema),
-      },
-      'script-website': {
-        type: 'application/ld+json',
-        innerHTML: JSON.stringify(websiteSchema),
-      },
+      'script-organization': JSON.stringify(organizationSchema),
+      'script-website': JSON.stringify(websiteSchema),
     },
   };
 }

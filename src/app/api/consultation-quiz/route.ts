@@ -72,22 +72,22 @@ export async function POST(request: NextRequest) {
         },
         'Industry': {
           select: {
-            name: answers.find(a => a.questionId === 'industry')?.label || 'Not specified'
+            name: answers.find((a: any) => a.questionId === 'industry')?.label || 'Not specified'
           }
         },
         'Company Size': {
           select: {
-            name: answers.find(a => a.questionId === 'company_size')?.label || 'Not specified'
+            name: answers.find((a: any) => a.questionId === 'company_size')?.label || 'Not specified'
           }
         },
         'Entity Type': {
           select: {
-            name: answers.find(a => a.questionId === 'entity_type')?.label || 'Not specified'
+            name: answers.find((a: any) => a.questionId === 'entity_type')?.label || 'Not specified'
           }
         },
         'Timeline': {
           select: {
-            name: answers.find(a => a.questionId === 'timeline')?.label || 'Not specified'
+            name: answers.find((a: any) => a.questionId === 'timeline')?.label || 'Not specified'
           }
         },
         'Priority': {
@@ -232,14 +232,14 @@ function analyzeQuizAnswers(answers: any[]) {
   };
 
   // Analyze industry type
-  const industryAnswer = answers.find(a => a.questionId === 'industry');
+  const industryAnswer = answers.find((a: any) => a.questionId === 'industry');
   if (industryAnswer?.value === 'finance') {
     analysis.priority = 'high';
     analysis.recommendedServices.push('Financial License Application', 'Compliance Consulting');
   }
 
   // Analyze entity type
-  const entityAnswer = answers.find(a => a.questionId === 'entity_type');
+  const entityAnswer = answers.find((a: any) => a.questionId === 'entity_type');
   if (entityAnswer?.value === 'wfoe') {
     analysis.recommendedServices.push('WFOE Registration', 'Bank Account Opening');
   } else if (entityAnswer?.value === 'joint_venture') {
@@ -247,14 +247,14 @@ function analyzeQuizAnswers(answers: any[]) {
   }
 
   // Analyze timeline urgency
-  const timelineAnswer = answers.find(a => a.questionId === 'timeline');
+  const timelineAnswer = answers.find((a: any) => a.questionId === 'timeline');
   if (timelineAnswer?.value === 'urgent') {
     analysis.priority = 'high';
     analysis.nextSteps.push('Schedule urgent consultation call');
   }
 
   // Analyze compliance concerns
-  const complianceAnswer = answers.find(a => a.questionId === 'compliance_concern');
+  const complianceAnswer = answers.find((a: any) => a.questionId === 'compliance_concern');
   if (complianceAnswer?.answer) {
     const concerns = complianceAnswer.answer.split(',');
     if (concerns.includes('Tax Compliance')) {

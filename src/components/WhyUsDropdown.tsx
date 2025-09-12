@@ -1,18 +1,18 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface MegaMenuProps {
+interface WhyUsDropdownProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-const mainSolutions = [
+const whyUsCategories = [
   {
-    title: 'Market Entry · Setup',
-    description: 'Legal foundation & infrastructure',
+    title: 'Company Overview',
+    description: 'Mission, values & expert team',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -20,16 +20,17 @@ const mainSolutions = [
         </svg>
       </div>
     ),
-    href: '/services',
-    services: [
-      { title: 'WFOE Registration', href: '/services/wfoe-registration' },
-      { title: 'Bank Account Opening', href: '/services/accounting' },
-      { title: 'Premises & Property', href: '/services/consulting' }
+    href: '/about',
+    links: [
+      { title: 'About Us', href: '/about' },
+      { title: 'Our Team', href: '/about#team' },
+      { title: 'Company History', href: '/about#history' },
+      { title: 'Mission · Values', href: '/about#mission' }
     ]
   },
   {
-    title: 'Operations · Compliance',
-    description: 'Smooth operations & regulatory compliance',
+    title: 'Our Expertise',
+    description: '15+ years China market expertise',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -37,87 +38,62 @@ const mainSolutions = [
         </svg>
       </div>
     ),
-    href: '/services',
-    services: [
-      { title: 'Tax · Compliance', href: '/services/tax-compliance' },
-      { title: 'HR · Visa Services', href: '/services/hr-services' },
-      { title: 'Financial Outsourcing', href: '/services/accounting' }
+    href: '/about',
+    links: [
+      { title: 'Industry Experience', href: '/about#experience' },
+      { title: 'Certifications', href: '/about#certifications' },
+      { title: 'Client Testimonials', href: '/about#testimonials' },
+      { title: 'Awards · Recognition', href: '/about#awards' }
     ]
   },
   {
-    title: 'Growth · Protection',
-    description: 'Asset protection & strategic growth',
+    title: 'Success Metrics',
+    description: 'Proven client success track record',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       </div>
     ),
-    href: '/services',
-    services: [
-      { title: 'Intellectual Property', href: '/services/legal-support' },
-      { title: 'Business Planning', href: '/services/business-planning' },
-      { title: 'Market Research', href: '/services/market-research' }
+    href: '/case-studies',
+    links: [
+      { title: 'Case Studies', href: '/case-studies' },
+      { title: 'Success Stories', href: '/case-studies#success' },
+      { title: 'Client Portfolio', href: '/case-studies#portfolio' },
+      { title: 'Results Dashboard', href: '/case-studies#results' }
     ]
   }
 ];
 
-const serviceCategories = [
+const featuredResources = [
   {
-    title: 'WFOE Registration',
-    description: 'Complete company registration and legal entity setup.',
-    href: '/services/wfoe-registration'
+    title: 'Why Choose Us',
+    description: 'Discover what makes us different',
+    href: '/about#why-choose-us',
+    image: '⭐'
   },
   {
-    title: 'Tax · Compliance',
-    description: 'Comprehensive tax registration and ongoing compliance.',
-    href: '/services/tax-compliance'
+    title: 'Client Success Stories',
+    description: 'Real results from real clients',
+    href: '/case-studies',
+    image: '🏆'
   },
   {
-    title: 'Bank Account Opening',
-    description: 'Corporate banking and multi-currency account setup.',
-    href: '/services'
+    title: 'Free Consultation',
+    description: 'Get personalized advice',
+    href: '/contact',
+    image: '💬'
   },
   {
-    title: 'HR · Visa Services',
-    description: 'Work permits, residence permits, and HR management.',
-    href: '/services/hr-services'
-  },
-  {
-    title: 'Intellectual Property',
-    description: 'Trademark, patent, and IP protection in China.',
-    href: '/services'
-  },
-  {
-    title: 'Financial Outsourcing',
-    description: 'Professional bookkeeping and financial management.',
-    href: '/services/accounting'
+    title: 'Pricing · Process',
+    description: 'Transparent pricing structure',
+    href: '/pricing-process',
+    image: '💰'
   }
 ];
 
-const featuredContent = [
-  {
-    title: 'WFOE Registration Guide 2025',
-    description: 'Complete step-by-step registration guide.',
-    href: '/insights/blog/wfoe-registration-guide-2025',
-    image: '📋'
-  },
-  {
-    title: 'Chinese Tax System Primer',
-    description: 'Understanding China\'s tax landscape.',
-    href: '/insights/blog/chinese-tax-system-primer',
-    image: '📊'
-  },
-  {
-    title: 'View All Services',
-    description: 'Explore our complete service portfolio.',
-    href: '/services',
-    image: '🔧'
-  }
-];
-
-export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
+export default function WhyUsDropdown({ isOpen, onClose }: WhyUsDropdownProps) {
   const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -150,28 +126,28 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
       >
         <div className="max-w-6xl mx-auto px-6 lg:px-8 py-6">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Column 1: Market Entry & Setup */}
+            {/* Column 1: Company Overview */}
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  {mainSolutions[0].icon}
+                  {whyUsCategories[0].icon}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-text-heading mb-2 font-sans">
-                    {mainSolutions[0].title}
+                    {whyUsCategories[0].title}
                   </h3>
                   <p className="text-sm text-text-main mb-4 font-sans">
-                    {mainSolutions[0].description}
+                    {whyUsCategories[0].description}
                   </p>
                   <div className="space-y-2">
-                    {mainSolutions[0].services.map((service, index) => (
+                    {whyUsCategories[0].links.map((link, index) => (
                       <Link
                         key={index}
-                        href={service.href}
+                        href={link.href}
                         className="block text-sm text-accent-cyan hover:text-accent-magenta transition-colors duration-200 font-medium"
                         onClick={onClose}
                       >
-                        {service.title}
+                        {link.title}
                       </Link>
                     ))}
                   </div>
@@ -179,28 +155,28 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               </div>
             </div>
 
-            {/* Column 2: Operations & Compliance */}
+            {/* Column 2: Our Expertise */}
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  {mainSolutions[1].icon}
+                  {whyUsCategories[1].icon}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-text-heading mb-2 font-sans">
-                    {mainSolutions[1].title}
+                    {whyUsCategories[1].title}
                   </h3>
                   <p className="text-sm text-text-main mb-4 font-sans">
-                    {mainSolutions[1].description}
+                    {whyUsCategories[1].description}
                   </p>
                   <div className="space-y-2">
-                    {mainSolutions[1].services.map((service, index) => (
+                    {whyUsCategories[1].links.map((link, index) => (
                       <Link
                         key={index}
-                        href={service.href}
+                        href={link.href}
                         className="block text-sm text-accent-cyan hover:text-accent-magenta transition-colors duration-200 font-medium"
                         onClick={onClose}
                       >
-                        {service.title}
+                        {link.title}
                       </Link>
                     ))}
                   </div>
@@ -208,28 +184,28 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               </div>
             </div>
 
-            {/* Column 3: Growth & Protection */}
+            {/* Column 3: Success Metrics */}
             <div className="space-y-4">
               <div className="flex items-start space-x-4">
                 <div className="flex-shrink-0">
-                  {mainSolutions[2].icon}
+                  {whyUsCategories[2].icon}
                 </div>
                 <div className="flex-1">
                   <h3 className="text-lg font-semibold text-text-heading mb-2 font-sans">
-                    {mainSolutions[2].title}
+                    {whyUsCategories[2].title}
                   </h3>
                   <p className="text-sm text-text-main mb-4 font-sans">
-                    {mainSolutions[2].description}
+                    {whyUsCategories[2].description}
                   </p>
                   <div className="space-y-2">
-                    {mainSolutions[2].services.map((service, index) => (
+                    {whyUsCategories[2].links.map((link, index) => (
                       <Link
                         key={index}
-                        href={service.href}
+                        href={link.href}
                         className="block text-sm text-accent-cyan hover:text-accent-magenta transition-colors duration-200 font-medium"
                         onClick={onClose}
                       >
-                        {service.title}
+                        {link.title}
                       </Link>
                     ))}
                   </div>
@@ -237,10 +213,10 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               </div>
             </div>
 
-            {/* Column 4: Featured Content */}
+            {/* Column 4: Featured Resources */}
             <div className="space-y-3">
-              <h3 className="text-lg font-semibold text-text-heading mb-4 font-sans">Featured Content</h3>
-              {featuredContent.map((item, index) => (
+              <h3 className="text-lg font-semibold text-text-heading mb-4 font-sans">Featured Resources</h3>
+              {featuredResources.map((item, index) => (
                 <Link
                   key={index}
                   href={item.href}
@@ -263,11 +239,11 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           {/* Bottom Link */}
           <div className="mt-6 pt-4 border-t border-gray-200">
             <Link
-              href="/services"
+              href="/about"
               className="inline-flex items-center text-accent-cyan hover:text-accent-magenta font-semibold transition-colors duration-200 font-sans"
               onClick={onClose}
             >
-              Complete Service Portfolio
+              Learn More About Us
               <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
               </svg>

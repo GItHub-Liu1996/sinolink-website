@@ -38,7 +38,7 @@ const insightsPageSchema = {
           }
         },
         articleSection: article.category,
-        keywords: article.tags || ['China business', 'market entry', 'compliance']
+        keywords: ['China business', 'market entry', 'compliance']
       }
     }))
   },
@@ -92,9 +92,6 @@ export const metadata: Metadata = {
     canonical: `${siteUrl}/insights`,
   },
   other: {
-    'script-insights': {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify(insightsPageSchema),
-    },
+    'script-insights': JSON.stringify(insightsPageSchema),
   },
 };

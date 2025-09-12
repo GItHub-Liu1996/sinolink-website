@@ -127,10 +127,7 @@ export const metadata: Metadata = {
     canonical: siteUrl,
   },
   other: {
-    'script-homepage': {
-      type: 'application/ld+json',
-      innerHTML: JSON.stringify(homePageSchema),
-    },
+    'script-homepage': JSON.stringify(homePageSchema),
   },
 };
 
