@@ -13,15 +13,15 @@ export default function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 lg:gap-20">
             
             {/* Column 1: Company Info + Social Media */}
-            <div className="space-y-12">
+            <div className="flex flex-col justify-between min-h-[400px]">
               <div>
                 <Logo 
                   variant="default" 
-                  width={420} 
-                  height={120} 
-                  className="h-28 lg:h-32 w-auto mb-8"
+                  width={500} 
+                  height={140} 
+                  className="h-36 lg:h-40 w-auto mb-8"
                 />
-                <p className="text-text-main text-lg leading-relaxed">
+                <p className="text-text-main text-lg leading-relaxed mb-8">
                   Your trusted partner for seamless market entry into China.<br />
                   Professional consulting services for sustainable business growth.
                 </p>
@@ -34,7 +34,7 @@ export default function Footer() {
             </div>
 
             {/* Column 2: Core Services */}
-            <div className="space-y-12">
+            <div className="flex flex-col justify-start min-h-[400px]">
               <div>
                 <h3 className="text-text-heading font-semibold text-2xl mb-8">Our Services</h3>
                 <div className="space-y-8">
@@ -59,7 +59,7 @@ export default function Footer() {
             </div>
 
             {/* Column 3: Resources & Insights */}
-            <div className="space-y-12">
+            <div className="flex flex-col justify-start min-h-[400px]">
               <div>
                 <h3 className="text-text-heading font-semibold text-2xl mb-8">Resources</h3>
                 <div className="space-y-8">
@@ -99,10 +99,10 @@ export default function Footer() {
             </div>
 
             {/* Column 4: Quick Links + Contact */}
-            <div className="space-y-12">
+            <div className="flex flex-col justify-start min-h-[400px]">
               <div>
                 <h3 className="text-text-heading font-semibold text-2xl mb-8">Quick Links</h3>
-                <div className="space-y-4">
+                <div className="space-y-4 mb-12">
                   {navLinks.map((link, index) => (
                     <Link
                       key={index}
