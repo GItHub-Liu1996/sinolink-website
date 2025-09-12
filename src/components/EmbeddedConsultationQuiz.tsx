@@ -286,6 +286,7 @@ export default function EmbeddedConsultationQuiz({
           <button
             onClick={handlePrevious}
             disabled={isFirstQuestion}
+            aria-label={isFirstQuestion ? "Previous question (disabled)" : "Go to previous question"}
             className={`absolute left-0 top-1/2 transform -translate-y-1/2 -translate-x-2 sm:-translate-x-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
               isFirstQuestion
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'
@@ -299,6 +300,7 @@ export default function EmbeddedConsultationQuiz({
           <button
             onClick={handleNext}
             disabled={isLastQuestion}
+            aria-label={isLastQuestion ? "Next question (disabled)" : "Go to next question"}
             className={`absolute right-0 top-1/2 transform -translate-y-1/2 translate-x-2 sm:translate-x-4 z-10 w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center transition-all duration-300 ${
               isLastQuestion
                 ? 'bg-gray-200 text-gray-400 cursor-not-allowed'

@@ -65,6 +65,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         <button
           onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
+          aria-label={currentPage === 1 ? "Previous page (disabled)" : "Go to previous page"}
           className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
             currentPage === 1
               ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
@@ -83,6 +84,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
               key={index}
               onClick={() => typeof page === 'number' && onPageChange(page)}
               disabled={page === '...'}
+              aria-label={page === '...' ? 'More pages' : `Go to page ${page}`}
               className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
                 page === '...'
                   ? 'text-gray-400 cursor-default'
@@ -100,6 +102,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         <button
           onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
+          aria-label={currentPage === totalPages ? "Next page (disabled)" : "Go to next page"}
           className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
             currentPage === totalPages
               ? 'bg-gray-100 text-gray-400 cursor-not-allowed'

@@ -107,6 +107,7 @@ export default function Testimonials() {
           {/* Navigation Arrows - Hidden on mobile */}
           <button
             onClick={prevTestimonial}
+            aria-label="Previous testimonial"
             className="hidden md:block absolute left-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-background-secondary border border-gray-700 rounded-full flex items-center justify-center text-text-main hover:text-accent-cyan hover:border-accent-cyan transition-colors duration-300"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,6 +117,7 @@ export default function Testimonials() {
 
           <button
             onClick={nextTestimonial}
+            aria-label="Next testimonial"
             className="hidden md:block absolute right-4 top-1/2 transform -translate-y-1/2 w-10 h-10 bg-background-secondary border border-gray-700 rounded-full flex items-center justify-center text-text-main hover:text-accent-cyan hover:border-accent-cyan transition-colors duration-300"
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
