@@ -45,9 +45,12 @@ export default function InsightsPage() {
     window.scrollTo({ top: 400, behavior: 'smooth' });
   };
 
+  // Check if we have any published articles
+  const hasPublishedArticles = filteredArticles.length > 0;
+
   return (
     <div className="min-h-screen bg-background">
-      {/* Compact Header */}
+      {/* Header */}
       <section className="py-12 bg-background-secondary">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">
@@ -58,54 +61,129 @@ export default function InsightsPage() {
               Expert insights and practical guidance for your China business journey.
             </p>
           </div>
-
-          {/* Compact Filters and Search */}
-          <div className="flex flex-col lg:flex-row gap-4 items-center justify-between mb-6">
-            {/* Category Filters - Horizontal Scroll on Mobile */}
-            <div className="flex gap-2 overflow-x-auto pb-2 w-full lg:w-auto">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
-                    selectedCategory === category
-                      ? 'bg-accent-cyan text-white'
-                      : 'bg-white border border-gray-300 text-text-main hover:border-accent-cyan hover:text-accent-cyan'
-                  }`}
-                >
-                  {category}
-                </button>
-              ))}
-            </div>
-
-            {/* Compact Search Bar */}
-            <div className="relative w-full lg:w-64">
-              <input
-                type="text"
-                placeholder="Search articles..."
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-3 py-2 pl-9 bg-white border border-gray-300 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300 text-sm"
-              />
-              <svg
-                className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-              </svg>
-            </div>
-          </div>
-
-          {/* Results count */}
-          <div className="text-sm text-text-main mb-6">
-            Showing {filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''}
-            {selectedCategory !== 'All' && ` in ${selectedCategory}`}
-            {totalPages > 1 && ` • Page ${currentPage} of ${totalPages}`}
-          </div>
         </div>
       </section>
+
+      {/* Main Content - Show Coming Soon if no articles */}
+      {!hasPublishedArticles ? (
+        <section className="py-16 bg-background">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="bg-white rounded-2xl p-8 lg:p-12 text-center border border-gray-200 shadow-lg">
+              <div className="max-w-3xl mx-auto">
+                {/* Coming Soon Icon */}
+                <div className="w-20 h-20 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mx-auto mb-6">
+                  <svg className="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                
+                <h2 className="text-3xl lg:text-4xl font-bold text-text-heading mb-4 font-sans">
+                  Expert Insights Coming Soon
+                </h2>
+                <p className="text-lg text-text-main font-body mb-8 max-w-2xl mx-auto leading-relaxed">
+                  We are currently preparing in-depth articles, guides, and market analysis. Please check back later or subscribe to our newsletter for updates.
+                </p>
+                
+                {/* Features Preview */}
+                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                  <div className="flex flex-col items-center p-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mb-3">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-semibold text-text-heading mb-2">Market Analysis</h3>
+                    <p className="text-sm text-gray-600">In-depth reports on China's business landscape</p>
+                  </div>
+                  
+                  <div className="flex flex-col items-center p-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mb-3">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-semibold text-text-heading mb-2">Regulatory Updates</h3>
+                    <p className="text-sm text-gray-600">Latest policy changes and compliance guidance</p>
+                  </div>
+                  
+                  <div className="flex flex-col items-center p-4">
+                    <div className="w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mb-3">
+                      <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                      </svg>
+                    </div>
+                    <h3 className="font-semibold text-text-heading mb-2">Strategic Insights</h3>
+                    <p className="text-sm text-gray-600">Expert guidance for business success</p>
+                  </div>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                  <Link href="/contact" className="flex-1 px-8 py-3 rounded-lg font-semibold transition-all duration-300 bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white hover:shadow-lg hover:scale-105 text-center">
+                    Get Expert Consultation
+                  </Link>
+                  <button className="flex-1 px-8 py-3 rounded-lg font-semibold transition-all duration-300 border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-white">
+                    Subscribe for Updates
+                  </button>
+                </div>
+                <p className="text-xs text-gray-500 mt-3">
+                  Be the first to know when our insights are published. No spam, unsubscribe anytime.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+      ) : (
+        <>
+          {/* Filters and Search - Only show if we have articles */}
+          <section className="py-8 bg-background-secondary">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="flex flex-col lg:flex-row gap-4 items-center justify-between mb-6">
+                {/* Category Filters */}
+                <div className="flex gap-2 overflow-x-auto pb-2 w-full lg:w-auto">
+                  {categories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => setSelectedCategory(category)}
+                      className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 whitespace-nowrap ${
+                        selectedCategory === category
+                          ? 'bg-accent-cyan text-white'
+                          : 'bg-white border border-gray-300 text-text-main hover:border-accent-cyan hover:text-accent-cyan'
+                      }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Search Bar */}
+                <div className="relative w-full lg:w-64">
+                  <input
+                    type="text"
+                    placeholder="Search articles..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="w-full px-3 py-2 pl-9 bg-white border border-gray-300 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300 text-sm"
+                  />
+                  <svg
+                    className="absolute left-2.5 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Results count */}
+              <div className="text-sm text-text-main mb-6">
+                Showing {filteredArticles.length} article{filteredArticles.length !== 1 ? 's' : ''}
+                {selectedCategory !== 'All' && ` in ${selectedCategory}`}
+                {totalPages > 1 && ` • Page ${currentPage} of ${totalPages}`}
+              </div>
+            </div>
+          </section>
 
       {/* Articles Grid */}
       <section className="py-8 bg-background">
@@ -254,17 +332,19 @@ export default function InsightsPage() {
         </div>
       </section>
 
-               {/* Smart Consultation Quiz Section */}
-               <section className="py-8 bg-gradient-to-br from-gray-50 to-gray-100">
-                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                   <EmbeddedConsultationQuiz
-                     title="To Better Understand Your Needs"
-                     subtitle="Answer a few questions to get personalized business consultation and recommendations"
-                     showTitle={true}
-                     maxQuestions={6}
-                   />
-        </div>
-      </section>
+          {/* Smart Consultation Quiz Section */}
+          <section className="py-8 bg-gradient-to-br from-gray-50 to-gray-100">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+              <EmbeddedConsultationQuiz
+                title="To Better Understand Your Needs"
+                subtitle="Answer a few questions to get personalized business consultation and recommendations"
+                showTitle={true}
+                maxQuestions={6}
+              />
+            </div>
+          </section>
+        </>
+      )}
     </div>
   );
 }

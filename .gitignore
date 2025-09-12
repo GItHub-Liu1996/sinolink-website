@@ -39,3 +39,13 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 示例和演示文件
+src/examples/
+
+# 多语言文件（当前项目不需要）
+messages/
+src/i18n/
+
+# 构建输出
+out/

@@ -159,6 +159,7 @@ export default function Footer() {
             <div className="flex flex-col justify-start min-h-[400px] lg:min-h-[450px]">
               <h3 className="text-text-heading font-semibold text-lg lg:text-xl mb-6">Resources</h3>
               <div className="space-y-6">
+                {/* Temporarily disabled Latest Insights for content staging
                 <div>
                   <h4 className="text-text-heading font-semibold text-base lg:text-lg mb-3">Latest Insights</h4>
                   <div className="space-y-2">
@@ -176,18 +177,23 @@ export default function Footer() {
                     </Link>
                   </div>
                 </div>
+                */}
                 <div>
                   <h4 className="text-text-heading font-semibold text-base lg:text-lg mb-3">Tools · Guides</h4>
                   <div className="space-y-2">
+                    {/* Temporarily disabled for content staging
                     <Link href="/insights/tools" className="text-text-main hover:text-accent-primary block text-sm lg:text-base transition-colors duration-300 hover:translate-x-1">
                       Business Tools
                     </Link>
+                    */}
                     <Link href="/case-studies" className="text-text-main hover:text-accent-primary block text-sm lg:text-base transition-colors duration-300 hover:translate-x-1">
                       Success Stories
                     </Link>
+                    {/* Temporarily disabled for content staging
                     <Link href="/insights/whitepapers" className="text-text-main hover:text-accent-primary block text-sm lg:text-base transition-colors duration-300 hover:translate-x-1">
                       Research Reports
                     </Link>
+                    */}
                   </div>
                 </div>
               </div>

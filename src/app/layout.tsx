@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Navbar, Footer, ErrorBoundary } from "@/components";
 import { Montserrat, Lexend } from 'next/font/google';
+import { SchemaProvider } from '@/components/SchemaProvider';
+import { schemaGenerator } from '@/lib/schema';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -28,48 +30,15 @@ export async function generateMetadata(): Promise<Metadata> {
   const companyName = "GoChinaAdvisors";
   const siteUrl = "https://gochinaadvisors.com";
 
-  const organizationSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: companyName,
-    url: siteUrl,
-    logo: `${siteUrl}/images/logo/logo.svg`,
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: '+86-21-1234-5678',
-      contactType: 'Customer Service',
-      areaServed: 'CN',
-      availableLanguage: ['English', 'Chinese']
-    },
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: 'Suite 2001, Shanghai Tower, 501 Yincheng Middle Road',
-      addressLocality: 'Shanghai',
-      postalCode: '200120',
-      addressCountry: 'CN'
-    },
+  // 使用自动化Schema生成器
+  const organizationSchema = schemaGenerator.generateOrganizationSchema({
     sameAs: [
       'https://www.linkedin.com/company/gochinaadvisors',
       'https://twitter.com/gochinaadvisors'
-    ],
-    description: 'Professional consulting services for company registration, compliance, and growth in China.'
-  };
+    ]
+  });
 
-  const websiteSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebSite',
-    name: companyName,
-    url: siteUrl,
-    potentialAction: {
-      '@type': 'SearchAction',
-      target: `${siteUrl}/search?q={search_term_string}`,
-      'query-input': 'required name=search_term_string',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: companyName
-    }
-  };
+  const websiteSchema = schemaGenerator.generateWebSiteSchema();
 
   return {
     metadataBase: new URL(siteUrl),
@@ -169,13 +138,22 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent-cyan text-background-primary px-4 py-2 rounded-lg z-50">
           Skip to main content
         </a>
-        <ErrorBoundary>
-          <Navbar />
-          <main id="main-content" className="min-h-screen" role="main">
-            {children}
-          </main>
-          <Footer />
-        </ErrorBoundary>
+        <SchemaProvider 
+          initialSchemas={[
+            { key: 'global-organization', type: 'organization', data: {} },
+            { key: 'global-website', type: 'website', data: {} }
+          ]}
+          autoUpdate={true}
+          cacheEnabled={true}
+        >
+          <ErrorBoundary>
+            <Navbar />
+            <main id="main-content" className="min-h-screen" role="main">
+              {children}
+            </main>
+            <Footer />
+          </ErrorBoundary>
+        </SchemaProvider>
       </body>
     </html>
   );

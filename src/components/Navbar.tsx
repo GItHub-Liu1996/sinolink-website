@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { siteConfig, navLinks } from '@/config/site';
 import MegaMenu from './MegaMenu';
 import WhyUsDropdown from './WhyUsDropdown';
-import InsightsDropdown from './InsightsDropdown';
+// import InsightsDropdown from './InsightsDropdown'; // Temporarily disabled for content staging
 import SearchModal from './SearchModal';
 import Logo from './Logo';
 // Using custom SVG icons instead of Heroicons
@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isWhyUsOpen, setIsWhyUsOpen] = useState(false);
-  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
+  // const [isInsightsOpen, setIsInsightsOpen] = useState(false); // Temporarily disabled for content staging
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   // const t = useTranslations('navigation');
 
@@ -25,20 +25,20 @@ export default function Navbar() {
   const toggleMegaMenu = () => {
     setIsMegaMenuOpen(!isMegaMenuOpen);
     setIsWhyUsOpen(false);
-    setIsInsightsOpen(false);
+    // setIsInsightsOpen(false); // Temporarily disabled for content staging
   };
 
   const toggleWhyUs = () => {
     setIsWhyUsOpen(!isWhyUsOpen);
     setIsMegaMenuOpen(false);
-    setIsInsightsOpen(false);
+    // setIsInsightsOpen(false); // Temporarily disabled for content staging
   };
 
-  const toggleInsights = () => {
-    setIsInsightsOpen(!isInsightsOpen);
-    setIsMegaMenuOpen(false);
-    setIsWhyUsOpen(false);
-  };
+  // const toggleInsights = () => {
+  //   setIsInsightsOpen(!isInsightsOpen);
+  //   setIsMegaMenuOpen(false);
+  //   setIsWhyUsOpen(false);
+  // }; // Temporarily disabled for content staging
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
@@ -84,16 +84,17 @@ export default function Navbar() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
                     </button>
-                  ) : link.label === 'Insights' ? (
-                    <button
-                      onClick={toggleInsights}
-                      className="text-text-heading hover:text-accent-cyan px-3 py-3 text-sm xl:text-base font-medium transition-all duration-300 flex items-center gap-1.5 group tracking-tight"
-                    >
-                      {link.label}
-                      <svg className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                      </svg>
-                    </button>
+                  // Temporarily disabled Insights for content staging
+                  // ) : link.label === 'Insights' ? (
+                  //   <button
+                  //     onClick={toggleInsights}
+                  //     className="text-text-heading hover:text-accent-cyan px-3 py-3 text-sm xl:text-base font-medium transition-all duration-300 flex items-center gap-1.5 group tracking-tight"
+                  //   >
+                  //     {link.label}
+                  //     <svg className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                  //     </svg>
+                  //   </button>
                   ) : (
                     <Link
                       href={link.href}
@@ -182,6 +183,7 @@ export default function Navbar() {
                           </Link>
                         </div>
                       )}
+                      {/* Temporarily disabled Insights for content staging
                       {link.label === 'Insights' && (
                         <div className="pl-6 space-y-2">
                           <Link href="/insights" className="text-text-main hover:text-accent-cyan block px-4 py-2 rounded-lg transition-all duration-300">
@@ -192,6 +194,7 @@ export default function Navbar() {
                           </Link>
                         </div>
                       )}
+                      */}
                     </div>
                   ) : (
                     <Link
@@ -225,8 +228,8 @@ export default function Navbar() {
       {/* Why Us Dropdown */}
       <WhyUsDropdown isOpen={isWhyUsOpen} onClose={() => setIsWhyUsOpen(false)} />
       
-      {/* Insights Dropdown */}
-      <InsightsDropdown isOpen={isInsightsOpen} onClose={() => setIsInsightsOpen(false)} />
+      {/* Insights Dropdown - Temporarily disabled for content staging */}
+      {/* <InsightsDropdown isOpen={isInsightsOpen} onClose={() => setIsInsightsOpen(false)} /> */}
       
       {/* Search Modal */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />

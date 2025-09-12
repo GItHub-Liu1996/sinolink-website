@@ -16,6 +16,7 @@ export interface PostMeta {
   author?: string;
   tags?: string[];
   href: string;
+  draft?: boolean;
 }
 
 export interface Post extends PostMeta {
@@ -46,11 +47,18 @@ export async function getAllPosts(): Promise<PostMeta[]> {
           author: data.author || 'ChinaBiz Solutions',
           tags: data.tags || [],
           href: `/insights/blog/${slug}`,
+          draft: data.draft || false,
         };
       })
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
-    return allPostsData;
+    // Filter out draft posts in production
+    const isProduction = process.env.NODE_ENV === 'production';
+    const publishedPosts = isProduction 
+      ? allPostsData.filter(post => !post.draft)
+      : allPostsData;
+
+    return publishedPosts;
   } catch (error) {
     console.error('Error reading posts directory:', error);
     return [];
@@ -69,7 +77,7 @@ export function getPostBySlug(slug: string): Post | null {
     const fileContents = fs.readFileSync(fullPath, 'utf8');
     const { data, content } = matter(fileContents);
 
-    return {
+    const post = {
       slug,
       title: data.title || 'Untitled',
       date: data.date || new Date().toISOString(),
@@ -82,7 +90,16 @@ export function getPostBySlug(slug: string): Post | null {
       tags: data.tags || [],
       href: `/insights/blog/${slug}`,
       content,
+      draft: data.draft || false,
     };
+
+    // Filter out draft posts in production
+    const isProduction = process.env.NODE_ENV === 'production';
+    if (isProduction && post.draft) {
+      return null;
+    }
+
+    return post;
   } catch (error) {
     console.error(`Error reading post ${slug}:`, error);
     return null;
