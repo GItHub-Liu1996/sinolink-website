@@ -1,5 +1,7 @@
 'use client';
 
+import { useState } from 'react';
+
 interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -7,16 +9,10 @@ interface PaginationProps {
 }
 
 export default function Pagination({ currentPage, totalPages, onPageChange }: PaginationProps) {
-  const handlePageChange = (page: number) => {
-    if (page >= 1 && page <= totalPages && page !== currentPage) {
-      onPageChange(page);
-    }
-  };
-
-  // Generate page numbers with smart display
+  // Generate page numbers to display
   const generatePageNumbers = () => {
     const pages = [];
-    const maxVisiblePages = 7; // Maximum number of page buttons to show
+    const maxVisiblePages = 5; // Show max 5 page numbers
     
     if (totalPages <= maxVisiblePages) {
       // Show all pages if total is small
@@ -24,23 +20,23 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         pages.push(i);
       }
     } else {
-      // Smart pagination with ellipsis
-      if (currentPage <= 4) {
-        // Show first 5 pages + ellipsis + last page
-        for (let i = 1; i <= 5; i++) {
+      // Show pages with ellipsis
+      if (currentPage <= 3) {
+        // Show first 3 pages, ellipsis, last page
+        for (let i = 1; i <= 3; i++) {
           pages.push(i);
         }
         pages.push('...');
         pages.push(totalPages);
-      } else if (currentPage >= totalPages - 3) {
-        // Show first page + ellipsis + last 5 pages
+      } else if (currentPage >= totalPages - 2) {
+        // Show first page, ellipsis, last 3 pages
         pages.push(1);
         pages.push('...');
-        for (let i = totalPages - 4; i <= totalPages; i++) {
+        for (let i = totalPages - 2; i <= totalPages; i++) {
           pages.push(i);
         }
       } else {
-        // Show first page + ellipsis + current page range + ellipsis + last page
+        // Show first page, ellipsis, current-1, current, current+1, ellipsis, last page
         pages.push(1);
         pages.push('...');
         for (let i = currentPage - 1; i <= currentPage + 1; i++) {
@@ -57,53 +53,62 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
   const pageNumbers = generatePageNumbers();
 
   return (
-    <div className="flex flex-col items-center space-y-4 mt-12">
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-12">
       {/* Page info */}
-      <div className="text-sm text-text-muted">
-        Page {currentPage} of {totalPages} 
-        <span className="ml-2">
-          ({(currentPage - 1) * 8 + 1}-{Math.min(currentPage * 8, totalPages * 8)} of {totalPages * 8} articles)
-        </span>
+      <div className="text-sm text-text-main">
+        Page {currentPage} of {totalPages}
       </div>
-      
+
       {/* Pagination controls */}
-      <div className="flex justify-center items-center space-x-2">
+      <div className="flex items-center gap-2">
+        {/* Previous button */}
         <button
-          onClick={() => handlePageChange(currentPage - 1)}
+          onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
-          className="px-4 py-2 border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 rounded-lg font-medium"
+          className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+            currentPage === 1
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              : 'bg-white border border-gray-300 text-text-main hover:border-accent-cyan hover:text-accent-cyan hover:shadow-md'
+          }`}
         >
-          ← Previous
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          </svg>
         </button>
-        
-        <div className="flex space-x-1">
+
+        {/* Page numbers */}
+        <div className="flex items-center gap-1">
           {pageNumbers.map((page, index) => (
-            page === '...' ? (
-              <span key={`ellipsis-${index}`} className="px-3 py-2 text-text-muted">
-                ...
-              </span>
-            ) : (
-              <button
-                key={page}
-                onClick={() => handlePageChange(page as number)}
-                className={`px-3 py-2 rounded-lg transition-all duration-300 font-medium ${
-                  page === currentPage
-                    ? 'bg-gradient-to-r from-accent-cyan to-accent-magenta text-white shadow-lg scale-105'
-                    : 'border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary hover:scale-105'
-                }`}
-              >
-                {page}
-              </button>
-            )
+            <button
+              key={index}
+              onClick={() => typeof page === 'number' && onPageChange(page)}
+              disabled={page === '...'}
+              className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+                page === '...'
+                  ? 'text-gray-400 cursor-default'
+                  : page === currentPage
+                  ? 'bg-accent-cyan text-white shadow-md'
+                  : 'bg-white border border-gray-300 text-text-main hover:border-accent-cyan hover:text-accent-cyan hover:shadow-md'
+              }`}
+            >
+              {page}
+            </button>
           ))}
         </div>
-        
+
+        {/* Next button */}
         <button
-          onClick={() => handlePageChange(currentPage + 1)}
+          onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
-          className="px-4 py-2 border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-background-primary disabled:opacity-50 disabled:cursor-not-allowed transition-all duration-300 rounded-lg font-medium"
+          className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
+            currentPage === totalPages
+              ? 'bg-gray-100 text-gray-400 cursor-not-allowed'
+              : 'bg-white border border-gray-300 text-text-main hover:border-accent-cyan hover:text-accent-cyan hover:shadow-md'
+          }`}
         >
-          Next →
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </button>
       </div>
     </div>
