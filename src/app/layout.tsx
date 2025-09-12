@@ -4,6 +4,7 @@ import { Navbar, Footer, ErrorBoundary } from "@/components";
 import { Montserrat, Lexend } from 'next/font/google';
 import { SchemaProvider } from '@/components/SchemaProvider';
 import { schemaGenerator } from '@/lib/schema';
+import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 
 const montserrat = Montserrat({
   subsets: ['latin'],
@@ -143,6 +144,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-accent-cyan text-background-primary px-4 py-2 rounded-lg z-50">
           Skip to main content
         </a>
+        <PerformanceOptimizer />
         <SchemaProvider 
           initialSchemas={[
             { key: 'global-organization', type: 'organization', data: {} },

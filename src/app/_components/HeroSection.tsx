@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import Image from "next/image";
+import OptimizedHeroImage from '@/components/OptimizedHeroImage';
 import GradientButton from "@/components/ui/GradientButton";
 import OutlineButton from "@/components/ui/OutlineButton";
 
@@ -13,17 +13,10 @@ export default function HeroSection() {
       aria-label="Hero section"
     >
       {/* Optimized Background Image */}
-      <Image
-        src="/images/hero-background.webp?v=5"
+      <OptimizedHeroImage
+        src="/images/hero-background.webp"
         alt="Professional business team working in modern office with Shanghai cityscape background - China Business Solutions"
-        fill
-        priority
-        fetchPriority="high"
-        className="object-cover -z-10"
-        quality={65}
-        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 1342px, 1342px"
-        placeholder="blur"
-        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+        className="absolute inset-0 -z-10"
       />
       
       {/* Elegant gradient overlay from bottom to top */}

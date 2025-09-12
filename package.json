@@ -1,12 +1,16 @@
 {
   "name": "web4",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build --turbopack",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "optimize-images": "node scripts/optimize-images.js",
+    "analyze": "ANALYZE=true next build",
+    "build:prod": "NODE_ENV=production next build --turbopack",
+    "perf:audit": "lighthouse http://localhost:3000 --output=html --output-path=./lighthouse-report.html"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

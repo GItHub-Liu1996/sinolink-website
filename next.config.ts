@@ -6,6 +6,22 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
     qualities: [65, 75, 90],
+    formats: ['image/webp', 'image/avif'],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // 配置本地图片模式以支持查询参数
+    localPatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+      {
+        protocol: 'http',
+        hostname: 'localhost',
+        port: '3000',
+        pathname: '/images/**',
+      },
+    ],
     remotePatterns: [
       {
         protocol: 'https',
@@ -18,11 +34,51 @@ const nextConfig: NextConfig = {
   experimental: {
     optimizePackageImports: ['framer-motion'],
     webpackBuildWorker: true,
+    // 启用现代JavaScript优化
+    esmExternals: true,
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production', // 生产环境移除console.log
   },
-  webpack: (config, { isServer }) => {
+  // 优化JavaScript构建
+  swcMinify: true,
+  // 现代浏览器目标
+  env: {
+    BROWSERSLIST_ENV: 'modern',
+  },
+  webpack: (config, { isServer, dev }) => {
+    // 优化现代浏览器支持，减少polyfill
+    if (!isServer && !dev) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        // 移除不必要的polyfill
+        fs: false,
+        net: false,
+        tls: false,
+      };
+      
+      // 优化babel配置以减少polyfill
+      config.module.rules.push({
+        test: /\.(js|jsx|ts|tsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              ['@babel/preset-env', {
+                targets: {
+                  browsers: ['> 1%', 'last 2 versions', 'not ie <= 11']
+                },
+                modules: false,
+                useBuiltIns: 'usage',
+                corejs: 3
+              }]
+            ]
+          }
+        }
+      });
+    }
+    
     if (!isServer) {
       config.optimization.splitChunks = {
         chunks: 'all',
