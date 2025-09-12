@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams, useRouter } from 'next/navigation';
 import ArticleCard from './_components/ArticleCard';
 import Pagination from './_components/Pagination';
@@ -84,7 +84,7 @@ function FeaturedArticleCard({ post }: { post: PostMeta }) {
   );
 }
 
-export default function InsightsPage() {
+function InsightsPageContent() {
   // URL and navigation hooks
   const searchParams = useSearchParams();
   const router = useRouter();
@@ -346,5 +346,20 @@ export default function InsightsPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function InsightsPage() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-background flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-accent-cyan mx-auto mb-4"></div>
+          <p className="text-text-main">Loading insights...</p>
+        </div>
+      </div>
+    }>
+      <InsightsPageContent />
+    </Suspense>
   );
 }
