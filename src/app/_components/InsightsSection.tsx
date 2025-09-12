@@ -13,7 +13,7 @@ export default function InsightsSection() {
       readTime: "8 min read",
       date: "Sep 12, 2025",
       href: "/insights/blog/wfoe-registration-guide-2025",
-      image: "/images/insights/wfoe-registration-flow.svg",
+      image: "/images/insights/morandi-gradient-1.svg",
       color: "accent-cyan",
       type: "blog"
     },
@@ -24,7 +24,7 @@ export default function InsightsSection() {
       readTime: "12 min read",
       date: "Sep 10, 2025",
       href: "/insights/blog/chinese-tax-system-primer",
-      image: "/images/insights/tax-compliance-geometry.svg",
+      image: "/images/insights/morandi-gradient-2.svg",
       color: "accent-magenta",
       type: "blog"
     },
@@ -35,7 +35,7 @@ export default function InsightsSection() {
       readTime: "6 min read",
       date: "Sep 8, 2025",
       href: "/insights/blog/choosing-legal-entity-china",
-      image: "/images/insights/china-business-waves.svg",
+      image: "/images/insights/morandi-gradient-3.svg",
       color: "accent-orange",
       type: "blog"
     },
@@ -46,7 +46,7 @@ export default function InsightsSection() {
       readTime: "10 min read",
       date: "Sep 6, 2025",
       href: "/insights/blog/hr-and-visa-essentials-china",
-      image: "/images/insights/hr-visa-connections.svg",
+      image: "/images/insights/morandi-gradient-4.svg",
       color: "accent-cyan",
       type: "blog"
     },
@@ -57,7 +57,7 @@ export default function InsightsSection() {
       readTime: "15 min read",
       date: "Sep 4, 2025",
       href: "/insights/blog/intellectual-property-protection-china",
-      image: "/images/insights/intellectual-property-shield.svg",
+      image: "/images/insights/morandi-gradient-5.svg",
       color: "accent-magenta",
       type: "blog"
     },
@@ -68,7 +68,7 @@ export default function InsightsSection() {
       readTime: "7 min read",
       date: "Sep 2, 2025",
       href: "/insights/blog/financial-outsourcing-benefits-china",
-      image: "/images/insights/abstract-patterns.svg",
+      image: "/images/insights/morandi-gradient-6.svg",
       color: "accent-orange",
       type: "blog"
     }
@@ -111,15 +111,14 @@ export default function InsightsSection() {
               className="group"
             >
               <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden h-full">
-                {/* Abstract image header - Vistra style */}
-                <div className="relative h-32 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                {/* Gradient image header */}
+                <div className="relative h-32 overflow-hidden">
                   <img
                     src={insight.image}
-                    alt={`${insight.category} abstract pattern`}
+                    alt={`${insight.category} gradient background`}
                     className="w-full h-full object-cover"
                     loading="lazy"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
                 {/* Content area */}

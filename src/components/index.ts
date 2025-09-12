@@ -8,3 +8,6 @@ export { default as OptimizedImage } from './OptimizedImage';
 export { default as LoadingProgress } from './LoadingProgress';
 export { default as SkeletonLoader, HeroSkeleton, CardSkeleton, ServiceCardSkeleton, BlogCardSkeleton } from './SkeletonLoader';
 export { default as ErrorBoundary, PageError, NetworkError, NotFoundError } from './ErrorBoundary';
+export { default as ConsultationQuiz } from './ConsultationQuiz';
+export { default as ConsultationFloatingButton } from './ConsultationFloatingButton';
+export { default as EmbeddedConsultationQuiz } from './EmbeddedConsultationQuiz';

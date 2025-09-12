@@ -1,6 +1,6 @@
 import dynamic from 'next/dynamic';
 import { HeroSection } from './_components';
-import { ResourcePreloader, LoadingProgress, ErrorBoundary } from '@/components';
+import { ResourcePreloader, LoadingProgress, ErrorBoundary, EmbeddedConsultationQuiz } from '@/components';
 import type { Metadata } from 'next';
 
 // Import critical components directly
@@ -114,6 +114,18 @@ export default function HomePage() {
         {/* 3. Our Solutions - Services and solutions */}
         <ServicesOverview />
         
+                 {/* 3.5. Smart Consultation Quiz - Interactive questionnaire */}
+                 <section className="py-8 bg-gradient-to-br from-gray-50 to-gray-100">
+                   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                 <EmbeddedConsultationQuiz
+                   title="To Better Understand Your Needs"
+                   subtitle="Answer a few questions to get personalized business consultation and recommendations"
+                   showTitle={true}
+                   maxQuestions={11}
+                 />
+          </div>
+        </section>
+        
         {/* 4. Insights Section - Insights content */}
         <InsightsSection />
         
@@ -132,6 +144,7 @@ export default function HomePage() {
           userInteraction={true}
         />
       </main>
+      
     </ErrorBoundary>
   );
 }

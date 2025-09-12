@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { articles } from '@/config/articles';
 import Pagination from './_components/Pagination';
+import { EmbeddedConsultationQuiz } from '@/components';
 
 export default function InsightsPage() {
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -189,32 +190,77 @@ export default function InsightsPage() {
         </div>
       </section>
 
-      {/* Compact Subscription Module */}
-      <section className="py-12 bg-background-secondary">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-xl p-6 text-center border border-gray-200">
-            <h2 className="text-2xl font-bold text-text-heading mb-3 font-sans">
-              Stay Updated
-            </h2>
-            <p className="text-text-main font-body mb-6 max-w-xl mx-auto">
-              Get the latest China business insights delivered to your inbox.
-            </p>
-            <form className="max-w-md mx-auto">
-              <div className="flex gap-3">
-                <input
-                  type="email"
-                  placeholder="Enter your email"
-                  className="flex-1 px-4 py-2 bg-background border border-gray-300 rounded-lg text-text-main placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent-cyan focus:border-transparent transition-all duration-300 text-sm"
-                />
-                <button 
-                  type="submit"
-                  className="px-6 py-2 rounded-lg font-semibold transition-all duration-300 bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white hover:shadow-lg text-sm"
-                >
-                  Subscribe
+      {/* Enhanced Value Proposition Section */}
+      <section className="py-16 bg-gradient-to-br from-background-secondary to-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white rounded-2xl p-8 lg:p-12 text-center border border-gray-200 shadow-lg">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl lg:text-4xl font-bold text-text-heading mb-4 font-sans">
+                Become a China Market Insider
+              </h2>
+              <p className="text-lg text-text-main font-body mb-8 max-w-3xl mx-auto leading-relaxed">
+                Join 2,000+ business leaders who rely on our exclusive insights to navigate China's complex market landscape. Get weekly updates on regulatory changes, market opportunities, and strategic guidance.
+              </p>
+              
+              {/* Value Points */}
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
+                <div className="flex flex-col items-center p-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-text-heading mb-2">Weekly Insights</h3>
+                  <p className="text-sm text-gray-600">Market trends, policy updates, and strategic analysis</p>
+                </div>
+                
+                <div className="flex flex-col items-center p-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-text-heading mb-2">Early Access</h3>
+                  <p className="text-sm text-gray-600">Be first to know about regulatory changes and opportunities</p>
+                </div>
+                
+                <div className="flex flex-col items-center p-4">
+                  <div className="w-12 h-12 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center mb-3">
+                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-text-heading mb-2">Expert Network</h3>
+                  <p className="text-sm text-gray-600">Connect with China business experts and peers</p>
+                </div>
+              </div>
+
+              {/* Action Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 max-w-2xl mx-auto">
+                <button className="flex-1 px-8 py-3 rounded-lg font-semibold transition-all duration-300 bg-gradient-to-r from-accent-cyan to-accent-magenta hover:from-accent-magenta hover:to-accent-cyan text-white hover:shadow-lg hover:scale-105">
+                  Start Smart Consultation
+                </button>
+                <button className="flex-1 px-8 py-3 rounded-lg font-semibold transition-all duration-300 border-2 border-accent-cyan text-accent-cyan hover:bg-accent-cyan hover:text-white">
+                  Subscribe to Newsletter
                 </button>
               </div>
-            </form>
+              <p className="text-xs text-gray-500 mt-3">
+                Get personalized advice or stay updated with our insights. No spam, unsubscribe anytime.
+              </p>
+            </div>
           </div>
+        </div>
+      </section>
+
+               {/* Smart Consultation Quiz Section */}
+               <section className="py-8 bg-gradient-to-br from-gray-50 to-gray-100">
+                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                   <EmbeddedConsultationQuiz
+                     title="To Better Understand Your Needs"
+                     subtitle="Answer a few questions to get personalized business consultation and recommendations"
+                     showTitle={true}
+                     maxQuestions={11}
+                   />
         </div>
       </section>
     </div>
