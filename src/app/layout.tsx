@@ -31,6 +31,17 @@ export const metadata: Metadata = {
   authors: [{ name: "GoChinaAdvisors" }],
   creator: "GoChinaAdvisors",
   publisher: "GoChinaAdvisors",
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: '16x16', type: 'image/x-icon' },
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
+      { url: '/images/logo/favicon.svg', type: 'image/svg+xml' }
+    ],
+    apple: [
+      { url: '/images/logo/favicon.svg', sizes: '180x180', type: 'image/svg+xml' }
+    ],
+    shortcut: '/favicon.ico'
+  },
   robots: {
     index: true,
     follow: true,
@@ -68,6 +79,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Favicon */}
+        <link rel="icon" href="/favicon.ico" sizes="16x16" type="image/x-icon" />
+        <link rel="icon" href="/favicon.ico" sizes="32x32" type="image/x-icon" />
+        <link rel="icon" href="/images/logo/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/images/logo/favicon.svg" sizes="180x180" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        
         {/* Google Tag Manager */}
         <script dangerouslySetInnerHTML={{
           __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

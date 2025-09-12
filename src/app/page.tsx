@@ -12,11 +12,11 @@ const WhoWeAre = dynamic(() => import('./_components').then(mod => ({ default: m
   loading: () => <div className="animate-pulse bg-gray-200 h-64 rounded-lg"></div>
 });
 
-const InsightsSection = dynamic(() => import('./_components').then(mod => ({ default: mod.InsightsSection })), {
+const InsightsSection = dynamic(() => import('./_components/InsightsSection'), {
   loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-lg"></div>
 });
 
-const FeaturedCaseStudy = dynamic(() => import('./_components').then(mod => ({ default: mod.FeaturedCaseStudy })), {
+const FeaturedCaseStudy = dynamic(() => import('./_components/FeaturedCaseStudy'), {
   loading: () => <div className="animate-pulse bg-gray-200 h-48 rounded-lg"></div>
 });
 

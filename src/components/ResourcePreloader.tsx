@@ -24,7 +24,7 @@ export default function ResourcePreloader({
   const [preloadedRoutes, setPreloadedRoutes] = useState<Set<string>>(new Set());
 
   useEffect(() => {
-    // 监听用户交互
+    // Listen for user interactions
     const handleUserInteraction = () => {
       setHasInteracted(true);
     };
@@ -43,7 +43,7 @@ export default function ResourcePreloader({
   }, [userInteraction]);
 
   useEffect(() => {
-    // 智能预加载策略
+    // Smart preloading strategy
     const preloadRoute = (route: string) => {
       if (!preloadedRoutes.has(route)) {
         router.prefetch(route);
@@ -61,22 +61,22 @@ export default function ResourcePreloader({
     };
 
     const preloadComponent = (componentPath: string) => {
-      // 预加载组件模块 - 使用动态导入
+      // Preload component modules - using dynamic imports
       try {
-        // 这里我们使用一个更安全的方式来预加载组件
-        // 在实际使用中，组件会在需要时自动加载
+        // Here we use a safer way to preload components
+        // In actual use, components will be automatically loaded when needed
         console.log(`Preloading component: ${componentPath}`);
       } catch (error) {
-        // 静默处理错误
+        // Silently handle errors
         console.warn(`Failed to preload component: ${componentPath}`);
       }
     };
 
-    // 根据当前页面智能选择预加载内容
+    // Intelligently select preload content based on current page
     const getSmartPreloadRoutes = () => {
       const smartRoutes = [...preloadRoutes];
       
-      // 根据当前页面添加相关路由
+      // Add related routes based on current page
       if (pathname === '/') {
         smartRoutes.push('/insights', '/services/market-entry');
       } else if (pathname.startsWith('/services')) {
@@ -88,9 +88,9 @@ export default function ResourcePreloader({
       return smartRoutes;
     };
 
-    // 延迟预加载，避免影响首屏加载
+    // Delay preloading to avoid affecting first screen load
     const timer = setTimeout(() => {
-      // 只有在用户交互后或延迟时间到达后才开始预加载
+      // Only start preloading after user interaction or delay time is reached
       if (hasInteracted || !userInteraction) {
         const routesToPreload = getSmartPreloadRoutes();
         routesToPreload.forEach(preloadRoute);
@@ -102,10 +102,10 @@ export default function ResourcePreloader({
     return () => clearTimeout(timer);
   }, [router, preloadRoutes, preloadImages, preloadComponents, delay, hasInteracted, userInteraction, pathname, preloadedRoutes]);
 
-  // 监听网络状态，在良好网络条件下进行预加载
+  // Monitor network status and preload under good network conditions
   useEffect(() => {
     const handleOnline = () => {
-      // 网络恢复时进行预加载
+      // Preload when network is restored
       setTimeout(() => {
         preloadRoutes.forEach(route => {
           if (!preloadedRoutes.has(route)) {
@@ -120,5 +120,5 @@ export default function ResourcePreloader({
     return () => window.removeEventListener('online', handleOnline);
   }, [router, preloadRoutes, preloadedRoutes]);
 
-  return null; // 这是一个无UI组件
+  return null; // This is a no-UI component
 }

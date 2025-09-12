@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
 
-// 博客文章数据
+// Blog post data
 const blogPosts = [
   {
     slug: 'wfoe-registration-guide-china-2025',
@@ -62,13 +62,13 @@ const blogPosts = [
   }
 ];
 
-// 分类筛选
+// Category filtering
 const categories = ['All', 'Market Entry', 'Operations & Compliance', 'HR & Visa', 'Growth & Strategy'];
 
 export default function BlogPage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* 页面标题 */}
+      {/* Page Title */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -85,7 +85,7 @@ export default function BlogPage() {
         </div>
       </motion.div>
 
-      {/* 分类筛选 */}
+      {/* Category Filter */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -109,7 +109,7 @@ export default function BlogPage() {
         </div>
       </motion.div>
 
-      {/* 文章列表 */}
+      {/* Article List */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -166,7 +166,7 @@ export default function BlogPage() {
         </div>
       </motion.section>
 
-      {/* 订阅模块 */}
+      {/* Subscription Module */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

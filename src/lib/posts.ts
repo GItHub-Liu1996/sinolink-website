@@ -22,7 +22,7 @@ export interface Post extends PostMeta {
   content: string;
 }
 
-// 获取所有文章的元数据（按日期降序）
+// Get all post metadata (sorted by date descending)
 export async function getAllPosts(): Promise<PostMeta[]> {
   try {
     const fileNames = fs.readdirSync(postsDirectory);
@@ -57,7 +57,7 @@ export async function getAllPosts(): Promise<PostMeta[]> {
   }
 }
 
-// 根据slug获取单篇文章的完整内容
+// Get single post content by slug
 export function getPostBySlug(slug: string): Post | null {
   try {
     const fullPath = path.join(postsDirectory, `${slug}.mdx`);
@@ -89,25 +89,25 @@ export function getPostBySlug(slug: string): Post | null {
   }
 }
 
-// 获取精选文章
+// Get featured posts
 export async function getFeaturedPosts(): Promise<PostMeta[]> {
   const posts = await getAllPosts();
   return posts.filter(post => post.featured);
 }
 
-// 获取最新文章（排除精选）
+// Get latest posts (excluding featured)
 export async function getLatestPosts(): Promise<PostMeta[]> {
   const posts = await getAllPosts();
   return posts.filter(post => !post.featured).slice(0, 2);
 }
 
-// 获取所有文章（排除精选）
+// Get all posts (excluding featured)
 export async function getAllNonFeaturedPosts(): Promise<PostMeta[]> {
   const posts = await getAllPosts();
   return posts.filter(post => !post.featured);
 }
 
-// 根据分类获取文章
+// Get posts by category
 export async function getPostsByCategory(category: string): Promise<PostMeta[]> {
   const posts = await getAllPosts();
   return posts.filter(post => 
@@ -115,21 +115,21 @@ export async function getPostsByCategory(category: string): Promise<PostMeta[]> 
   );
 }
 
-// 获取所有分类
+// Get all categories
 export async function getAllCategories(): Promise<string[]> {
   const posts = await getAllPosts();
   const categories = new Set(posts.map(post => post.category));
   return Array.from(categories);
 }
 
-// 获取所有标签
+// Get all tags
 export async function getAllTags(): Promise<string[]> {
   const posts = await getAllPosts();
   const tags = new Set(posts.flatMap(post => post.tags || []));
   return Array.from(tags);
 }
 
-// 搜索文章
+// Search posts
 export async function searchPosts(query: string): Promise<PostMeta[]> {
   const posts = await getAllPosts();
   const lowercaseQuery = query.toLowerCase();

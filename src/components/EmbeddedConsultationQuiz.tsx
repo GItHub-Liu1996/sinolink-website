@@ -197,7 +197,7 @@ export default function EmbeddedConsultationQuiz({
     setIsSubmitting(true);
     
     try {
-      // 从answers中提取联系信息
+      // Extract contact information from answers
       const companyNameAnswer = answers.find(a => a.questionId === 'companyName');
       const contactNameAnswer = answers.find(a => a.questionId === 'contactName');
       const emailAnswer = answers.find(a => a.questionId === 'email');
@@ -222,10 +222,10 @@ export default function EmbeddedConsultationQuiz({
       if (response.ok) {
         setShowSuccess(true);
       } else {
-        console.error('提交失败');
+        console.error('Submission failed');
       }
     } catch (error) {
-      console.error('提交错误:', error);
+      console.error('Submission error:', error);
     } finally {
       setIsSubmitting(false);
     }
@@ -243,9 +243,9 @@ export default function EmbeddedConsultationQuiz({
     return (
       <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-8 text-center border border-green-200">
         <CheckCircle className="w-16 h-16 text-green-500 mx-auto mb-4" />
-        <h3 className="text-2xl font-bold text-text-heading mb-2 font-sans">提交成功！</h3>
+        <h3 className="text-2xl font-bold text-text-heading mb-2 font-sans">Submission Successful!</h3>
         <p className="text-gray-600 mb-6 font-body">
-          感谢您的参与！我们的专业团队将在24小时内联系您，为您提供个性化的咨询服务。
+          Thank you for your participation! Our professional team will contact you within 24 hours to provide personalized consultation services.
         </p>
         <button
           onClick={() => {
@@ -257,7 +257,7 @@ export default function EmbeddedConsultationQuiz({
           }}
           className="px-6 py-3 bg-gradient-to-r from-accent-cyan to-accent-magenta text-white rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
         >
-          重新开始
+          Start Over
         </button>
       </div>
     );
@@ -268,56 +268,56 @@ export default function EmbeddedConsultationQuiz({
       <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-200">
         <div className="text-center mb-8">
           <MessageCircle className="w-12 h-12 text-accent-cyan mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-text-heading mb-2 font-sans">获取专业咨询</h3>
-          <p className="text-gray-600 font-body">请提供您的联系信息，我们将为您安排专业顾问</p>
+          <h3 className="text-2xl font-bold text-text-heading mb-2 font-sans">Get Professional Consultation</h3>
+          <p className="text-gray-600 font-body">Please provide your contact information, and we will arrange a professional consultant for you</p>
         </div>
 
         <form onSubmit={(e) => { e.preventDefault(); handleSubmit(); }} className="space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">公司名称 *</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Company Name *</label>
               <input
                 type="text"
                 required
                 value={contactInfo.companyName}
                 onChange={(e) => setContactInfo(prev => ({ ...prev, companyName: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="请输入公司名称"
+                placeholder="Enter company name"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">联系人姓名 *</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Contact Name *</label>
               <input
                 type="text"
                 required
                 value={contactInfo.contactName}
                 onChange={(e) => setContactInfo(prev => ({ ...prev, contactName: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="请输入联系人姓名"
+                placeholder="Enter contact name"
               />
             </div>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">邮箱地址 *</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Email Address *</label>
               <input
                 type="email"
                 required
                 value={contactInfo.email}
                 onChange={(e) => setContactInfo(prev => ({ ...prev, email: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="请输入邮箱地址"
+                placeholder="Enter email address"
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">电话号码</label>
+              <label className="block text-sm font-medium text-gray-700 mb-2 font-body">Phone Number</label>
               <input
                 type="tel"
                 value={contactInfo.phone}
                 onChange={(e) => setContactInfo(prev => ({ ...prev, phone: e.target.value }))}
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-accent-cyan focus:border-transparent font-body"
-                placeholder="请输入电话号码"
+                placeholder="Enter phone number"
               />
             </div>
           </div>
@@ -329,7 +329,7 @@ export default function EmbeddedConsultationQuiz({
               className="flex items-center px-4 py-2 text-gray-600 hover:text-accent-cyan hover:bg-accent-cyan/10 rounded-lg transition-all duration-300 font-body"
             >
               <ChevronLeft className="w-5 h-5 mr-2" />
-              返回问卷
+              Back to Quiz
             </button>
 
             <button
@@ -341,7 +341,7 @@ export default function EmbeddedConsultationQuiz({
                   : 'bg-gradient-to-r from-accent-cyan to-accent-magenta text-white hover:shadow-lg hover:scale-105'
               }`}
             >
-              {isSubmitting ? '提交中...' : '提交咨询申请'}
+              {isSubmitting ? 'Submitting...' : 'Submit Consultation Request'}
               <ArrowRight className="w-5 h-5 ml-2" />
             </button>
           </div>
@@ -353,13 +353,13 @@ export default function EmbeddedConsultationQuiz({
   return (
     <div className="w-full max-w-7xl mx-auto">
       <div className="bg-white/70 backdrop-blur-md rounded-xl shadow-lg p-8 border border-gray-200/30">
-        {/* 标题和进度 - 紧凑版 */}
+        {/* Title and Progress - Compact Version */}
         {showTitle && (
           <div className="text-center mb-6">
             <h2 className="text-xl font-bold text-text-heading mb-2 font-sans">{title}</h2>
             <p className="text-gray-600 mb-4 font-body text-sm">{subtitle}</p>
             
-            {/* 进度条 */}
+            {/* Progress Bar */}
             <div className="w-full bg-gray-200/50 rounded-full h-1.5 mb-2">
               <motion.div
                 className="bg-gradient-to-r from-accent-cyan to-accent-magenta h-1.5 rounded-full"
@@ -374,9 +374,9 @@ export default function EmbeddedConsultationQuiz({
           </div>
         )}
 
-        {/* 问题卡片 - 长条形布局带轮播按钮 */}
+        {/* Question Card - Long Strip Layout with Carousel Buttons */}
         <div className="relative">
-          {/* 左轮播按钮 */}
+          {/* Left Carousel Button */}
           <button
             onClick={handlePrevious}
             disabled={isFirstQuestion}
@@ -389,7 +389,7 @@ export default function EmbeddedConsultationQuiz({
             <ChevronLeft className="w-5 h-5" />
           </button>
 
-          {/* 右轮播按钮 */}
+          {/* Right Carousel Button */}
           <button
             onClick={handleNext}
             disabled={isLastQuestion}
@@ -412,9 +412,9 @@ export default function EmbeddedConsultationQuiz({
               className="px-12"
             >
               <div className="flex items-center gap-8">
-                {/* 左侧：问题信息 */}
+                {/* Left Side: Question Information */}
                 <div className="flex-1 min-w-0">
-                  {/* 分类标签和进度 */}
+                  {/* Category Tag and Progress */}
                   <div className="flex items-center justify-between mb-4">
                     <span className="px-3 py-1 bg-accent-cyan/10 text-accent-cyan rounded-full text-sm font-medium font-body">
                       {currentQuestion.category}
@@ -424,13 +424,13 @@ export default function EmbeddedConsultationQuiz({
                     </span>
                   </div>
 
-                  {/* 问题标题 */}
+                  {/* Question Title */}
                   <h3 className="text-xl font-semibold text-text-heading mb-6 font-sans">
                     {currentQuestion.question}
                   </h3>
                 </div>
 
-                {/* 右侧：选项或输入框 */}
+                {/* Right Side: Options or Input Fields */}
                 <div className="flex-1 min-w-0">
                   {currentQuestion.type === 'text' || currentQuestion.type === 'textarea' ? (
                     <div className="w-full">
@@ -480,7 +480,7 @@ export default function EmbeddedConsultationQuiz({
           </AnimatePresence>
         </div>
 
-        {/* 进度指示器 */}
+        {/* Progress Indicators */}
         <div className="flex justify-center space-x-2 mt-6">
           {displayQuestions.map((_, index) => (
             <div
@@ -496,7 +496,7 @@ export default function EmbeddedConsultationQuiz({
           ))}
         </div>
 
-        {/* 底部信息 - 紧凑版 */}
+        {/* Bottom Information - Compact Version */}
         <div className="text-center text-gray-500 text-xs font-body mt-4">
           <p>Your information will be kept strictly confidential</p>
         </div>

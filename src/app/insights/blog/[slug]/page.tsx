@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import BlogPostContent from './BlogPostContent';
 
-// 生成静态路径
+// Generate static paths
 export async function generateStaticParams() {
   const posts = await getAllPosts();
   return posts.map((post) => ({
@@ -11,7 +11,7 @@ export async function generateStaticParams() {
   }));
 }
 
-// 生成元数据
+// Generate metadata
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -34,9 +34,9 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 }
 
 
-// 目录生成函数 - 从MDX内容中提取标题
+// Table of contents generation function - extract headings from MDX content
 const generateTableOfContents = (content: string) => {
-  // 匹配MDX中的标题语法 ## 或 ###
+  // Match MDX heading syntax ## or ###
   const headings = content.match(/^#{2,3}\s+(.+)$/gm);
   if (!headings) return [];
 
@@ -54,7 +54,7 @@ const generateTableOfContents = (content: string) => {
   });
 };
 
-// 文章页面组件
+// Blog post page component
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -63,8 +63,8 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
     notFound();
   }
 
-  // 序列化MDX内容
-  // 获取相关文章（同分类的其他文章）
+  // Serialize MDX content
+  // Get related articles (other articles in the same category)
   const allPosts = await getAllPosts();
   const relatedPosts = allPosts
     .filter(p => p.slug !== post.slug && p.category === post.category)

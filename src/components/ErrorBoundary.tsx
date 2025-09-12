@@ -26,13 +26,13 @@ class ErrorBoundary extends Component<Props, State> {
   componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('ErrorBoundary caught an error:', error, errorInfo);
     
-    // 调用自定义错误处理函数
+    // Call custom error handler
     if (this.props.onError) {
       this.props.onError(error, errorInfo);
     }
 
-    // 可以在这里添加错误上报逻辑
-    // 例如：发送到错误监控服务
+    // Error reporting logic can be added here
+    // For example: send to error monitoring service
   }
 
   render() {
@@ -44,7 +44,7 @@ class ErrorBoundary extends Component<Props, State> {
   }
 }
 
-// 默认错误回退组件
+// Default error fallback component
 function DefaultErrorFallback({ error }: { error?: Error }) {
   const handleRetry = () => {
     window.location.reload();
@@ -64,10 +64,10 @@ function DefaultErrorFallback({ error }: { error?: Error }) {
             </svg>
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
-            出现了一些问题
+            Something went wrong
           </h1>
           <p className="text-gray-600 mb-6">
-            抱歉，页面遇到了一个错误。请尝试刷新页面或返回首页。
+            Sorry, the page encountered an error. Please try refreshing the page or return to the homepage.
           </p>
         </div>
 
@@ -76,20 +76,20 @@ function DefaultErrorFallback({ error }: { error?: Error }) {
             onClick={handleRetry}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
           >
-            刷新页面
+            Refresh Page
           </button>
           <button
             onClick={handleGoHome}
             className="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
           >
-            返回首页
+            Return to Homepage
           </button>
         </div>
 
         {process.env.NODE_ENV === 'development' && error && (
           <details className="mt-6 text-left">
             <summary className="cursor-pointer text-sm text-gray-500 hover:text-gray-700">
-              错误详情 (开发模式)
+              Error Details (Development Mode)
             </summary>
             <pre className="mt-2 text-xs bg-gray-100 p-3 rounded overflow-auto">
               {error.stack}
@@ -101,10 +101,10 @@ function DefaultErrorFallback({ error }: { error?: Error }) {
   );
 }
 
-// 页面级错误组件
+// Page-level error component
 export function PageError({ 
-  title = "页面加载失败", 
-  message = "抱歉，无法加载此页面。请检查网络连接后重试。",
+  title = "Page Load Failed", 
+  message = "Sorry, unable to load this page. Please check your network connection and try again.",
   onRetry
 }: {
   title?: string;
@@ -141,13 +141,13 @@ export function PageError({
             onClick={handleRetry}
             className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
           >
-            重试
+            Retry
           </button>
           <button
             onClick={() => window.location.href = '/'}
             className="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded-lg hover:bg-gray-300 transition-colors"
           >
-            返回首页
+            Return to Homepage
           </button>
         </div>
       </div>
@@ -155,18 +155,18 @@ export function PageError({
   );
 }
 
-// 网络错误组件
+// Network error component
 export function NetworkError({ onRetry }: { onRetry?: () => void }) {
   return (
     <PageError
-      title="网络连接失败"
-      message="请检查您的网络连接，然后重试。"
+      title="Network Connection Failed"
+      message="Please check your network connection and try again."
       onRetry={onRetry}
     />
   );
 }
 
-// 404错误组件
+// 404 error component
 export function NotFoundError() {
   return (
     <div className="min-h-screen bg-gray-50 flex items-center justify-center px-4">
@@ -178,10 +178,10 @@ export function NotFoundError() {
             </svg>
           </div>
           <h1 className="text-2xl font-bold text-gray-900 mb-2">
-            页面未找到
+            Page Not Found
           </h1>
           <p className="text-gray-600 mb-6">
-            抱歉，您访问的页面不存在。
+            Sorry, the page you are looking for does not exist.
           </p>
         </div>
 

@@ -5,7 +5,7 @@ export async function POST(request: NextRequest) {
     const body = await request.json();
     const { answers, companyName, contactName, email, phone, message } = body;
 
-    // 验证必需字段
+    // Validate required fields
     if (!companyName || !contactName || !email) {
       return NextResponse.json(
         { error: 'Missing required fields' },
@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 验证邮箱格式
+    // Validate email format
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return NextResponse.json(
@@ -22,10 +22,10 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // 分析问卷答案，生成个性化建议
+    // Analyze quiz answers and generate personalized recommendations
     const analysis = analyzeQuizAnswers(answers);
     
-    // 准备Notion数据
+    // Prepare Notion data
     const notionData = {
       parent: {
         database_id: process.env.NOTION_CONSULTATION_DATABASE_ID || process.env.NOTION_DATABASE_ID
@@ -149,7 +149,7 @@ export async function POST(request: NextRequest) {
       }
     };
 
-    // 检查是否有Notion配置
+    // Check if Notion is configured
     if (!process.env.NOTION_API_KEY || !process.env.NOTION_DATABASE_ID) {
       console.log('Notion API not configured. Saving to console log:');
       console.log('Consultation Quiz Submission:', {
@@ -180,7 +180,7 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // 发送到Notion
+    // Send to Notion
     const notionResponse = await fetch('https://api.notion.com/v1/pages', {
       method: 'POST',
       headers: {
@@ -231,14 +231,14 @@ function analyzeQuizAnswers(answers: any[]) {
     nextSteps: [] as string[]
   };
 
-  // 分析行业类型
+  // Analyze industry type
   const industryAnswer = answers.find(a => a.questionId === 'industry');
   if (industryAnswer?.value === 'finance') {
     analysis.priority = 'high';
     analysis.recommendedServices.push('Financial License Application', 'Compliance Consulting');
   }
 
-  // 分析实体类型
+  // Analyze entity type
   const entityAnswer = answers.find(a => a.questionId === 'entity_type');
   if (entityAnswer?.value === 'wfoe') {
     analysis.recommendedServices.push('WFOE Registration', 'Bank Account Opening');
@@ -246,32 +246,32 @@ function analyzeQuizAnswers(answers: any[]) {
     analysis.recommendedServices.push('JV Setup', 'Partnership Agreement');
   }
 
-  // 分析时间紧迫性
+  // Analyze timeline urgency
   const timelineAnswer = answers.find(a => a.questionId === 'timeline');
   if (timelineAnswer?.value === 'urgent') {
     analysis.priority = 'high';
     analysis.nextSteps.push('Schedule urgent consultation call');
   }
 
-  // 分析合规关注点
+  // Analyze compliance concerns
   const complianceAnswer = answers.find(a => a.questionId === 'compliance_concern');
   if (complianceAnswer?.answer) {
     const concerns = complianceAnswer.answer.split(',');
-    if (concerns.includes('税务合规')) {
+    if (concerns.includes('Tax Compliance')) {
       analysis.recommendedServices.push('Tax Compliance', 'Accounting Services');
     }
-    if (concerns.includes('法律合规')) {
+    if (concerns.includes('Legal Compliance')) {
       analysis.recommendedServices.push('Legal Compliance', 'Contract Review');
     }
-    if (concerns.includes('人力资源')) {
+    if (concerns.includes('HR Services')) {
       analysis.recommendedServices.push('HR Services', 'Work Permit Application');
     }
   }
 
-  // 生成摘要
+  // Generate summary
   analysis.summary = generateSummary(industryAnswer, entityAnswer, timelineAnswer);
   
-  // 生成下一步建议
+  // Generate next steps recommendations
   analysis.nextSteps = generateNextSteps(analysis.priority, analysis.recommendedServices);
 
   return analysis;

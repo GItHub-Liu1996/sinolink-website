@@ -8,7 +8,7 @@ import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import { Post } from '@/lib/posts';
 
-// MDX组件配置
+// MDX component configuration
 const mdxComponents = {
   Link: ({ href, children, ...props }: any) => (
     <Link href={href} {...props} className="text-accent-cyan hover:text-accent-magenta transition-colors duration-200">
@@ -34,7 +34,7 @@ export default function BlogPostContent({
   const [isSticky, setIsSticky] = useState(false);
   const [mdxSource, setMdxSource] = useState<any>(null);
 
-  // 序列化MDX内容
+  // Serialize MDX content
   useEffect(() => {
     const serializeContent = async () => {
       const serialized = await serialize(content);
@@ -43,13 +43,13 @@ export default function BlogPostContent({
     serializeContent();
   }, [content]);
 
-  // 滚动监听
+  // Scroll listener
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.scrollY;
       setIsSticky(scrollTop > 200);
       
-      // 更新活动标题
+      // Update active heading
       const headings = tableOfContents.map(item => document.getElementById(item.id)).filter(Boolean);
       const currentHeading = headings.find(heading => {
         if (!heading) return false;
@@ -66,7 +66,7 @@ export default function BlogPostContent({
     return () => window.removeEventListener('scroll', handleScroll);
   }, [tableOfContents]);
 
-  // 分享功能
+  // Share functionality
   const handleShare = (platform: string) => {
     const url = encodeURIComponent(window.location.href);
     const title = encodeURIComponent(post.title);
@@ -80,7 +80,7 @@ export default function BlogPostContent({
     window.open(shareUrls[platform as keyof typeof shareUrls], '_blank', 'width=600,height=400');
   };
 
-  // 如果MDX内容还在加载，显示加载状态
+  // If MDX content is still loading, show loading state
   if (!mdxSource) {
     return (
       <div className="min-h-screen bg-background flex items-center justify-center">
@@ -94,7 +94,7 @@ export default function BlogPostContent({
 
   return (
     <div className="min-h-screen bg-background">
-      {/* 文章标题区 */}
+      {/* Article Title Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -139,7 +139,7 @@ export default function BlogPostContent({
         </div>
       </motion.div>
 
-      {/* 特色图片 */}
+      {/* Featured Image */}
       <motion.div
         initial={{ opacity: 0, scale: 1.05 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -156,10 +156,10 @@ export default function BlogPostContent({
         <div className="absolute inset-0 bg-gradient-to-t from-background/20 to-transparent" />
       </motion.div>
 
-      {/* 主体内容区 */}
+      {/* Main Content Area */}
       <div className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
-          {/* 左侧文章正文 */}
+          {/* Left Side Article Content */}
           <motion.article
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -181,7 +181,7 @@ export default function BlogPostContent({
             </div>
           </motion.article>
 
-          {/* 右侧粘性侧边栏 */}
+          {/* Right Side Sticky Sidebar */}
           <motion.aside
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
@@ -212,7 +212,7 @@ export default function BlogPostContent({
         </div>
       </div>
 
-      {/* 作者简介和分享按钮 */}
+      {/* Author Bio and Share Buttons */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -221,7 +221,7 @@ export default function BlogPostContent({
       >
         <div className="max-w-4xl mx-auto px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* 作者简介 */}
+            {/* Author Bio */}
             <div className="bg-background rounded-2xl p-8 border border-gray-700">
               <div className="flex items-start gap-4">
                 <Image
@@ -245,7 +245,7 @@ export default function BlogPostContent({
               </div>
             </div>
 
-            {/* 社交媒体分享 */}
+            {/* Social Media Share */}
             <div className="bg-background rounded-2xl p-8 border border-gray-700">
               <h3 className="text-xl font-bold text-text-heading mb-4 font-sans">
                 Share this Article
@@ -284,7 +284,7 @@ export default function BlogPostContent({
         </div>
       </motion.section>
 
-      {/* 相关文章推荐 */}
+      {/* Related Articles Recommendation */}
       <motion.section
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}

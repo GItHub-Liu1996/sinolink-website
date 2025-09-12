@@ -45,10 +45,6 @@ export default function HeroSection() {
         </p>
         
         <div className="flex flex-col sm:flex-row gap-6 justify-center items-center animate-fade-in-delayed">
-          <GradientButton href="/consultation-quiz">
-            智能咨询问卷
-          </GradientButton>
-          
           <GradientButton href="/contact">
             Get Started Today
           </GradientButton>
