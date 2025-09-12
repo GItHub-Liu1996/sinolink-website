@@ -9,7 +9,7 @@ export default function StatsSection() {
   const isInView = useInView(ref, { once: true });
   const [animatedValues, setAnimatedValues] = useState<{ [key: string]: number }>({});
 
-  // 真实行业数据和竞争优势
+  // Real industry data and competitive advantages
   const stats = [
     {
       value: 3,
@@ -96,7 +96,7 @@ export default function StatsSection() {
       className="py-16 sm:py-20 lg:py-24 bg-background-primary relative overflow-hidden"
       aria-labelledby="stats-heading"
     >
-      {/* 背景装饰 */}
+      {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/5 via-accent-magenta/5 to-accent-orange/5"></div>
       <div className="absolute top-20 left-10 w-32 h-32 bg-accent-cyan/10 rounded-full blur-3xl"></div>
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-accent-magenta/10 rounded-full blur-3xl"></div>
@@ -120,9 +120,9 @@ export default function StatsSection() {
           </p>
         </motion.div>
 
-        {/* 创意六边形网格布局 */}
+        {/* Creative hexagon grid layout */}
         <div className="relative">
-          {/* 中央大六边形 */}
+          {/* Central large hexagon */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -136,7 +136,7 @@ export default function StatsSection() {
             </div>
           </motion.div>
 
-          {/* 四个角落的六边形 */}
+          {/* Four corner hexagons */}
           <div className="grid grid-cols-2 gap-8 lg:gap-16">
             {stats.map((stat, index) => (
               <motion.div
@@ -147,7 +147,7 @@ export default function StatsSection() {
                 viewport={{ once: true }}
                 className="relative"
               >
-                {/* 六边形背景 */}
+                {/* Hexagon background */}
                 <div className="w-48 h-48 mx-auto relative">
                   <div className={`absolute inset-0 bg-gradient-to-br from-${stat.color} to-${stat.color}/80 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-110 group`}>
                     <div className="text-center text-white p-6">
@@ -164,7 +164,7 @@ export default function StatsSection() {
                     </div>
                   </div>
                   
-                  {/* 描述文字 */}
+                  {/* Description text */}
                   <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 w-64 text-center">
                     <p className="text-sm text-text-main font-body leading-relaxed">
                       {stat.description}
@@ -176,7 +176,7 @@ export default function StatsSection() {
           </div>
         </div>
 
-        {/* 底部装饰性统计 */}
+        {/* Bottom decorative statistics */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

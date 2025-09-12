@@ -23,14 +23,14 @@ export default function FeaturedCaseStudy() {
           </p>
         </motion.div>
 
-        {/* 创意时间线设计 */}
+        {/* Creative timeline design */}
         <div className="relative">
-          {/* 中央时间线 */}
+          {/* Central timeline */}
           <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-accent-cyan via-accent-magenta to-accent-orange rounded-full"></div>
           
-          {/* 时间线节点 */}
+          {/* Timeline nodes */}
           <div className="space-y-16">
-            {/* 节点1 - 左侧 */}
+            {/* Node 1 - Left side */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -38,10 +38,10 @@ export default function FeaturedCaseStudy() {
               viewport={{ once: true }}
               className="relative flex items-center"
             >
-              {/* 时间线圆点 */}
+              {/* Timeline dot */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent-cyan rounded-full border-4 border-white shadow-lg z-10"></div>
               
-              {/* 内容卡片 - 左侧 */}
+              {/* Content card - Left side */}
               <div className="w-5/12 ml-auto pr-8">
                 <div className="bg-white rounded-2xl p-8 border-2 border-accent-cyan/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-4 mb-6">
@@ -78,7 +78,7 @@ export default function FeaturedCaseStudy() {
               </div>
             </motion.div>
 
-            {/* 节点2 - 右侧 */}
+            {/* Node 2 - Right side */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -86,10 +86,10 @@ export default function FeaturedCaseStudy() {
               viewport={{ once: true }}
               className="relative flex items-center"
             >
-              {/* 时间线圆点 */}
+              {/* Timeline dot */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent-magenta rounded-full border-4 border-white shadow-lg z-10"></div>
               
-              {/* 内容卡片 - 右侧 */}
+              {/* Content card - Right side */}
               <div className="w-5/12 mr-auto pl-8">
                 <div className="bg-white rounded-2xl p-8 border-2 border-accent-magenta/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-4 mb-6">
@@ -126,7 +126,7 @@ export default function FeaturedCaseStudy() {
               </div>
             </motion.div>
 
-            {/* 节点3 - 左侧 */}
+            {/* Node 3 - Left side */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -134,10 +134,10 @@ export default function FeaturedCaseStudy() {
               viewport={{ once: true }}
               className="relative flex items-center"
             >
-              {/* 时间线圆点 */}
+              {/* Timeline dot */}
               <div className="absolute left-1/2 transform -translate-x-1/2 w-6 h-6 bg-accent-orange rounded-full border-4 border-white shadow-lg z-10"></div>
               
-              {/* 内容卡片 - 左侧 */}
+              {/* Content card - Left side */}
               <div className="w-5/12 ml-auto pr-8">
                 <div className="bg-white rounded-2xl p-8 border-2 border-accent-orange/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-4 mb-6">
@@ -176,7 +176,7 @@ export default function FeaturedCaseStudy() {
           </div>
         </div>
 
-        {/* 底部统计 - 六边形设计 */}
+        {/* Bottom statistics - Hexagon design */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

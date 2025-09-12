@@ -40,7 +40,7 @@ export default function InsightsSection() {
 
   return (
     <section className="py-16 md:py-24 bg-background-secondary relative overflow-hidden">
-      {/* 背景装饰 */}
+      {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-accent-cyan/10 rounded-full blur-2xl"></div>
         <div className="absolute bottom-10 right-10 w-40 h-40 bg-accent-magenta/10 rounded-full blur-2xl"></div>
@@ -63,7 +63,7 @@ export default function InsightsSection() {
           </p>
         </motion.div>
 
-        {/* 创意瀑布流布局 */}
+        {/* Creative waterfall layout */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {insights.map((insight, index) => (
             <motion.article
@@ -79,7 +79,7 @@ export default function InsightsSection() {
               }`}
             >
               <div className={`bg-white rounded-3xl p-8 border-2 border-${insight.color}/20 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 group h-full`}>
-                {/* 图标和分类 */}
+                {/* Icon and category */}
                 <div className="flex items-center justify-between mb-6">
                   <div className={`w-12 h-12 bg-gradient-to-br from-${insight.color} to-${insight.color}/80 rounded-2xl flex items-center justify-center text-2xl`}>
                     {insight.icon}
@@ -89,28 +89,28 @@ export default function InsightsSection() {
                   </div>
                 </div>
                 
-                {/* 标题 */}
+                {/* Title */}
                 <h3 className={`text-xl font-bold text-text-heading mb-4 font-heading group-hover:text-${insight.color} transition-colors duration-300`}>
                   {insight.title}
                 </h3>
                 
-                {/* 摘要 */}
+                {/* Summary */}
                 <p className="text-text-main mb-6 font-body leading-relaxed">
                   {insight.excerpt}
                 </p>
                 
-                {/* 元信息 */}
+                {/* Meta information */}
                 <div className="flex items-center justify-between text-sm text-text-main mb-6 font-body">
                   <span>{insight.readTime}</span>
                   <span>{insight.date}</span>
                 </div>
                 
-                {/* 阅读更多按钮 */}
+                {/* Read more button */}
                 <Link
                   href={insight.href}
                   className={`inline-flex items-center gap-2 text-${insight.color} font-semibold hover:text-${insight.color}/80 transition-colors duration-300 font-body`}
                 >
-                  {insight.type === 'blog' ? '阅读完整文章' : insight.type === 'case-study' ? '查看案例详情' : '了解更多'}
+                  {insight.type === 'blog' ? 'Read Full Article' : insight.type === 'case-study' ? 'View Case Details' : 'Learn More'}
                   <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -120,7 +120,7 @@ export default function InsightsSection() {
           ))}
         </div>
 
-        {/* 底部CTA - 波浪形设计 */}
+        {/* Bottom CTA - Wave design */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -129,7 +129,7 @@ export default function InsightsSection() {
           className="mt-16 text-center"
         >
           <div className="relative">
-            {/* 波浪背景 */}
+            {/* Wave background */}
             <div className="absolute inset-0 bg-gradient-to-r from-accent-cyan/10 via-accent-magenta/10 to-accent-orange/10 rounded-3xl transform rotate-1"></div>
             <div className="relative bg-white rounded-3xl p-8 border-2 border-gray-200 shadow-xl">
               <h3 className="text-2xl font-bold text-text-heading mb-4 font-heading">

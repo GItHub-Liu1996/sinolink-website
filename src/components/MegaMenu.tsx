@@ -11,8 +11,8 @@ interface MegaMenuProps {
 
 const mainSolutions = [
   {
-    title: 'Corporate Solutions',
-    description: 'Expand and operate your business anywhere in the world.',
+    title: 'Market Entry & Setup',
+    description: 'Establish your legal foundation and operational infrastructure in China.',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -23,24 +23,24 @@ const mainSolutions = [
     href: '/services'
   },
   {
-    title: 'Fund Solutions',
-    description: 'Remove friction from your global investment operations.',
+    title: 'Operations & Compliance',
+    description: 'Maintain smooth operations while ensuring full regulatory compliance.',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </div>
     ),
     href: '/services'
   },
   {
-    title: 'Private Client Solutions',
-    description: 'Transition wealth across jurisdictions.',
+    title: 'Growth & Protection',
+    description: 'Protect your assets and accelerate growth through strategic initiatives.',
     icon: (
       <div className="w-12 h-12 bg-accent-cyan/10 rounded-lg flex items-center justify-center">
         <svg className="w-6 h-6 text-accent-cyan" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
         </svg>
       </div>
     ),
@@ -50,52 +50,52 @@ const mainSolutions = [
 
 const serviceCategories = [
   {
-    title: 'International Expansion',
-    description: 'Expand quickly and compliantly to succeed anywhere.',
-    href: '/services/expansion'
+    title: 'WFOE Registration',
+    description: 'Complete company registration and legal entity setup.',
+    href: '/services/wfoe-registration'
   },
   {
-    title: 'Global Entity Management',
-    description: 'Global entity management services.',
-    href: '/services'
-  },
-  {
-    title: 'Tax & Accounting Solutions',
-    description: 'Don\'t pay for tax and accounting chaos.',
+    title: 'Tax & Compliance',
+    description: 'Comprehensive tax registration and ongoing compliance.',
     href: '/services/tax-compliance'
   },
   {
-    title: 'Essential Business',
-    description: 'Run a better, more efficient business.',
+    title: 'Bank Account Opening',
+    description: 'Corporate banking and multi-currency account setup.',
     href: '/services'
   },
   {
-    title: 'Global Employment',
-    description: 'Employ, reward and deliver exceptional employee experiences.',
+    title: 'HR & Visa Services',
+    description: 'Work permits, residence permits, and HR management.',
     href: '/services/hr-services'
   },
   {
-    title: 'ECCTA',
-    description: 'Online ID verification and full ECCTA compliance.',
+    title: 'Intellectual Property',
+    description: 'Trademark, patent, and IP protection in China.',
     href: '/services'
+  },
+  {
+    title: 'Financial Outsourcing',
+    description: 'Professional bookkeeping and financial management.',
+    href: '/services/accounting'
   }
 ];
 
 const featuredContent = [
   {
-    title: 'Careers',
-    description: 'View our open positions.',
-    href: '/careers',
-    image: '👥'
+    title: 'WFOE Registration Guide 2025',
+    description: 'Complete step-by-step registration guide.',
+    href: '/insights/blog/wfoe-registration-guide-2025',
+    image: '📋'
   },
   {
-    title: 'News & Insights',
-    description: 'Read our latest Insights.',
-    href: '/insights',
-    image: '📰'
+    title: 'Chinese Tax System Primer',
+    description: 'Understanding China\'s tax landscape.',
+    href: '/insights/blog/chinese-tax-system-primer',
+    image: '📊'
   },
   {
-    title: 'View all our Services',
+    title: 'View All Services',
     description: 'Explore our complete service portfolio.',
     href: '/services',
     image: '🔧'
@@ -231,18 +231,18 @@ export default function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
           </div>
           
           {/* Bottom Link */}
-          <div className="mt-8 pt-6 border-t border-gray-200">
-            <Link
-              href="/services"
-              className="inline-flex items-center text-accent-cyan hover:text-accent-magenta font-semibold transition-colors duration-200"
-              onClick={onClose}
-            >
-              Corporate Solutions Overview
-              <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </Link>
-          </div>
+                 <div className="mt-8 pt-6 border-t border-gray-200">
+                   <Link
+                     href="/services"
+                     className="inline-flex items-center text-accent-cyan hover:text-accent-magenta font-semibold transition-colors duration-200"
+                     onClick={onClose}
+                   >
+                     Complete Service Portfolio
+                     <svg className="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                     </svg>
+                   </Link>
+                 </div>
         </div>
       </motion.div>
     </AnimatePresence>

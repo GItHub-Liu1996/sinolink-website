@@ -15,7 +15,7 @@ interface ArticleCardProps {
   featured?: boolean;
 }
 
-// 分类标签样式映射
+// Category tag style mapping
 const getCategoryStyle = (category: string) => {
   const categoryLower = category.toLowerCase();
   

@@ -40,7 +40,7 @@ export default function WhoWeAre() {
       className="py-20 sm:py-24 lg:py-32 bg-background-secondary relative overflow-hidden"
       aria-labelledby="who-we-are-heading"
     >
-      {/* 背景装饰 */}
+      {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-full">
         <div className="absolute top-20 left-20 w-64 h-64 bg-accent-cyan/10 rounded-full blur-3xl"></div>
         <div className="absolute bottom-20 right-20 w-80 h-80 bg-accent-magenta/10 rounded-full blur-3xl"></div>
@@ -67,9 +67,9 @@ export default function WhoWeAre() {
           </p>
         </motion.div>
 
-        {/* 创意团队展示 - 圆形布局 */}
+        {/* Creative team display - Circular layout */}
         <div className="relative">
-          {/* 中央核心 */}
+          {/* Central core */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -83,11 +83,11 @@ export default function WhoWeAre() {
             </div>
           </motion.div>
 
-          {/* 团队成员 - 圆形排列 */}
+          {/* Team members - Circular arrangement */}
           <div className="relative h-96 flex items-center justify-center">
             {teamMembers.map((member, index) => {
-              const angle = (index * 120) * (Math.PI / 180); // 120度间隔
-              const radius = 180; // 半径
+              const angle = (index * 120) * (Math.PI / 180); // 120 degree intervals
+              const radius = 180; // radius
               const x = Math.cos(angle) * radius;
               const y = Math.sin(angle) * radius;
               
@@ -102,12 +102,12 @@ export default function WhoWeAre() {
                   style={{ transform: `translate(${x}px, ${y}px)` }}
                 >
                   <div className="bg-white rounded-3xl p-6 w-64 border-2 border-gray-200 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group">
-                    {/* 头像 */}
+                    {/* Avatar */}
                     <div className={`w-16 h-16 bg-gradient-to-br ${member.color} rounded-full flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300`}>
                       <span className="text-white font-bold text-lg font-heading">{member.avatar}</span>
                     </div>
                     
-                    {/* 信息 */}
+                    {/* Information */}
                     <div className="text-center">
                       <h3 className="text-xl font-bold text-text-heading mb-2 font-heading">
                         {member.name}
@@ -129,7 +129,7 @@ export default function WhoWeAre() {
           </div>
         </div>
 
-        {/* 底部统计 - 波浪形设计 */}
+        {/* Bottom statistics - Wave design */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}

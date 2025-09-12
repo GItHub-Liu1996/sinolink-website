@@ -39,7 +39,7 @@ export default function AboutClient() {
             We were founded on a simple principle: to be the most trusted bridge for ambitious global companies entering the complex China market.
           </motion.p>
           
-          {/* 装饰性元素 */}
+          {/* Decorative elements */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -51,9 +51,9 @@ export default function AboutClient() {
         </div>
       </section>
 
-      {/* Core Values Section - 高级卡片堆叠设计 */}
+      {/* Core Values Section - Advanced card stacking design */}
       <section className="py-24 bg-background-primary relative overflow-hidden">
-        {/* 动态背景 */}
+        {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/3 via-transparent to-accent-magenta/3"></div>
         <div className="absolute top-0 left-0 w-full h-full">
           <div className="absolute top-1/3 left-1/3 w-48 h-48 bg-accent-cyan/8 rounded-full blur-2xl animate-pulse"></div>
@@ -76,9 +76,9 @@ export default function AboutClient() {
             </p>
           </motion.div>
 
-          {/* 高级卡片堆叠设计 */}
+          {/* Advanced card stacking design */}
           <div className="relative">
-            {/* 主卡片容器 */}
+            {/* Main card container */}
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
               {[
                 {
@@ -129,20 +129,20 @@ export default function AboutClient() {
                   viewport={{ once: true }}
                   className="group relative"
                 >
-                  {/* 卡片堆叠效果 */}
+                  {/* Card stacking effect */}
                   <div className="relative">
-                    {/* 背景卡片 */}
+                    {/* Background cards */}
                     <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} rounded-3xl transform rotate-1 scale-95 opacity-20 group-hover:rotate-2 group-hover:scale-100 transition-all duration-500`}></div>
                     <div className={`absolute inset-0 bg-gradient-to-br ${value.gradient} rounded-3xl transform -rotate-1 scale-98 opacity-10 group-hover:-rotate-2 group-hover:scale-105 transition-all duration-700`}></div>
                     
-                    {/* 主卡片 */}
+                    {/* Main card */}
                     <div className={`relative bg-white rounded-3xl p-8 border-2 ${value.borderColor} shadow-xl hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-3 group-hover:scale-105`}>
-                      {/* 图标区域 */}
+                      {/* Icon area */}
                       <div className={`w-16 h-16 bg-gradient-to-br ${value.gradient} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300`}>
                         {value.icon}
                       </div>
                       
-                      {/* 内容 */}
+                      {/* Content */}
                       <div className="text-center">
                         <h3 className="text-2xl font-bold text-text-heading mb-4 font-heading group-hover:text-accent-cyan transition-colors duration-300">
                           {value.title}

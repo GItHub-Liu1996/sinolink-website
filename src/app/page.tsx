@@ -105,19 +105,19 @@ export default function HomePage() {
       />
       
       <main>
-        {/* 1. Hero Section - 主要价值主张 */}
+        {/* 1. Hero Section - Main value proposition */}
         <HeroSection />
         
-        {/* 2. Why Choose Us - 核心竞争优势 */}
+        {/* 2. Why Choose Us - Core competitive advantages */}
         <StatsSection />
         
-        {/* 3. Our Solutions - 服务和解决方案 */}
+        {/* 3. Our Solutions - Services and solutions */}
         <ServicesOverview />
         
-        {/* 4. Insights Section - 见解内容 */}
+        {/* 4. Insights Section - Insights content */}
         <InsightsSection />
         
-        {/* 5. Featured Solution - 具体服务展示 */}
+        {/* 5. Featured Solution - Specific service showcase */}
         <FeaturedCaseStudy />
         
         {/* Smart Resource Preloader */}

@@ -7,7 +7,7 @@ interface PaginationProps {
 
 export default function Pagination({ currentPage, totalPages }: PaginationProps) {
   const handlePageChange = (page: number) => {
-    // 简单的分页逻辑，后续可以添加URL更新等
+    // Simple pagination logic, can add URL updates later
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
