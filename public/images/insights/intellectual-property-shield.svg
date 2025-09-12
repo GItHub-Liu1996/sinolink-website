@@ -1,0 +1,28 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Abstract pattern for IP protection insights -->
+  <defs>
+    <linearGradient id="ipGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#8B5CF6;stop-opacity:0.6" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="ipGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1D4ED8;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#F59E0B;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="200" fill="#F1F5F9"/>
+  
+  <!-- Shield patterns -->
+  <path d="M0,100 Q100,60 200,80 T400,70 L400,200 L0,200 Z" fill="url(#ipGradient1)"/>
+  <path d="M0,130 Q150,90 300,110 T400,100 L400,200 L0,200 Z" fill="url(#ipGradient2)"/>
+  
+  <!-- Protection elements -->
+  <polygon points="200,40 220,60 200,80 180,60" fill="#8B5CF6" opacity="0.4"/>
+  <circle cx="100" cy="50" r="18" fill="#3B82F6" opacity="0.3"/>
+  <circle cx="300" cy="55" r="16" fill="#06B6D4" opacity="0.4"/>
+  <rect x="50" y="30" width="25" height="25" fill="#1D4ED8" opacity="0.3" transform="rotate(45 62.5 42.5)"/>
+  <rect x="325" y="25" width="20" height="20" fill="#F59E0B" opacity="0.3" transform="rotate(30 335 35)"/>
+</svg>

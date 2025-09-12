@@ -13,8 +13,9 @@ export default function InsightsSection() {
       readTime: "8 min read",
       date: "Sep 12, 2025",
       href: "/insights/blog/wfoe-registration-guide-2025",
+      image: "/images/insights/wfoe-registration-flow.svg",
       color: "accent-cyan",
-      icon: "📋"
+      type: "blog"
     },
     {
       title: "China Tax System: A Foreign Investor's Primer",
@@ -23,8 +24,9 @@ export default function InsightsSection() {
       readTime: "12 min read",
       date: "Sep 10, 2025",
       href: "/insights/blog/chinese-tax-system-primer",
+      image: "/images/insights/tax-compliance-geometry.svg",
       color: "accent-magenta",
-      icon: "💰"
+      type: "blog"
     },
     {
       title: "Choosing the Right Legal Entity for China",
@@ -33,8 +35,42 @@ export default function InsightsSection() {
       readTime: "6 min read",
       date: "Sep 8, 2025",
       href: "/insights/blog/choosing-legal-entity-china",
+      image: "/images/insights/china-business-waves.svg",
       color: "accent-orange",
-      icon: "🏢"
+      type: "blog"
+    },
+    {
+      title: "HR & Visa Essentials: Work Permits in China",
+      excerpt: "Complete guide to obtaining work permits and residence permits for foreign employees in China.",
+      category: "HR & Visa",
+      readTime: "10 min read",
+      date: "Sep 6, 2025",
+      href: "/insights/blog/hr-and-visa-essentials-china",
+      image: "/images/insights/hr-visa-connections.svg",
+      color: "accent-cyan",
+      type: "blog"
+    },
+    {
+      title: "Intellectual Property Protection in China",
+      excerpt: "Protect your valuable IP assets with our comprehensive guide covering trademarks, patents, and copyrights.",
+      category: "Growth & Strategy",
+      readTime: "15 min read",
+      date: "Sep 4, 2025",
+      href: "/insights/blog/intellectual-property-protection-china",
+      image: "/images/insights/intellectual-property-shield.svg",
+      color: "accent-magenta",
+      type: "blog"
+    },
+    {
+      title: "Financial Outsourcing Benefits in China",
+      excerpt: "Discover the advantages of financial outsourcing for your China business operations.",
+      category: "Operations",
+      readTime: "7 min read",
+      date: "Sep 2, 2025",
+      href: "/insights/blog/financial-outsourcing-benefits-china",
+      image: "/images/insights/abstract-patterns.svg",
+      color: "accent-orange",
+      type: "blog"
     }
   ];
 
@@ -63,8 +99,8 @@ export default function InsightsSection() {
           </p>
         </motion.div>
 
-        {/* Creative waterfall layout */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {/* Vistra-style grid layout - 2x4 cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {insights.map((insight, index) => (
             <motion.article
               key={insight.title}
@@ -72,49 +108,51 @@ export default function InsightsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className={`group ${
-                index === 0 ? 'md:col-span-2 lg:col-span-1' : 
-                index === 1 ? 'md:col-span-1 lg:col-span-1' : 
-                'md:col-span-1 lg:col-span-1'
-              }`}
+              className="group"
             >
-              <div className={`bg-white rounded-3xl p-8 border-2 border-${insight.color}/20 shadow-2xl hover:shadow-3xl transition-all duration-300 hover:-translate-y-2 group h-full`}>
-                {/* Icon and category */}
-                <div className="flex items-center justify-between mb-6">
-                  <div className={`w-12 h-12 bg-gradient-to-br from-${insight.color} to-${insight.color}/80 rounded-2xl flex items-center justify-center text-2xl`}>
-                    {insight.icon}
-                  </div>
-                  <div className={`inline-block bg-gradient-to-r from-${insight.color} to-${insight.color}/80 text-white px-4 py-2 rounded-full text-sm font-semibold font-body`}>
-                    {insight.category}
-                  </div>
+              <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 overflow-hidden h-full">
+                {/* Abstract image header - Vistra style */}
+                <div className="relative h-32 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                  <img
+                    src={insight.image}
+                    alt={`${insight.category} abstract pattern`}
+                    className="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                 </div>
                 
-                {/* Title */}
-                <h3 className={`text-xl font-bold text-text-heading mb-4 font-heading group-hover:text-${insight.color} transition-colors duration-300`}>
-                  {insight.title}
-                </h3>
-                
-                {/* Summary */}
-                <p className="text-text-main mb-6 font-body leading-relaxed">
-                  {insight.excerpt}
-                </p>
-                
-                {/* Meta information */}
-                <div className="flex items-center justify-between text-sm text-text-main mb-6 font-body">
-                  <span>{insight.readTime}</span>
-                  <span>{insight.date}</span>
+                {/* Content area */}
+                <div className="p-6">
+                  {/* Category badge */}
+                  <div className="mb-3">
+                    <span className={`inline-block bg-${insight.color} text-white px-3 py-1 rounded-full text-xs font-semibold`}>
+                      {insight.category}
+                    </span>
+                  </div>
+                  
+                  {/* Title */}
+                  <h3 className="text-lg font-bold text-text-heading mb-3 font-heading line-clamp-2 group-hover:text-accent-cyan transition-colors duration-300">
+                    {insight.title}
+                  </h3>
+                  
+                  {/* Meta information */}
+                  <div className="flex items-center justify-between text-sm text-text-muted mb-4 font-body">
+                    <span>{insight.readTime}</span>
+                    <span>{insight.date}</span>
+                  </div>
+                  
+                  {/* Read more button */}
+                  <Link
+                    href={insight.href}
+                    className={`inline-flex items-center gap-2 text-${insight.color} font-semibold hover:text-${insight.color}/80 transition-colors duration-300 text-sm`}
+                  >
+                    {insight.type === 'blog' ? 'Read Full Article' : insight.type === 'case-study' ? 'View Case Details' : 'Learn More'}
+                    <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
                 </div>
-                
-                {/* Read more button */}
-                <Link
-                  href={insight.href}
-                  className={`inline-flex items-center gap-2 text-${insight.color} font-semibold hover:text-${insight.color}/80 transition-colors duration-300 font-body`}
-                >
-                  {insight.type === 'blog' ? 'Read Full Article' : insight.type === 'case-study' ? 'View Case Details' : 'Learn More'}
-                  <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
               </div>
             </motion.article>
           ))}

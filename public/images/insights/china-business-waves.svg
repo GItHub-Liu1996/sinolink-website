@@ -1,0 +1,26 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Abstract pattern for China business insights -->
+  <defs>
+    <linearGradient id="chinaWave1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#1D4ED8;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#06B6D4;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="chinaWave2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="200" fill="#F1F5F9"/>
+  
+  <!-- Flowing wave patterns -->
+  <path d="M0,100 Q80,60 160,80 T320,70 T400,75 L400,200 L0,200 Z" fill="url(#chinaWave1)"/>
+  <path d="M0,130 Q120,90 240,110 T400,100 L400,200 L0,200 Z" fill="url(#chinaWave2)"/>
+  
+  <!-- Business elements -->
+  <rect x="60" y="40" width="30" height="30" fill="#1D4ED8" opacity="0.4" transform="rotate(30 75 55)"/>
+  <circle cx="340" cy="50" r="18" fill="#F59E0B" opacity="0.3"/>
+  <polygon points="200,30 220,50 200,70 180,50" fill="#06B6D4" opacity="0.3"/>
+</svg>

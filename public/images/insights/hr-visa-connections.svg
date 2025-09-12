@@ -1,0 +1,28 @@
+<svg width="400" height="200" viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Abstract pattern for HR & Visa insights -->
+  <defs>
+    <linearGradient id="hrGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:0.7" />
+      <stop offset="50%" style="stop-color:#3B82F6;stop-opacity:0.5" />
+      <stop offset="100%" style="stop-color:#8B5CF6;stop-opacity:0.3" />
+    </linearGradient>
+    <linearGradient id="hrGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#F59E0B;stop-opacity:0.4" />
+      <stop offset="100%" style="stop-color:#1D4ED8;stop-opacity:0.2" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="400" height="200" fill="#F8FAFC"/>
+  
+  <!-- Connection patterns -->
+  <path d="M0,110 Q100,70 200,90 T400,80 L400,200 L0,200 Z" fill="url(#hrGradient1)"/>
+  <path d="M0,140 Q150,100 300,120 T400,110 L400,200 L0,200 Z" fill="url(#hrGradient2)"/>
+  
+  <!-- Connection elements -->
+  <circle cx="120" cy="50" r="12" fill="#06B6D4" opacity="0.5"/>
+  <circle cx="280" cy="60" r="15" fill="#3B82F6" opacity="0.4"/>
+  <line x1="120" y1="50" x2="280" y2="60" stroke="#8B5CF6" stroke-width="2" opacity="0.3"/>
+  <rect x="50" y="30" width="30" height="30" fill="#F59E0B" opacity="0.3" transform="rotate(45 65 45)"/>
+  <polygon points="350,40 365,55 350,70 335,55" fill="#1D4ED8" opacity="0.3"/>
+</svg>
