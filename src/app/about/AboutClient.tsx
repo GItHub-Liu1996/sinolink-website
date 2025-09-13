@@ -26,7 +26,7 @@ export default function AboutClient() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-5xl md:text-7xl font-bold mb-8 font-heading leading-tight"
+            className="text-3xl sm:text-5xl md:text-7xl font-bold mb-6 sm:mb-8 font-heading leading-tight"
             style={{ color: '#FFFFFF' }}
           >
             Your Ambition, Our Mission.
@@ -35,7 +35,7 @@ export default function AboutClient() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2 }}
-            className="text-xl md:text-2xl font-body leading-relaxed max-w-4xl mx-auto"
+            className="text-base sm:text-xl md:text-2xl font-body leading-relaxed max-w-4xl mx-auto"
             style={{ color: '#FFFFFF' }}
           >
             We were founded on a simple principle: to be the most trusted bridge for ambitious global companies entering the complex China market.
@@ -46,7 +46,7 @@ export default function AboutClient() {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mt-12 flex justify-center"
+            className="mt-8 sm:mt-12 flex justify-center"
           >
             <div className="w-24 h-1 bg-gradient-to-r from-accent-cyan to-accent-magenta rounded-full shadow-lg"></div>
           </motion.div>
@@ -54,7 +54,7 @@ export default function AboutClient() {
       </section>
 
       {/* Core Values Section - Advanced card stacking design */}
-      <section className="py-24 bg-background-primary relative overflow-hidden">
+      <section className="py-16 sm:py-24 bg-background-primary relative overflow-hidden">
         {/* Dynamic background */}
         <div className="absolute inset-0 bg-gradient-to-br from-accent-cyan/3 via-transparent to-accent-magenta/3"></div>
         <div className="absolute top-0 left-0 w-full h-full">
@@ -68,12 +68,12 @@ export default function AboutClient() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-12 sm:mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-text-heading mb-6 font-heading">
+            <h2 className="text-2xl sm:text-4xl md:text-5xl font-bold text-text-heading mb-4 sm:mb-6 font-heading">
               Our Core Values
             </h2>
-            <p className="text-xl text-text-main max-w-4xl mx-auto font-body leading-relaxed">
+            <p className="text-base sm:text-xl text-text-main max-w-4xl mx-auto font-body leading-relaxed">
               These principles guide every decision we make and every relationship we build.
             </p>
           </motion.div>
@@ -81,7 +81,7 @@ export default function AboutClient() {
           {/* Advanced card stacking design */}
           <div className="relative">
             {/* Main card container */}
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
               {[
                 {
                   title: "Integrity First",
