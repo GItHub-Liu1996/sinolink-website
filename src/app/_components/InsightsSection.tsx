@@ -45,7 +45,7 @@ export default function InsightsSection() {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-background-secondary relative overflow-hidden">
+    <section className="py-12 md:py-24 bg-background-secondary relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-10 left-10 w-32 h-32 bg-accent-cyan/10 rounded-full blur-2xl"></div>
@@ -59,18 +59,18 @@ export default function InsightsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-12 md:mb-16"
+          className="text-center mb-8 md:mb-16"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-4 md:mb-6 font-heading">
+          <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold text-text-heading mb-3 md:mb-6 font-heading">
             News & Insights
           </h2>
-          <p className="text-lg md:text-xl text-text-main font-body leading-relaxed max-w-3xl mx-auto">
+          <p className="text-base md:text-xl text-text-main font-body leading-relaxed max-w-3xl mx-auto">
             Cut through the complexities of China business with local insight and global expertise.
           </p>
         </motion.div>
 
         {/* 4-column grid layout using ArticleCard component */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {insights.map((insight, index) => (
             <motion.div
               key={insight.title}

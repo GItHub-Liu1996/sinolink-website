@@ -62,27 +62,27 @@ export default function Services() {
   const currentServices = servicesConfig[activeCategory as keyof typeof servicesConfig];
 
   return (
-    <div className="min-h-screen py-20 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen py-12 sm:py-20 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         {/* Page Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-20"
+          className="text-center mb-12 sm:mb-20"
         >
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-accent-primary/10 text-accent-primary text-sm font-medium mb-6">
             <span className="w-2 h-2 bg-accent-primary rounded-full mr-2"></span>
             Professional Services
           </div>
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-text-heading mb-6 font-sans leading-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-text-heading mb-4 sm:mb-6 font-sans leading-tight">
             An End-to-End Service Ecosystem
           </h1>
-          <p className="text-xl text-text-main max-w-4xl mx-auto font-body leading-relaxed mb-8">
+          <p className="text-base sm:text-xl text-text-main max-w-4xl mx-auto font-body leading-relaxed mb-6 sm:mb-8">
             Covering the entire lifecycle of your business in China—from initial setup to long-term growth. 
             Our comprehensive solutions ensure your success at every stage.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center items-center">
             <div className="flex items-center text-sm text-text-muted">
               <span className="w-8 h-8 bg-accent-primary/20 rounded-full flex items-center justify-center mr-3">
                 <span className="text-accent-primary font-bold">15+</span>
@@ -115,13 +115,13 @@ export default function Services() {
         />
 
         {/* All Services Section */}
-        <section id="all-services" className="mb-20">
+        <section id="all-services" className="mb-12 sm:mb-20">
           <motion.div
             key={activeCategory}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 md:grid-cols-2 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8"
           >
             {currentServices.services.map((service) => (
               <ServiceCard

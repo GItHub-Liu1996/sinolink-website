@@ -5,7 +5,7 @@ import AnimatedCounter from '@/components/ui/AnimatedCounter';
 
 export default function FeaturedCaseStudy() {
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-background-primary via-background-secondary to-background-primary">
+    <section className="py-8 md:py-16 lg:py-20 bg-gradient-to-br from-background-primary via-background-secondary to-background-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Module Title */}
         <motion.div
@@ -13,12 +13,12 @@ export default function FeaturedCaseStudy() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-8 md:mb-12 lg:mb-16"
+          className="text-center mb-6 md:mb-12 lg:mb-16"
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-4 md:mb-6 text-text-heading font-heading leading-tight">
+          <h2 className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center mb-3 md:mb-6 text-text-heading font-heading leading-tight">
             Proven Results, Real Impact
           </h2>
-          <p className="text-base sm:text-lg md:text-xl text-text-main font-body leading-relaxed max-w-3xl mx-auto">
+          <p className="text-sm sm:text-lg md:text-xl text-text-main font-body leading-relaxed max-w-3xl mx-auto">
             See how we've helped businesses establish and operate successfully in China with our comprehensive support services.
           </p>
         </motion.div>
@@ -29,7 +29,7 @@ export default function FeaturedCaseStudy() {
           <div className="absolute left-1/2 transform -translate-x-1/2 w-0.5 sm:w-1 h-full bg-gradient-to-b from-accent-cyan via-accent-magenta to-accent-orange rounded-full"></div>
           
           {/* Timeline nodes */}
-          <div className="space-y-2 sm:space-y-4 md:space-y-6 lg:space-y-8">
+          <div className="space-y-1 sm:space-y-4 md:space-y-6 lg:space-y-8">
             {/* Node 1 - Left side */}
             <motion.div
               initial={{ opacity: 0, x: -50 }}
@@ -43,7 +43,7 @@ export default function FeaturedCaseStudy() {
               
               {/* Content card - Left side */}
               <div className="w-full sm:w-5/12 ml-auto pr-4 sm:pr-8">
-                <div className="bg-white rounded-xl sm:rounded-2xl p-4 sm:p-6 border-2 border-accent-cyan/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
+                <div className="bg-white rounded-xl sm:rounded-2xl p-3 sm:p-6 border-2 border-accent-cyan/20 shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105">
                   <div className="flex items-center gap-3 sm:gap-4 mb-3 sm:mb-4">
                     <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center flex-shrink-0">
                       <svg className="w-5 h-5 sm:w-6 sm:h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

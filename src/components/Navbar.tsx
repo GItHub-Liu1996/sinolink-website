@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { siteConfig, navLinks } from '@/config/site';
 import MegaMenu from './MegaMenu';
 import WhyUsDropdown from './WhyUsDropdown';
-// import InsightsDropdown from './InsightsDropdown'; // Temporarily disabled for content staging
+import InsightsDropdown from './InsightsDropdown';
 import SearchModal from './SearchModal';
 import Logo from './Logo';
 // Using custom SVG icons instead of Heroicons
@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isWhyUsOpen, setIsWhyUsOpen] = useState(false);
-  // const [isInsightsOpen, setIsInsightsOpen] = useState(false); // Temporarily disabled for content staging
+  const [isInsightsOpen, setIsInsightsOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   // const t = useTranslations('navigation');
 
@@ -25,20 +25,20 @@ export default function Navbar() {
   const toggleMegaMenu = () => {
     setIsMegaMenuOpen(!isMegaMenuOpen);
     setIsWhyUsOpen(false);
-    // setIsInsightsOpen(false); // Temporarily disabled for content staging
+    setIsInsightsOpen(false);
   };
 
   const toggleWhyUs = () => {
     setIsWhyUsOpen(!isWhyUsOpen);
     setIsMegaMenuOpen(false);
-    // setIsInsightsOpen(false); // Temporarily disabled for content staging
+    setIsInsightsOpen(false);
   };
 
-  // const toggleInsights = () => {
-  //   setIsInsightsOpen(!isInsightsOpen);
-  //   setIsMegaMenuOpen(false);
-  //   setIsWhyUsOpen(false);
-  // }; // Temporarily disabled for content staging
+  const toggleInsights = () => {
+    setIsInsightsOpen(!isInsightsOpen);
+    setIsMegaMenuOpen(false);
+    setIsWhyUsOpen(false);
+  };
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
@@ -225,8 +225,8 @@ export default function Navbar() {
       {/* Why Us Dropdown */}
       <WhyUsDropdown isOpen={isWhyUsOpen} onClose={() => setIsWhyUsOpen(false)} />
       
-      {/* Insights Dropdown - Temporarily disabled for content staging */}
-      {/* <InsightsDropdown isOpen={isInsightsOpen} onClose={() => setIsInsightsOpen(false)} /> */}
+      {/* Insights Dropdown */}
+      <InsightsDropdown isOpen={isInsightsOpen} onClose={() => setIsInsightsOpen(false)} />
       
       {/* Search Modal */}
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
