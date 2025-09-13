@@ -99,7 +99,7 @@ export default function BlogPostContent({
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="bg-background-secondary py-16"
+        className="bg-background-secondary py-12 sm:py-16"
       >
         <div className="max-w-4xl mx-auto px-6">
           <div className="text-center">
@@ -118,7 +118,7 @@ export default function BlogPostContent({
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
-              className="text-4xl md:text-5xl font-bold text-text-heading mt-6 mb-4 font-sans leading-tight"
+              className="text-2xl sm:text-4xl md:text-5xl font-bold text-text-heading mt-4 sm:mt-6 mb-3 sm:mb-4 font-sans leading-tight"
             >
               {post.title}
             </motion.h1>
@@ -157,8 +157,8 @@ export default function BlogPostContent({
       </motion.div>
 
       {/* Main Content Area */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 sm:gap-12">
           {/* Left Side Article Content */}
           <motion.article
             initial={{ opacity: 0, x: -20 }}
@@ -188,11 +188,11 @@ export default function BlogPostContent({
             transition={{ duration: 0.6, delay: 0.7 }}
             className={`lg:col-span-1 ${isSticky ? 'lg:sticky lg:top-24' : ''}`}
           >
-            <div className="bg-background-secondary rounded-2xl p-6 border border-gray-700">
-              <h3 className="text-xl font-bold text-text-heading mb-4 font-sans">
+            <div className="bg-background-secondary rounded-2xl p-4 sm:p-6 border border-gray-700">
+              <h3 className="text-lg sm:text-xl font-bold text-text-heading mb-3 sm:mb-4 font-sans">
                 Table of Contents
               </h3>
-              <nav className="space-y-2">
+              <nav className="space-y-1.5 sm:space-y-2">
                 {tableOfContents.map((item) => (
                   <a
                     key={item.id}
