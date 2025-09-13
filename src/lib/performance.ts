@@ -80,11 +80,11 @@ export function throttle<T extends (...args: any[]) => any>(
  * 预加载关键资源
  */
 export function preloadCriticalResources(): void {
-  // 预加载关键图片资源
+  // 预加载移动端图片 - 最小文件
   const heroImage = document.createElement('link');
   heroImage.rel = 'preload';
   heroImage.as = 'image';
-  heroImage.href = '/images/hero-background.webp';
+  heroImage.href = '/images/hero-background-mobile.webp';
   document.head.appendChild(heroImage);
 
   // 预加载关键字体 - 使用Next.js Google Fonts

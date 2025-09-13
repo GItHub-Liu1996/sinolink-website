@@ -117,6 +117,59 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         }} />
         {/* End Google Tag Manager */}
         
+        {/* Critical CSS - 内联关键样式 */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+            /* Critical CSS for LCP optimization */
+            .hero-section {
+              position: relative;
+              height: 100vh;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              overflow: hidden;
+            }
+            .hero-background {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              z-index: -10;
+            }
+            .hero-overlay {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              background: linear-gradient(to top, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2));
+              z-index: 10;
+            }
+            .hero-content {
+              position: relative;
+              z-index: 20;
+              max-width: 80rem;
+              margin: 0 auto;
+              text-align: center;
+              padding: 0 1rem;
+            }
+            .hero-title {
+              font-size: clamp(2.5rem, 5vw, 4.5rem);
+              font-weight: 700;
+              color: #FFFFFF;
+              margin-bottom: 2rem;
+              line-height: 1.1;
+            }
+            /* 防止布局偏移 */
+            img {
+              max-width: 100%;
+              height: auto;
+            }
+          `
+        }} />
+        
         <meta name="theme-color" content="#0B1120" />
         <meta name="color-scheme" content="dark" />
         <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />

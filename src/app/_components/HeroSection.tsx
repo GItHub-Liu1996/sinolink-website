@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link";
-import OptimizedHeroImage from '@/components/OptimizedHeroImage';
+import ResponsiveHeroImage from '@/components/ResponsiveHeroImage';
 import GradientButton from "@/components/ui/GradientButton";
 import OutlineButton from "@/components/ui/OutlineButton";
 
@@ -12,9 +12,8 @@ export default function HeroSection() {
       role="banner"
       aria-label="Hero section"
     >
-      {/* Optimized Background Image */}
-      <OptimizedHeroImage
-        src="/images/hero-background.webp"
+      {/* Responsive Background Image */}
+      <ResponsiveHeroImage
         alt="Professional business team working in modern office with Shanghai cityscape background - China Business Solutions"
         className="absolute inset-0 -z-10"
       />
