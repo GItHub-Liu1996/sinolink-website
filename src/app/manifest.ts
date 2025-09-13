@@ -22,12 +22,12 @@ export default function manifest(): MetadataRoute.Manifest {
         type: 'image/x-icon',
       },
       {
-        src: '/images/logo/favicon.svg',
+        src: '/favicon.svg',
         sizes: 'any',
         type: 'image/svg+xml',
       },
       {
-        src: '/images/logo/favicon.svg',
+        src: '/favicon.svg',
         sizes: '192x192',
         type: 'image/svg+xml',
         purpose: 'any maskable',

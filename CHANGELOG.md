@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.6] - 2025-01-12
+
+### 🔧 Favicon彻底修复
+- **删除冲突文件**: 移除src/app/favicon.ico避免路径冲突
+- **优化favicon设计**: 创建更明显的GCA品牌favicon
+- **简化配置**: 统一使用public目录的favicon文件
+- **多格式支持**: 同时支持ICO和SVG格式
+- **缓存优化**: 添加msapplication-TileColor配置
+- **部署验证**: 确保生产环境正确显示favicon
+
 ## [1.2.5] - 2025-01-12
 
 ### 🔧 部署配置修复
