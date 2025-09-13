@@ -14,20 +14,20 @@ export default function SolutionCard({ icon, title, overviewText, services }: So
   const [activeTab, setActiveTab] = useState<'overview' | 'services'>('overview');
 
   return (
-    <div className="bg-white rounded-2xl p-4 sm:p-6 lg:p-8 h-full border-2 border-gray-200 hover:border-accent-primary transition-all duration-300 hover:shadow-2xl hover:shadow-accent-primary/20 hover:-translate-y-2 group">
+    <div className="bg-white rounded-2xl p-3 sm:p-6 lg:p-8 h-full border-2 border-gray-200 hover:border-accent-primary transition-all duration-300 hover:shadow-2xl hover:shadow-accent-primary/20 hover:-translate-y-2 group">
       {/* Icon and Title */}
-      <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4">
-        <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-lg flex items-center justify-center text-white flex-shrink-0">
+      <div className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-4">
+        <div className="w-6 h-6 sm:w-10 sm:h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-lg flex items-center justify-center text-white flex-shrink-0">
           {icon}
         </div>
-        <h3 className="text-base sm:text-lg lg:text-xl font-bold text-text-heading font-sans leading-tight">{title}</h3>
+        <h3 className="text-sm sm:text-lg lg:text-xl font-bold text-text-heading font-sans leading-tight">{title}</h3>
       </div>
 
       {/* Overview Text */}
-      <p className="text-xs sm:text-sm lg:text-base text-text-body mb-3 sm:mb-4 leading-relaxed">{overviewText}</p>
+      <p className="text-xs sm:text-sm lg:text-base text-text-body mb-2 sm:mb-4 leading-relaxed">{overviewText}</p>
 
       {/* Tab Buttons */}
-      <div className="flex gap-1 sm:gap-2 mb-3 sm:mb-4">
+      <div className="flex gap-1 sm:gap-2 mb-2 sm:mb-4">
         <button
           onClick={() => setActiveTab('overview')}
           className={`px-2 sm:px-3 lg:px-4 py-1.5 sm:py-2 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-300 ${
@@ -51,7 +51,7 @@ export default function SolutionCard({ icon, title, overviewText, services }: So
       </div>
 
       {/* Content Area with Animation */}
-      <div className="min-h-[60px] sm:min-h-[80px] lg:min-h-[100px]">
+      <div className="min-h-[40px] sm:min-h-[80px] lg:min-h-[100px]">
         <AnimatePresence mode="wait">
           {activeTab === 'overview' ? (
             <motion.div

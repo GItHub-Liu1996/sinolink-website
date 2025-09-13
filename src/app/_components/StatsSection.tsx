@@ -93,7 +93,7 @@ export default function StatsSection() {
   return (
     <section 
       ref={ref}
-      className="py-16 sm:py-20 lg:py-24 bg-background-primary relative overflow-hidden"
+      className="py-12 sm:py-20 lg:py-24 bg-background-primary relative overflow-hidden"
       aria-labelledby="stats-heading"
     >
       {/* Background decoration */}
@@ -107,20 +107,20 @@ export default function StatsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
           viewport={{ once: true }}
-          className="text-center mb-12 sm:mb-16"
+          className="text-center mb-8 sm:mb-16"
         >
           <h2 
             id="stats-heading"
-            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-text-heading mb-4 font-heading"
+            className="text-2xl sm:text-4xl lg:text-5xl font-bold text-text-heading mb-4 font-heading"
           >
             Why Choose Us Over Competitors
           </h2>
-          <p className="text-lg sm:text-xl text-text-main max-w-3xl mx-auto font-body leading-relaxed">
+          <p className="text-base sm:text-xl text-text-main max-w-3xl mx-auto font-body leading-relaxed">
             Real performance metrics that matter to your business success in China.
           </p>
         </motion.div>
 
-        {/* Responsive grid layout with smart spacing */}
+        {/* Mobile-first responsive layout */}
         <div className="relative">
           {/* Central large circle - responsive sizing */}
           <motion.div
@@ -128,16 +128,16 @@ export default function StatsSection() {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
             viewport={{ once: true }}
-            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center shadow-2xl z-10"
+            className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 sm:w-24 sm:h-24 lg:w-32 lg:h-32 bg-gradient-to-br from-accent-cyan to-accent-magenta rounded-full flex items-center justify-center shadow-2xl z-10"
           >
             <div className="text-center text-white">
-              <div className="text-lg sm:text-xl lg:text-2xl font-bold font-heading">15+</div>
+              <div className="text-sm sm:text-xl lg:text-2xl font-bold font-heading">15+</div>
               <div className="text-xs sm:text-sm font-body">Years</div>
             </div>
           </motion.div>
 
-          {/* Responsive grid with smart spacing */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 lg:gap-8 xl:gap-16">
+          {/* Mobile: 2x2 grid, Desktop: 2x2 grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6 lg:gap-8 xl:gap-16">
             {stats.map((stat, index) => (
               <motion.div
                 key={stat.label}
@@ -148,7 +148,7 @@ export default function StatsSection() {
                 className="relative flex flex-col items-center"
               >
                 {/* Responsive circle background */}
-                <div className="w-32 h-32 sm:w-40 sm:h-40 lg:w-48 lg:h-48 relative mb-4 sm:mb-6">
+                <div className="w-20 h-20 sm:w-40 sm:h-40 lg:w-48 lg:h-48 relative mb-2 sm:mb-6">
                   <div className={`absolute inset-0 bg-gradient-to-br from-${stat.color} to-${stat.color}/80 rounded-full flex items-center justify-center shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-105 group`}>
                     <div className="text-center text-white p-3 sm:p-4 lg:p-6">
                       <div className="flex justify-center mb-2 sm:mb-3 lg:mb-4">
@@ -156,7 +156,7 @@ export default function StatsSection() {
                           {stat.icon}
                         </div>
                       </div>
-                      <div className="text-xl sm:text-2xl lg:text-3xl font-bold font-heading mb-1 sm:mb-2">
+                      <div className="text-sm sm:text-2xl lg:text-3xl font-bold font-heading mb-1 sm:mb-2">
                         {animatedValues[stat.label] || 0}
                         {stat.label === 'Compliance Rate' ? '%' : stat.label === 'Cost Reduction' ? '%' : stat.label === 'Hour Support' ? '/7' : ''}
                       </div>
