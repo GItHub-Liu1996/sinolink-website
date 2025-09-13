@@ -39,18 +39,18 @@ export default function ServicePage({ params }: ServicePageProps) {
 
   return (
     <div className="min-h-screen bg-background-primary">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-16">
         <div className="prose prose-lg max-w-none">
-          <h1 className="text-4xl lg:text-5xl font-bold text-white mb-8">{service.title}</h1>
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl font-bold text-white mb-6 sm:mb-8">{service.title}</h1>
           
-          <div className="text-gray-300 space-y-8">
-            <p className="text-xl text-gray-200 leading-relaxed">
+          <div className="text-gray-300 space-y-6 sm:space-y-8">
+            <p className="text-base sm:text-xl text-gray-200 leading-relaxed">
               {service.description}
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8 my-12">
-              <div className="bg-background-secondary/50 rounded-xl p-6">
-                <h2 className="text-2xl font-bold text-white mb-4">What We Offer</h2>
+            <div className="grid md:grid-cols-2 gap-6 sm:gap-8 my-8 sm:my-12">
+              <div className="bg-background-secondary/50 rounded-xl p-4 sm:p-6">
+                <h2 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-4">What We Offer</h2>
                 <ul className="space-y-3">
                   {service.services.slice(0, 5).map((serviceItem, index) => (
                     <li key={index} className="flex items-start">
