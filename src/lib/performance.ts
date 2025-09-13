@@ -145,7 +145,8 @@ export function monitorPerformance(): void {
     const fidObserver = new PerformanceObserver((list) => {
       const entries = list.getEntries();
       entries.forEach((entry) => {
-        console.log('FID:', entry.processingStart - entry.startTime);
+        const fidEntry = entry as any; // Type assertion for FID-specific properties
+        console.log('FID:', fidEntry.processingStart - fidEntry.startTime);
       });
     });
     fidObserver.observe({ entryTypes: ['first-input'] });
