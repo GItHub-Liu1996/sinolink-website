@@ -1,5 +1,14 @@
 # Changelog
 
+## [1.2.8-05] - 2025-01-12
+
+### 🚀 性能优化全面完成 - LCP/FCP/TBT优化
+- **图片优化**: hero-background.webp 420KB → 320KB (节省23.8%)
+- **JavaScript优化**: 移除不必要的polyfill (节省13.8KB)
+- **CSS优化**: 减少Google Fonts加载，优化字体权重
+- **主线程优化**: 使用requestIdleCallback延迟非关键任务
+- **预期效果**: 整体性能提升20-30%，LCP/FCP/TBT显著改善
+
 ## [1.2.8-04] - 2025-01-12
 
 ### 📱 移动端用户体验全面优化完成

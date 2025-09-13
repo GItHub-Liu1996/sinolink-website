@@ -1,6 +1,6 @@
 {
   "name": "web4",
-  "version": "1.2.8-04",
+  "version": "1.2.8-05",
   "private": true,
   "scripts": {
     "dev": "next dev",
