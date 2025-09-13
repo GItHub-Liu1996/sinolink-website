@@ -9,7 +9,7 @@ import PerformanceOptimizer from '@/components/PerformanceOptimizer';
 const montserrat = Montserrat({
   subsets: ['latin'],
   variable: '--font-montserrat',
-  weight: '700',
+  weight: ['400', '600', '700'],
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],
@@ -19,7 +19,7 @@ const montserrat = Montserrat({
 const lexend = Lexend({
   subsets: ['latin'],
   variable: '--font-lexend',
-  weight: ['400', '500'],
+  weight: ['400', '500', '600'],
   display: 'swap',
   preload: true,
   fallback: ['system-ui', 'arial'],

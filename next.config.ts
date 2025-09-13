@@ -31,7 +31,25 @@ const nextConfig: NextConfig = {
     BROWSERSLIST_ENV: 'modern',
   },
   webpack: (config, { isServer }) => {
+    // 移除不必要的polyfill
     if (!isServer) {
+      // 移除Node.js polyfill
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        crypto: false,
+        stream: false,
+        url: false,
+        zlib: false,
+        http: false,
+        https: false,
+        assert: false,
+        os: false,
+        path: false,
+      };
+      
       config.optimization.splitChunks = {
         chunks: 'all',
         maxInitialRequests: 30,

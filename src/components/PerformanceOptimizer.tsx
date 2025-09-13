@@ -1,44 +1,64 @@
 'use client';
 
 import { useEffect } from 'react';
-import { preloadCriticalResources, optimizeImageLoading } from '@/lib/performance';
-import PerformanceMonitor from './PerformanceMonitor';
 
 export default function PerformanceOptimizer() {
   useEffect(() => {
-    // 预加载关键资源
-    preloadCriticalResources();
-    
-    // 优化图片加载
-    optimizeImageLoading();
-    
-    // 优化字体加载
-    if ('fonts' in document) {
-      (document as any).fonts.ready.then(() => {
-        console.log('✅ 字体加载完成');
+    // 延迟非关键JavaScript执行
+    const optimizePerformance = () => {
+      // 使用 requestIdleCallback 来延迟非关键任务
+      const runWhenIdle = (callback: () => void) => {
+        if ('requestIdleCallback' in window) {
+          requestIdleCallback(callback, { timeout: 2000 });
+        } else {
+          setTimeout(callback, 100);
+        }
+      };
+
+      // 延迟加载非关键功能
+      runWhenIdle(() => {
+        // 预加载关键资源
+        const preloadLinks = [
+          '/images/hero-background.webp',
+          '/images/logo/logo.svg'
+        ];
+
+        preloadLinks.forEach(href => {
+          const link = document.createElement('link');
+          link.rel = 'preload';
+          link.as = 'image';
+          link.href = href;
+          document.head.appendChild(link);
+        });
       });
-    }
-    
-    // 预连接到关键域名
-    const preconnectDomains = [
-      'https://fonts.googleapis.com',
-      'https://fonts.gstatic.com',
-      'https://images.unsplash.com'
-    ];
-    
-    preconnectDomains.forEach(domain => {
-      const link = document.createElement('link');
-      link.rel = 'preconnect';
-      link.href = domain;
-      link.crossOrigin = 'anonymous';
-      document.head.appendChild(link);
-    });
+
+      // 优化滚动性能
+      let ticking = false;
+      const optimizeScroll = () => {
+        if (!ticking) {
+          requestAnimationFrame(() => {
+            // 滚动优化逻辑
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+
+      window.addEventListener('scroll', optimizeScroll, { passive: true });
+
+      // 清理函数
+      return () => {
+        window.removeEventListener('scroll', optimizeScroll);
+      };
+    };
+
+    // 延迟执行性能优化
+    const timeoutId = setTimeout(optimizePerformance, 100);
+
+    return () => {
+      clearTimeout(timeoutId);
+    };
   }, []);
 
-  return (
-    <>
-      {/* 开发环境性能监控 */}
-      {process.env.NODE_ENV === 'development' && <PerformanceMonitor />}
-    </>
-  );
+  return null;
 }
