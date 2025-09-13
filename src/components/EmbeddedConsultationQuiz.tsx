@@ -258,12 +258,12 @@ export default function EmbeddedConsultationQuiz({
 
   return (
     <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="bg-white/70 backdrop-blur-md rounded-xl shadow-lg p-4 sm:p-6 lg:p-8 border border-gray-200/30">
+      <div className="bg-white/70 backdrop-blur-md rounded-xl shadow-lg p-3 sm:p-6 lg:p-8 border border-gray-200/30">
         {/* Title and Progress - Responsive Version */}
         {showTitle && (
-          <div className="text-center mb-4 sm:mb-6">
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-text-heading mb-2 font-sans leading-tight">{title}</h2>
-            <p className="text-gray-600 mb-3 sm:mb-4 font-body text-xs sm:text-sm lg:text-base leading-relaxed max-w-2xl mx-auto">{subtitle}</p>
+          <div className="text-center mb-3 sm:mb-6">
+            <h2 className="text-base sm:text-xl lg:text-2xl font-bold text-text-heading mb-1 sm:mb-2 font-sans leading-tight">{title}</h2>
+            <p className="text-gray-600 mb-2 sm:mb-4 font-body text-xs sm:text-sm lg:text-base leading-relaxed max-w-2xl mx-auto">{subtitle}</p>
             
             {/* Progress Bar */}
             <div className="w-full max-w-md mx-auto bg-gray-200/50 rounded-full h-1 sm:h-1.5 mb-2">
@@ -317,11 +317,11 @@ export default function EmbeddedConsultationQuiz({
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -30 }}
               transition={{ duration: 0.3 }}
-              className="px-8 sm:px-12 lg:px-16"
+              className="px-4 sm:px-12 lg:px-16"
             >
-              <div className="flex flex-col lg:flex-row lg:items-start gap-6 sm:gap-8 lg:gap-12">
+              <div className="flex flex-col lg:flex-row lg:items-start gap-4 sm:gap-8 lg:gap-12">
                 {/* Left Side: Question Information */}
-                <div className="flex-1 min-w-0 space-y-6">
+                <div className="flex-1 min-w-0 space-y-4 sm:space-y-6">
                   {/* Category Tag and Progress */}
                   <div className="flex items-center justify-between">
                     <span className="px-3 sm:px-4 py-2 bg-accent-cyan/10 text-accent-cyan rounded-full text-sm sm:text-base font-medium font-body">
@@ -333,8 +333,8 @@ export default function EmbeddedConsultationQuiz({
                   </div>
 
                   {/* Question Title */}
-                  <div className="space-y-4">
-                    <h3 className="text-base sm:text-lg lg:text-xl font-semibold text-text-heading font-sans leading-relaxed break-words">
+                  <div className="space-y-3 sm:space-y-4">
+                    <h3 className="text-sm sm:text-lg lg:text-xl font-semibold text-text-heading font-sans leading-relaxed break-words">
                       {currentQuestion.question}
                     </h3>
                     
@@ -373,14 +373,14 @@ export default function EmbeddedConsultationQuiz({
                       )}
                     </div>
                   ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-3">
                       {currentQuestion.options?.map((option, index) => {
                         const isSelected = getCurrentAnswer()?.value === option.value;
                         return (
                           <motion.button
                             key={option.value}
                             onClick={() => handleAnswer(option)}
-                            className={`p-2.5 sm:p-3 rounded-lg border transition-all duration-300 text-left font-body ${
+                            className={`p-2 sm:p-3 rounded-lg border transition-all duration-300 text-left font-body ${
                               isSelected
                                 ? 'border-accent-cyan bg-accent-cyan/10 text-accent-cyan'
                                 : 'border-gray-200 hover:border-accent-cyan/50 hover:bg-gray-50'
