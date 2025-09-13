@@ -80,20 +80,20 @@ export function throttle<T extends (...args: any[]) => any>(
  * 预加载关键资源
  */
 export function preloadCriticalResources(): void {
-  // 预加载关键CSS
-  const criticalCSS = document.createElement('link');
-  criticalCSS.rel = 'preload';
-  criticalCSS.as = 'style';
-  criticalCSS.href = '/styles/critical.css';
-  document.head.appendChild(criticalCSS);
+  // 预加载关键图片资源
+  const heroImage = document.createElement('link');
+  heroImage.rel = 'preload';
+  heroImage.as = 'image';
+  heroImage.href = '/images/hero-background.webp';
+  document.head.appendChild(heroImage);
 
-  // 预加载关键字体
+  // 预加载关键字体 - 使用Next.js Google Fonts
   const criticalFont = document.createElement('link');
   criticalFont.rel = 'preload';
   criticalFont.as = 'font';
   criticalFont.type = 'font/woff2';
   criticalFont.crossOrigin = 'anonymous';
-  criticalFont.href = '/fonts/inter-var.woff2';
+  criticalFont.href = 'https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiJ-Ek-_EeA.woff2';
   document.head.appendChild(criticalFont);
 }
 

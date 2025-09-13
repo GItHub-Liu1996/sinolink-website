@@ -9,8 +9,7 @@ const STATIC_ASSETS = [
   '/favicon.ico',
   '/favicon.svg',
   '/images/logo/favicon.svg',
-  '/manifest.webmanifest',
-  '/styles/critical.css'
+  '/manifest.webmanifest'
 ];
 
 // 需要缓存的API路径
