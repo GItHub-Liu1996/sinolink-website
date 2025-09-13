@@ -84,17 +84,16 @@ export default function Navbar() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
                     </button>
-                  // Temporarily disabled Insights for content staging
-                  // ) : link.label === 'Insights' ? (
-                  //   <button
-                  //     onClick={toggleInsights}
-                  //     className="text-text-heading hover:text-accent-cyan px-3 py-3 text-sm xl:text-base font-medium transition-all duration-300 flex items-center gap-1.5 group tracking-tight"
-                  //   >
-                  //     {link.label}
-                  //     <svg className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  //       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
-                  //     </svg>
-                  //   </button>
+                  ) : link.label === 'Insights' ? (
+                    <button
+                      onClick={toggleInsights}
+                      className="text-text-heading hover:text-accent-cyan px-3 py-3 text-sm xl:text-base font-medium transition-all duration-300 flex items-center gap-1.5 group tracking-tight"
+                    >
+                      {link.label}
+                      <svg className="h-4 w-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                      </svg>
+                    </button>
                   ) : (
                     <Link
                       href={link.href}
@@ -183,7 +182,6 @@ export default function Navbar() {
                           </Link>
                         </div>
                       )}
-                      {/* Temporarily disabled Insights for content staging
                       {link.label === 'Insights' && (
                         <div className="pl-6 space-y-2">
                           <Link href="/insights" className="text-text-main hover:text-accent-cyan block px-4 py-2 rounded-lg transition-all duration-300">
@@ -194,7 +192,6 @@ export default function Navbar() {
                           </Link>
                         </div>
                       )}
-                      */}
                     </div>
                   ) : (
                     <Link
