@@ -2,11 +2,11 @@
 export const siteConfig = {
   name: 'GoChinaAdvisors',
   description: 'Your trusted partner for seamless market entry into China. Professional consulting services for company registration, compliance, and sustainable growth.',
-  url: 'https://chinabizsolutions.com',
+  url: 'https://gochinaadvisors.com',
   ogImage: '/og-image.jpg',
   links: {
-    twitter: 'https://twitter.com/chinabizsolutions',
-    github: 'https://github.com/chinabizsolutions',
+    twitter: 'https://twitter.com/gochinaadvisors',
+    github: 'https://github.com/gochinaadvisors',
   },
 };
 
