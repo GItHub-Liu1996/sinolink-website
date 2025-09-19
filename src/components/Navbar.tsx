@@ -2,10 +2,10 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import { siteConfig, navLinks } from '@/config/site';
+import { navLinks } from '@/config/site';
 import MegaMenu from './MegaMenu';
 import WhyUsDropdown from './WhyUsDropdown';
-// import InsightsDropdown from './InsightsDropdown'; // Temporarily disabled for content staging
+// import InsightsDropdown from './InsightsDropdown'; // SEO STRATEGY: Temporarily disabled to avoid duplicate content detection by Google crawlers, will be re-enabled after content optimization
 import SearchModal from './SearchModal';
 import Logo from './Logo';
 // Using custom SVG icons instead of Heroicons
@@ -14,7 +14,7 @@ export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isMegaMenuOpen, setIsMegaMenuOpen] = useState(false);
   const [isWhyUsOpen, setIsWhyUsOpen] = useState(false);
-  // const [isInsightsOpen, setIsInsightsOpen] = useState(false); // Temporarily disabled for content staging
+  // const [isInsightsOpen, setIsInsightsOpen] = useState(false); // SEO STRATEGY: Temporarily disabled to avoid duplicate content detection by Google crawlers
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   // const t = useTranslations('navigation');
 
@@ -25,20 +25,20 @@ export default function Navbar() {
   const toggleMegaMenu = () => {
     setIsMegaMenuOpen(!isMegaMenuOpen);
     setIsWhyUsOpen(false);
-    // setIsInsightsOpen(false); // Temporarily disabled for content staging
+    // setIsInsightsOpen(false); // SEO STRATEGY: Temporarily disabled to avoid duplicate content detection by Google crawlers
   };
 
   const toggleWhyUs = () => {
     setIsWhyUsOpen(!isWhyUsOpen);
     setIsMegaMenuOpen(false);
-    // setIsInsightsOpen(false); // Temporarily disabled for content staging
+    // setIsInsightsOpen(false); // SEO STRATEGY: Temporarily disabled to avoid duplicate content detection by Google crawlers
   };
 
   // const toggleInsights = () => {
   //   setIsInsightsOpen(!isInsightsOpen);
   //   setIsMegaMenuOpen(false);
   //   setIsWhyUsOpen(false);
-  // }; // Temporarily disabled for content staging
+  // }; // SEO STRATEGY: Temporarily disabled to avoid duplicate content detection by Google crawlers
 
   const toggleSearch = () => {
     setIsSearchOpen(!isSearchOpen);
@@ -84,7 +84,7 @@ export default function Navbar() {
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="m19.5 8.25-7.5 7.5-7.5-7.5" />
                       </svg>
                     </button>
-                  // Temporarily disabled Insights for content staging
+                  // SEO STRATEGY: Temporarily disabled Insights to avoid duplicate content detection by Google crawlers
                   // ) : link.label === 'Insights' ? (
                   //   <button
                   //     onClick={toggleInsights}
@@ -183,7 +183,7 @@ export default function Navbar() {
                           </Link>
                         </div>
                       )}
-                      {/* Temporarily disabled Insights for content staging
+                      {/* SEO STRATEGY: Temporarily disabled Insights to avoid duplicate content detection by Google crawlers
                       {link.label === 'Insights' && (
                         <div className="pl-6 space-y-2">
                           <Link href="/insights" className="text-text-main hover:text-accent-cyan block px-4 py-2 rounded-lg transition-all duration-300">
@@ -228,7 +228,7 @@ export default function Navbar() {
       {/* Why Us Dropdown */}
       <WhyUsDropdown isOpen={isWhyUsOpen} onClose={() => setIsWhyUsOpen(false)} />
       
-      {/* Insights Dropdown - Temporarily disabled for content staging */}
+      {/* SEO STRATEGY: Insights Dropdown temporarily disabled to avoid duplicate content detection by Google crawlers */}
       {/* <InsightsDropdown isOpen={isInsightsOpen} onClose={() => setIsInsightsOpen(false)} /> */}
       
       {/* Search Modal */}
